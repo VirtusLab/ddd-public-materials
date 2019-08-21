@@ -1,0 +1,5 @@
+theme : template
+theme-override: ../.common-assets/css/PITCHME.css
+layout : center
+background : ../.common-assets/img/bg.png
+footnote : "Time-based domain events on Kafka"
