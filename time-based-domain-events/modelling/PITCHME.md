@@ -1,3 +1,1 @@
-
-
-![Logo](time-based-domain-events/.common-assets/img/title.png)
+# Time-based domain events
