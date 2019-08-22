@@ -1,1 +1,4 @@
-# Time-based domain events
+---?include=time-based-domain-events/modelling/title.md
+---?include=time-based-domain-events/about-me.md
+---?include=time-based-domain-events/modelling/agenda.md
+---?include=time-based-domain-events/modelling/background.md

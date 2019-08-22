@@ -1,5 +1,10 @@
-theme : template
+theme            : template
+highlight        : ir-black
+theme-headline   : [ "Ubuntu", "black", "none" ]
+theme-byline     : [ "Ubuntu", "black", "none" ]
+theme-text       : [ "Ubuntu", "black", "none" ]
 theme-override: time-based-domain-events/.common-assets/css/PITCHME.css
-layout : center
-background : time-based-domain-events/.common-assets/img/title.png
-footnote : "Time-based domain events modelling"
+layout: top
+background: time-based-domain-events/.common-assets/img/bg.png
+footnote: "Time-based domain events modelling"
+published: false
