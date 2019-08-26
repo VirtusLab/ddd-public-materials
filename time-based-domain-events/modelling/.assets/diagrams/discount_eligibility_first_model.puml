@@ -1,0 +1,99 @@
+@startuml
+!include <tupadr3/common>
+!include <tupadr3/font-awesome-5/clock>
+!include <tupadr3/font-awesome-5/calendar_alt>
+!include <tupadr3/font-awesome-5/gripfire>
+
+skinparam defaultFontName Purisa
+skinparam handwritten true
+skinparam backgroundcolor transparent
+
+skinparam defaultTextAlignment center
+
+
+scale 1200*480
+
+
+file EmployeeJoined #Orange [
+    **EmployeeJoined**
+....
+    employeeId
+    dateOfJoining
+    dateOfBirth
+]
+
+file CreateDiscount #DeepSkyBlue [
+    **CreateDiscount**
+....
+    employeeId
+    dateOfJoining
+    dateOfBirth
+]
+
+file Discount1 #PapayaWhip [
+    <<aggregate>>
+    **Discount**
+]
+
+file Discount2 #PapayaWhip [
+    <<aggregate>>
+    **Discount**
+]
+
+file DiscountCreated #Orange [
+    **DiscountCreated**
+....
+    employeeId
+    eligibilityDate
+]
+
+
+file DiscountEligibility #MediumPurple [
+    **DiscountEligibility**
+....
+   is discount eligibility date reached?
+]
+
+file DiscountAccountAssociated #Orange [
+    **DiscountAccountAssociated**
+....
+    employeeId
+    accountId
+]
+
+
+EmployeeJoined -> CreateDiscount
+CreateDiscount -> Discount1
+Discount1 -> DiscountCreated
+
+frame **DiscountEligibilityProcessManager** #MediumPurple {
+    file CreateDiscountAccount #DeepSkyBlue [
+        1.
+        <$clock>
+        **CreateDiscountAccount**
+    ]
+
+    file DiscountAccountSystem #IMPLEMENTATION [
+        **DiscountAccountSystem**
+    ]
+
+    file AssociateDiscount #DeepSkyBlue [
+        2.
+        **AssociateDiscount**
+    ....
+        accountId
+    ]
+
+    DiscountCreated -D-> CreateDiscountAccount
+    CreateDiscountAccount "1." -R-> DiscountAccountSystem
+    DiscountAccountSystem "On failure"..L.> CreateDiscountAccount
+    CreateDiscountAccount -[hidden]- AssociateDiscount
+    AssociateDiscount "2." -R-> DiscountEligibility
+}
+
+DiscountEligibility -> Discount2
+Discount2 -> DiscountAccountAssociated
+
+
+
+@enduml

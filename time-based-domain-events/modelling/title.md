@@ -7,6 +7,7 @@
 
 @snap[midpoint span-100]
 ### Modelling
+by Virtuslab DDD guild
 @snapend
 
 @css[title-name south snap-100](Konrad Jakubiec)

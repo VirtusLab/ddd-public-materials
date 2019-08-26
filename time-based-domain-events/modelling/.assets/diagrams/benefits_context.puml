@@ -1,0 +1,10 @@
+@startuml
+skinparam defaultFontName Purisa
+skinparam handwritten true
+skinparam backgroundcolor transparent
+
+scale 1200*4800
+
+storage BenefitsContext #SandyBrown
+
+@enduml

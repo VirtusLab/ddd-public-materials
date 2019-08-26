@@ -1,0 +1,29 @@
+@startuml
+skinparam defaultFontName Purisa
+skinparam handwritten true
+skinparam backgroundcolor transparent
+
+scale 1200*4800
+
+storage EmployeeWorkCycleContext #Moccasin
+storage BenefitsContext #SandyBrown
+
+file EmployeeJoined #Orange
+file EmployeeReachedRetirementAge #Orange
+file EmployeeLeft #Orange
+
+file DiscountBecameEffective #Orange
+file DiscountBonusGiven #Orange
+file DiscountDisassociated #Orange
+
+EmployeeWorkCycleContext -R--> BenefitsContext
+
+EmployeeWorkCycleContext -D- EmployeeJoined
+EmployeeWorkCycleContext -D- EmployeeReachedRetirementAge
+EmployeeWorkCycleContext -D- EmployeeLeft
+
+BenefitsContext -D- DiscountBecameEffective
+BenefitsContext -D- DiscountBonusGiven
+BenefitsContext -D- DiscountDisassociated
+
+@enduml

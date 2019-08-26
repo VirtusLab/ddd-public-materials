@@ -1,0 +1,34 @@
+@startuml
+!include <tupadr3/common>
+!include <tupadr3/font-awesome-5/clock>
+!include <tupadr3/font-awesome-5/calendar_alt>
+!include <tupadr3/font-awesome-5/gripfire>
+
+skinparam defaultFontName Purisa
+skinparam handwritten true
+skinparam backgroundcolor transparent
+
+skinparam defaultTextAlignment center
+
+
+scale 1200*480
+
+
+storage EmployeeWorkCycleContext #Moccasin
+
+file EmployeeMarkedAsLeaver #Orange [
+    **EmployeeMarkedAsLeaver**
+....
+    leavingDate
+]
+
+circle Future #DeepSkyBlue
+circle Past #RoyalBlue
+
+EmployeeWorkCycleContext -> EmployeeMarkedAsLeaver
+EmployeeMarkedAsLeaver -D- Future
+EmployeeMarkedAsLeaver -D- Past
+Past -[hidden]R- Future
+
+
+@enduml

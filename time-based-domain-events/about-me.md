@@ -12,6 +12,7 @@ Open-minded Software Engineer **@VirtusLab**.<br/>
 
 Passionate about Domain-driven Design, Reactive Microservices and Event-driven architecture.<br/>
 
+Leader of DDD guild.
 
 Spending free time on self-growth, discovering new music and playing on drums.
 

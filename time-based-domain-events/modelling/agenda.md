@@ -5,8 +5,11 @@
 @snap[west]
 @ol
 - Context
-- Real case scenario
+- Real case scenarios
 - Modelling journey
+    - Time-based aggregates events
+    - Just in time events
+    - Context-wide Time-based events
 - Summary
 - References
 @olend
