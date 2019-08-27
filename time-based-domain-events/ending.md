@@ -7,3 +7,6 @@
 @snap[south-west template-note text-gray] 
 <kjakubiec@virtuslab.com>
 @snapend
+
+---?image=time-based-domain-events/.common-assets/img/end.png
+@title[End]

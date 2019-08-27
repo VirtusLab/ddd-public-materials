@@ -19,20 +19,42 @@
 ![](time-based-domain-events/modelling/.assets/diagrams/events_for_future.png)
 
 ---
+## Retroactive event
+
+@snap[west span-80 text-06]
+Retroactive Event Determination and the Interpretation of Macroscopic Quantum Superposition States 
+in Consistent Histories and Relational Quantum Mechanics
+@snapend
+
+@snap[east span-30]
+![](time-based-domain-events/modelling/.assets/img/retroactive_event.jpg)
+@snapend
+
+@snap[south span-100]
+@size[0.5em](https://www.scribd.com/document/39063761/Nelson-Retroactive-Event-Determination)
+@snapend
+
+---
 ## ACL
-### Event Scheduler
 <br/>
-![](time-based-domain-events/modelling/.assets/diagrams/acl_1.png)
+![](time-based-domain-events/modelling/.assets/diagrams/acl.png)
+
+---
+## Event Scheduler
+<br/>
+![](time-based-domain-events/modelling/.assets/diagrams/marked_as_leaver.png)
 
 ---
 ## Undecided leavers
 <br/>
-![](time-based-domain-events/modelling/.assets/diagrams/acl_2.png)
+![](time-based-domain-events/modelling/.assets/diagrams/event_scheduler.png)
 
 ---
 ## Just in time event
-![](time-based-domain-events/modelling/.assets/diagrams/acl_2.png)
+<br/>
+![](time-based-domain-events/modelling/.assets/diagrams/acl.png)
 
+<br/>
 ![](time-based-domain-events/modelling/.assets/diagrams/leavers.png)
 
 ---

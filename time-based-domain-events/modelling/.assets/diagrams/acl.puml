@@ -23,24 +23,16 @@ file EmployeeMarkedAsLeaver #Orange [
     leavingDate
 ]
 
-rectangle "ACL\n<<Event Scheduler>>" #SandyBrown {
-
-
 file EmployeeLeft #Orange [
-    <$clock>
     **EmployeeLeft**
 ]
 
-file ScheduleEvent #DeepSkyBlue [
-    **ScheduleEvent**
-....
-    leavingDate
-]
+rectangle ACL #SandyBrown
 
 EmployeeWorkCycleContext -> EmployeeMarkedAsLeaver
-EmployeeMarkedAsLeaver -> ScheduleEvent
-ScheduleEvent -> EmployeeLeft
+EmployeeMarkedAsLeaver -> ACL
+ACL -> EmployeeLeft
 EmployeeLeft -> BenefitsContext
 
-}
+
 @enduml

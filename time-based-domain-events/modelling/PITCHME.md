@@ -4,7 +4,7 @@
 ---?include=time-based-domain-events/modelling/context.md
 ---?include=time-based-domain-events/modelling/discount-eligibility.md
 ---?include=time-based-domain-events/modelling/just-in-time-events.md
-
+---?include=time-based-domain-events/modelling/context-wide-events.md
 ---?include=time-based-domain-events/modelling/takeaways.md
 ---?include=time-based-domain-events/modelling/references.md
----?include=time-based-domain-events/modelling/ending.md
+---?include=time-based-domain-events/ending.md

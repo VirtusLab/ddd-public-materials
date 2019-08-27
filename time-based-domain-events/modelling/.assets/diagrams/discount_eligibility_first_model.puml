@@ -30,12 +30,12 @@ file CreateDiscount #DeepSkyBlue [
     dateOfBirth
 ]
 
-file Discount1 #PapayaWhip [
+file Discount1 #Yellow [
     <<aggregate>>
     **Discount**
 ]
 
-file Discount2 #PapayaWhip [
+file Discount2 #Yellow [
     <<aggregate>>
     **Discount**
 ]

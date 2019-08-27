@@ -14,16 +14,12 @@ skinparam defaultTextAlignment center
 scale 1200*480
 
 
-file EmployeeLeft #Orange [
-    **EmployeeLeft**
+file DiscountCreated #Orange [
+    **DiscountCreated**
 ]
 
-file DiscountDisassociated #Orange [
-    **DiscountDisassociated**
-]
-
-file DisassociateDiscount #DeepSkyBlue [
-    **DisassociateDiscount**
+file DiscountRefreshed #Orange [
+    **DiscountRefreshed**
 ]
 
 file EffectiveDiscount #MediumPurple [
@@ -32,15 +28,24 @@ file EffectiveDiscount #MediumPurple [
    is Discount effective?
 ]
 
-file Discount1 #Yellow [
+file Discount #Yellow [
     <<aggregate>>
     **Discount**
 ]
 
-EmployeeLeft -> DisassociateDiscount
-DisassociateDiscount -> EffectiveDiscount
-EffectiveDiscount - Discount1
-Discount1 -> DiscountDisassociated
+frame **FinancialYearEndProcessManager** #MediumPurple {
+    file RefreshDiscount #DeepSkyBlue [
+        <$clock>
+        **RefreshDiscount**
+    ]
+
+
+    DiscountCreated -R-> RefreshDiscount
+}
+
+RefreshDiscount -> EffectiveDiscount
+EffectiveDiscount - Discount
+Discount -> DiscountRefreshed
 
 
 @enduml
