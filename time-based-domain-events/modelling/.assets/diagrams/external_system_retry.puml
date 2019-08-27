@@ -35,7 +35,7 @@ file CreateDiscountAccount #DeepSkyBlue [
 ]
 
 DiscountEligibilityDate --R-> DiscountBecameEffective
-DiscountBecameEffective -D-- CreateDiscountAccount
+DiscountBecameEffective -D--> CreateDiscountAccount
 CreateDiscountAccount -L-> DiscountAccountSystem
 DiscountAccountSystem "EligibilityDate + 1 day" --U-> DiscountEligibilityDate
 

@@ -11,7 +11,7 @@ skinparam backgroundcolor transparent
 skinparam defaultTextAlignment center
 
 
-scale 1200*480
+scale 1200*2480
 
 
 storage BenefitsContext #SandyBrown

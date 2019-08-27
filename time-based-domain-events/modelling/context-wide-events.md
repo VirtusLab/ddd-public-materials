@@ -6,15 +6,17 @@
 
 ---
 ## Fan-out effect
-
-@snap[midpoint]
+<br/>
+<br/>
+<br/>
+@snap[south span-65]
 ![](time-based-domain-events/modelling/.assets/diagrams/fan_out.png)
 @snapend
 
 ---
 ## Scheduling?
 
-@snap[midpoint]
+@snap[midpoint span-65]
 ![](time-based-domain-events/modelling/.assets/diagrams/schedulling.png)
 @snapend
 

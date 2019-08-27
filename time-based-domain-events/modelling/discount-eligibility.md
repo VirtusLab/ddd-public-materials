@@ -1,7 +1,7 @@
 ## Case 1
 ### _Discount Eligibility_
 <br/>
-@quote[After 6 months of service, **Discount Become Effective**](Domain Expert)
+@quote[After 6 months of service, **Discount Becomes Effective**](Domain Expert)
 
 ---
 @title[Time]
@@ -49,13 +49,13 @@ How this expiring time frame is called?
 ---
 @title[Discount Eligibility]
 ### Discount Eligibility Date
-@quote[When **Eligibility Date Is Reached**, then **Discount Become Effective**](Domain Expert)
+@quote[When **Eligibility Date Is Reached**, then **Discount Becomes Effective**](Domain Expert)
 
 ![](time-based-domain-events/modelling/.assets/diagrams/discount_eligibility_date.png)
 
 ---
 @title[Discount Eligibility]
-@quote[...then **Discount Become Effective**](Domain Expert)
+@quote[...then **Discount Becomes Effective**](Domain Expert)
 @snap[midpoint span-100]
 
 @fa[question fa-5x]
@@ -86,11 +86,14 @@ What does it mean?
 
 ---
 @title[Discount Eligibility]
+<br/>
+<br/>
 ![](time-based-domain-events/modelling/.assets/diagrams/external_system.png)
 
 
 ---
 ### What if??
+<br/>
 ![](time-based-domain-events/modelling/.assets/diagrams/external_system_crash.png)
 
 ---
@@ -120,12 +123,13 @@ But events are facts in the past? How to schedule them?
 
 ---
 ## First model
-<br/>
 ![](time-based-domain-events/modelling/.assets/diagrams/discount_eligibility_first_model.png)
 
 
 ---
 ## Model summary
+<br/>
+<br/>
 @ol
 - @color[green](Scheduled Commands)
 - @color[green](Identified expiring time frame)

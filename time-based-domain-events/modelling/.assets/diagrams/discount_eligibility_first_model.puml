@@ -11,7 +11,7 @@ skinparam backgroundcolor transparent
 skinparam defaultTextAlignment center
 
 
-scale 1200*480
+scale 2200*2480
 
 
 file EmployeeJoined #Orange [
@@ -88,7 +88,7 @@ frame **DiscountEligibilityProcessManager** #MediumPurple {
     CreateDiscountAccount "1." -R-> DiscountAccountSystem
     DiscountAccountSystem "On failure"..L.> CreateDiscountAccount
     CreateDiscountAccount -[hidden]- AssociateDiscount
-    AssociateDiscount "2." -R-> DiscountEligibility
+    AssociateDiscount "2." -D-> DiscountEligibility
 }
 
 DiscountEligibility -> Discount2
