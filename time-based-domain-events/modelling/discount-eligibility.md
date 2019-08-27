@@ -129,7 +129,6 @@ But events are facts in the past? How to schedule them?
 ---
 ## Model summary
 <br/>
-<br/>
 @ol
 - @color[green](Scheduled Commands)
 - @color[green](Identified expiring time frame)
