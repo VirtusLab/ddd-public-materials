@@ -1,0 +1,58 @@
+@startuml
+!include <tupadr3/common>
+!include <tupadr3/font-awesome-5/clock>
+!include <tupadr3/font-awesome-5/calendar_alt>
+!include <tupadr3/font-awesome-5/gripfire>
+
+skinparam defaultFontName Purisa
+skinparam handwritten true
+skinparam backgroundcolor transparent
+
+skinparam defaultTextAlignment center
+
+
+scale 1200*480
+
+
+storage BenefitsContext #SandyBrown
+
+file FinancialYearEnded #Orange [
+    <$calendar_alt>
+    **FinancialYearEnded**
+]
+
+
+file DiscountRefreshed1 #Orange [
+    **DiscountRefreshed**
+]
+
+file DiscountRefreshed2 #Orange [
+    **DiscountRefreshed**
+]
+
+file DiscountRefreshed3 #Orange [
+    **DiscountRefreshed**
+]
+
+file DiscountRefreshed4 #Orange [
+    **DiscountRefreshed**
+]
+
+file DiscountRefreshed5 #Orange [
+    **DiscountRefreshed**
+]
+
+FinancialYearEnded -> BenefitsContext
+BenefitsContext -R-> DiscountRefreshed1
+BenefitsContext -R-> DiscountRefreshed2
+BenefitsContext -R-> DiscountRefreshed3
+BenefitsContext -R-> DiscountRefreshed4
+BenefitsContext -U-> DiscountRefreshed5
+
+DiscountRefreshed1 -[hidden]U- DiscountRefreshed2
+DiscountRefreshed1 -[hidden]D- DiscountRefreshed4
+DiscountRefreshed1 -[hidden]U- DiscountRefreshed5
+DiscountRefreshed2 -[hidden]U- DiscountRefreshed3
+
+
+@enduml

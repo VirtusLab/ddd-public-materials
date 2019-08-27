@@ -1,0 +1,29 @@
+@startuml
+skinparam defaultFontName Purisa
+skinparam handwritten true
+skinparam backgroundcolor transparent
+skinparam defaultTextAlignment center
+
+scale 500*500
+
+actor Employee #PaleGoldenRod
+rectangle "Easy to use" as easy #PeachPuff
+rectangle "Self Service" as service #PeachPuff
+rectangle "Rewards And Benefits" as benefits #SandyBrown
+rectangle "Embedded in process" as process #PeachPuff
+rectangle "Intuitive" as intuitive #PeachPuff
+rectangle "Streamline workflows" as workflows #PeachPuff
+rectangle "Integrated" as integrated #PeachPuff
+rectangle "Communication" as communication #PeachPuff
+
+Employee -u- intuitive
+Employee -u- communication
+Employee -u- easy
+Employee -l- benefits
+Employee -r- process
+Employee -d- workflows
+Employee -d- integrated
+Employee -d- service
+
+@enduml
+

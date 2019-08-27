@@ -1,1 +1,10 @@
-# Time-based domain events
+---?include=time-based-domain-events/modelling/title.md
+---?include=time-based-domain-events/about-me.md
+---?include=time-based-domain-events/modelling/agenda.md
+---?include=time-based-domain-events/modelling/context.md
+---?include=time-based-domain-events/modelling/discount-eligibility.md
+---?include=time-based-domain-events/modelling/just-in-time-events.md
+---?include=time-based-domain-events/modelling/context-wide-events.md
+---?include=time-based-domain-events/modelling/takeaways.md
+---?include=time-based-domain-events/modelling/references.md
+---?include=time-based-domain-events/ending.md

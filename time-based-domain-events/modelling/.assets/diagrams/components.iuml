@@ -1,0 +1,10 @@
+storage EmployeeWorkCycleContext #Moccasin
+storage BenefitsContext #SandyBrown
+
+file EmployeeJoined #Orange
+file EmployeeMarkedAsLeaver #Orange
+file EmployeeCancelledLeaving #Orange
+
+file DiscountBecameEffective #Orange
+file DiscountAssociated #Orange
+file DiscountDisassociated #Orange

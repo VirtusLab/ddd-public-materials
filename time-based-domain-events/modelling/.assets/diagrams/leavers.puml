@@ -1,0 +1,46 @@
+@startuml
+!include <tupadr3/common>
+!include <tupadr3/font-awesome-5/clock>
+!include <tupadr3/font-awesome-5/calendar_alt>
+!include <tupadr3/font-awesome-5/gripfire>
+
+skinparam defaultFontName Purisa
+skinparam handwritten true
+skinparam backgroundcolor transparent
+
+skinparam defaultTextAlignment center
+
+
+scale 1200*480
+
+
+file EmployeeLeft #Orange [
+    **EmployeeLeft**
+]
+
+file DiscountDisassociated #Orange [
+    **DiscountDisassociated**
+]
+
+file DisassociateDiscount #DeepSkyBlue [
+    **DisassociateDiscount**
+]
+
+file EffectiveDiscount #MediumPurple [
+    **EffectiveDiscount**
+....
+   is Discount effective?
+]
+
+file Discount1 #Yellow [
+    <<aggregate>>
+    **Discount**
+]
+
+EmployeeLeft -> DisassociateDiscount
+DisassociateDiscount -> EffectiveDiscount
+EffectiveDiscount - Discount1
+Discount1 -> DiscountDisassociated
+
+
+@enduml
