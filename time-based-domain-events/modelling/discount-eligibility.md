@@ -10,20 +10,20 @@
 @snapend
 
 ---
-## Time-based domain events
-### A niche
+## A niche of 
+### Time-based domain events
 <br/>
 @quote[Schedulers and Timers are also very interesting types of events, but they are a often times an implementation-level consideration.](K. Webber)
 
 ---
-## Time-based events
-### A niche
+## A niche of 
+### Time-based domain events
 <br/>
 @quote[...expiring time frame will generally have a descriptive name that will become part of the Ubiquitous Language...](V. Vernon)
 
 ---
-## Time-based domain events
-### A niche
+## A niche of 
+### Time-based domain events
 <br/>
 @quote[Therefore, you have a name for that particular time-based Domain Event.](V. Vernon)
   
