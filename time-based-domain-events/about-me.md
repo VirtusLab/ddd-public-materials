@@ -20,7 +20,7 @@ Spending free time on self-growth, discovering new music and playing on drums.
 
 
 @snap[north-east span-25]
-![](time-based-domain-events/.common-assets/img/me_lin.png)
+![](time-based-domain-events/.common-assets/img/me.png)
 @snapend
 
 @snap[south-west template-note text-gray] 
