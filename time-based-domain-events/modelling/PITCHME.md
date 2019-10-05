@@ -3,7 +3,9 @@
 ---?include=time-based-domain-events/modelling/agenda.md
 ---?include=time-based-domain-events/modelling/context.md
 ---?include=time-based-domain-events/modelling/discount-eligibility.md
+---?include=time-based-domain-events/modelling/discount-eligibility-model.md
 ---?include=time-based-domain-events/modelling/just-in-time-events.md
+---?include=time-based-domain-events/modelling/undecided-leavers.md
 ---?include=time-based-domain-events/modelling/context-wide-events.md
 ---?include=time-based-domain-events/modelling/takeaways.md
 ---?include=time-based-domain-events/modelling/references.md
