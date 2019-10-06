@@ -19,4 +19,4 @@ Moreover, events like **StudentBecameAnAdult** are purely aggregate specific but
 ## Resources
 
 1. [Modelling](https://github.com/VirtusLab/ddd-public-materials/tree/master/time-based-domain-events/modelling)
-1. [Modelling](https://github.com/VirtusLab/ddd-public-materials/tree/master/time-based-domain-events/kafka)
+1. [Just in time events on Kafka](https://github.com/VirtusLab/ddd-public-materials/tree/master/time-based-domain-events/kafka)
