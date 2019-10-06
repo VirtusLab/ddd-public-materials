@@ -1,0 +1,30 @@
+@startuml
+!include <cloudinsight/server>
+!include <cloudinsight/kafka>
+!include <cloudinsight/java>
+!include <tupadr3/common>
+!include <tupadr3/font-awesome-5/clock>
+
+skinparam defaultFontName Purisa
+skinparam handwritten true
+skinparam backgroundcolor transparent
+
+skinparam defaultTextAlignment center
+
+
+scale 1200*4800
+
+rectangle "<$server>\nemployees-service" as colleagues #Moccasin
+queue "employee-events-topic" as employee_events #Darkorange
+queue "effective-events-topic" as effective_events #Darkorange
+rectangle "<$clock>\nACL" as acl #SandyBrown
+rectangle "<$server>\nbenefits-service" as benefits #SandyBrown
+
+
+colleagues -> employee_events
+employee_events -> acl
+acl -> effective_events
+effective_events -> benefits
+
+
+@enduml

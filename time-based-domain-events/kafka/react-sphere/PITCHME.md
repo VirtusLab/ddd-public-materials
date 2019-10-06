@@ -1,0 +1,14 @@
+---?include=time-based-domain-events/kafka/title.md
+---?include=time-based-domain-events/about-me.md
+---?include=time-based-domain-events/kafka/agenda.md
+---?include=time-based-domain-events/modelling/context.md
+---?include=time-based-domain-events/modelling/discount-eligibility.md
+---?include=time-based-domain-events/kafka/recap.md
+---?include=time-based-domain-events/modelling/just-in-time-events.md
+---?include=time-based-domain-events/kafka/kafka.md
+---?include=time-based-domain-events/kafka/schedule.md
+---?include=time-based-domain-events/kafka/reschedule.md
+---?include=time-based-domain-events/kafka/cancel.md
+---?include=time-based-domain-events/kafka/takeaways.md
+---?include=time-based-domain-events/questions.md
+---?include=time-based-domain-events/kafka/react-sphere/ending.md

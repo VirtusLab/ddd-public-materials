@@ -1,0 +1,12 @@
+theme            : template
+highlight        : agate
+theme-headline   : [ "Ubuntu", "white", "none" ]
+theme-byline     : [ "Ubuntu", "white", "none" ]
+theme-text       : [ "Ubuntu", "white", "none" ]
+theme-override: time-based-domain-events/.common-assets/css/PITCHME.css
+layout: top
+background: time-based-domain-events/.common-assets/img/react_bg.jpg
+footnote: "Time-based domain events with Kafka"
+published: true
+remote-control: true
+code-line-numbers : true

@@ -9,4 +9,5 @@
 ---?include=time-based-domain-events/modelling/context-wide-events.md
 ---?include=time-based-domain-events/modelling/takeaways.md
 ---?include=time-based-domain-events/modelling/references.md
+---?include=time-based-domain-events/questions.md
 ---?include=time-based-domain-events/ending.md

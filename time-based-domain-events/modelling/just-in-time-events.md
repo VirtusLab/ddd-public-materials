@@ -21,9 +21,8 @@
 ---
 ## Retroactive event
 
-@snap[west span-80 text-06]
-Retroactive Event Determination and the Interpretation of Macroscopic Quantum Superposition States 
-in Consistent Histories and Relational Quantum Mechanics
+@snap[west span-60 text-06]
+Retroactive Event Determination and the Interpretation of Macroscopic Quantum Superposition States in Consistent Histories and Relational Quantum Mechanics
 @snapend
 
 @snap[east span-30]
@@ -31,7 +30,7 @@ in Consistent Histories and Relational Quantum Mechanics
 @snapend
 
 @snap[south span-100]
-@size[0.5em](https://www.scribd.com/document/39063761/Nelson-Retroactive-Event-Determination)
+@size[0.4em](https://www.scribd.com/document/39063761/Nelson-Retroactive-Event-Determination)
 @snapend
 
 ---

@@ -1,0 +1,81 @@
+@startuml
+!include <tupadr3/common>
+!include <tupadr3/font-awesome-5/clock>
+!include <tupadr3/font-awesome-5/calendar_alt>
+!include <tupadr3/font-awesome-5/gripfire>
+
+skinparam defaultFontName Purisa
+skinparam handwritten true
+skinparam backgroundcolor transparent
+
+skinparam defaultTextAlignment center
+
+
+scale 1200*480
+
+
+storage EmployeeWorkCycleContext #Moccasin
+storage BenefitsContext #SandyBrown
+
+file EmployeeMarkedAsLeaver #Orange [
+    **EmployeeMarkedAsLeaver**
+....
+    leavingDate
+]
+
+file EmployeePostponedLeaving #Orange [
+    **EmployeePostponedLeaving**
+....
+    leavingDate
+]
+
+file EmployeeLeft #Orange [
+    **EmployeeLeft**
+]
+
+rectangle "ACL\n<<Event Scheduler>>" #SandyBrown {
+
+
+
+file ScheduleEvent #DeepSkyBlue [
+    **ScheduleEvent**
+....
+    effectiveDate
+    event
+]
+
+file ReScheduleEvent #DeepSkyBlue [
+    **ReScheduleEvent**
+....
+    effectiveDate
+    event
+]
+
+
+
+rectangle Clock #Orange [
+    <$clock>
+    **ScheduleEvent**
+....
+    effectiveDate
+]
+
+file PublishEvent #DeepSkyBlue [
+    **PublishEvent**
+]
+
+EmployeeWorkCycleContext -U-> EmployeeMarkedAsLeaver
+EmployeeMarkedAsLeaver -> ScheduleEvent
+
+EmployeeWorkCycleContext -R--> EmployeePostponedLeaving
+EmployeePostponedLeaving -R--> ReScheduleEvent
+
+ScheduleEvent -R-> Clock
+ReScheduleEvent -U-> Clock
+Clock -> PublishEvent
+PublishEvent -> EmployeeLeft
+
+}
+
+EmployeeLeft -> BenefitsContext
+@enduml
