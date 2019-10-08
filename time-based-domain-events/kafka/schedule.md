@@ -25,7 +25,7 @@
             logger.info { "Forwarding $event to Scheduler" }
             context()
                 .forward(
-                    event.eventKey(), 
+                    event.id, 
                     Schedule(event), 
                     To.child(Scheduler.NAME)
                  )

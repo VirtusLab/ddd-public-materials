@@ -20,17 +20,17 @@ class Translator : AbstractProcessor<String, TimeBasedEvent>() {
 
     private fun schedule(event: EffectiveEvent) {
         logger.info { "Forwarding $event to Scheduler" }
-        context().forward(event.eventKey(), Schedule(event), To.child(Scheduler.NAME))
+        context().forward(event.id, Schedule(event), To.child(Scheduler.NAME))
     }
 
     private fun reschedule(event: EffectiveEvent) {
         logger.info { "Forwarding $event to Rescheduler" }
-        context().forward(event.eventKey(), Reschedule(event), To.child(Rescheduler.NAME))
+        context().forward(event.id, Reschedule(event), To.child(Rescheduler.NAME))
     }
 
     private fun cancel(event: EffectiveEvent) {
         logger.info { "Forwarding $event to Canceller" }
-        context().forward(event.eventKey(), Cancel(event), To.child(Canceller.NAME))
+        context().forward(event.id, Cancel(event), To.child(Canceller.NAME))
     }
 
     companion object {
