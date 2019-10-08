@@ -60,10 +60,7 @@ class Scheduler : AbstractProcessor<String, Schedule>() {
 @[8-10]
 @snapend
 ---
-@snap[north snap-100]
-#### EffectiveEventsForwarder
-@snapend
-
+@title[EffectiveEventsForwarder]
 @snap[west span-100]
 ```kotlin
 class EffectiveEventsForwarder(private val duration: Duration) : AbstractProcessor<String, Command>() {
@@ -135,12 +132,7 @@ class EffectiveEventsForwarder(private val duration: Duration) : AbstractProcess
             }
 ```
 @[18](Mocked Time)
-
----?code=time-based-domain-events/kafka/codebase/src/main/kotlin/com/virtuslab/jit/Time.kt&lang=kotlin 
-@snap[north-east snap-100]
-#### Time
-@snapend
-
+@[21]
 ---
 @snap[midpoint snap-100]
 ## Does it work?

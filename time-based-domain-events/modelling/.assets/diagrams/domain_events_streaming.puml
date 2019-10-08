@@ -9,15 +9,12 @@ scale 1200*4800
 
 queue EventStream #Darkorange
 
-EmployeeWorkCycleContext <-R-> EventStream
-EventStream <-R-> BenefitsContext
+EmployeeWorkCycleContext -R-> EventStream
+EventStream -R-> BenefitsContext
 
 EmployeeWorkCycleContext -D- EmployeeJoined
-EmployeeWorkCycleContext -D- EmployeeMarkedAsLeaver
-EmployeeWorkCycleContext -D- EmployeeCancelledLeaving
 
-BenefitsContext -D- DiscountBecameEffective
 BenefitsContext -D- DiscountAssociated
-BenefitsContext -D- DiscountDisassociated
+
 
 @enduml

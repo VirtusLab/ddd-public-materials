@@ -41,6 +41,7 @@ class Rescheduler : AbstractProcessor<String, Reschedule>() {
     private fun onEffectiveDateFor(
         eventKey: String,
         onExistingEffectiveDate: (String) -> Unit
+        //key=employeeId:eventType -> value=2019-10-10
     ) = effectiveDates.get(eventKey)?.let { onExistingEffectiveDate(it) }
 
     private fun storeNewSchedule(command: Reschedule): (String) -> Unit = 
@@ -57,8 +58,8 @@ class Rescheduler : AbstractProcessor<String, Reschedule>() {
 ```
 @[6-7]
 @[9-12]
-@[12]
-@[14-20]
+@[12-13]
+@[15-21]
 @[17]
 @[18]
 @[19-20]

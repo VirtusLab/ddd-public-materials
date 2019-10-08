@@ -27,8 +27,6 @@
 ---
 ## Domain Events
 </br>
-</br>
-</br>
 ![](time-based-domain-events/modelling/.assets/diagrams/domain_events.png)
 
 

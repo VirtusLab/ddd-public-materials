@@ -7,7 +7,6 @@
 - @color[green](Testability)
 - @color[green](Out of the box scalability based on Kafka partitioning)  
 - @color[green](Fault tolerance thanks to StateStores and Topic replication)
-- @color[green](Encapsulation of processing per aggregate)
 @olend
 
 ---
