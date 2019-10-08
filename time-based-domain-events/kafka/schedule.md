@@ -85,7 +85,7 @@ class EffectiveEventsForwarder(private val duration: Duration) : AbstractProcess
             iterator.forEach { forward(it) } 
         }
     
-   private fun effectiveEvents(iterator: (KeyValueIterator<String, EffectiveEvent>) -> Unit) =
+   private fun onEffectiveEvents(iterator: (KeyValueIterator<String, EffectiveEvent>) -> Unit) =
         //key:2019-10-10:543678:EmployeeLeft -> value:EffectiveEvent
         effectiveEvents 
             // from["0"] to["2019-10-11"]
@@ -147,10 +147,10 @@ class EffectiveEventsForwarder(private val duration: Duration) : AbstractProcess
 @snapend
 
 ---
-## Yes but
+## Almost @fa[grin-beam-sweat]
 
 ```kotlin
-   private fun effectiveEvents(iterator: (KeyValueIterator<String, EffectiveEvent>) -> Unit) =
+   private fun onEffectiveEvents(iterator: (KeyValueIterator<String, EffectiveEvent>) -> Unit) =
         //key:2019-10-10:543678:EmployeeLeft -> value:EffectiveEvent
         effectiveEvents 
             // from["0"] to["2019-10-11"]
@@ -159,6 +159,20 @@ class EffectiveEventsForwarder(private val duration: Duration) : AbstractProcess
 
 ```
 @[4-5]
+
+```java
+public interface ProcessorContext {
+    (...)
+    Cancellable schedule(final Duration interval, //1h
+                     final PunctuationType type, //WALL_CLOCK_TIME
+                     final Punctuator callback) throws IllegalArgumentException;
+    
+    <K, V> void forward(final K key, final V value);
+    (...)
+}
+```
+@[10-11]
+
 ---
 ## Cleaner
 @snap[west snap-100]

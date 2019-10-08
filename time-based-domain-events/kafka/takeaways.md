@@ -27,6 +27,7 @@
 - READ DOCUMENTATION!
 - Adjust default configuration
 - Measure performance and resource usage
+- Abstract time
 - Is it really suitable solution for scheduling?
 
 @olend
