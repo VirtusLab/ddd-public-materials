@@ -1,0 +1,6 @@
+123;{"type":"EmployeeMarkedAsLeaver","employeeId":"123","leavingDate":[2019,10,7]}
+444;{"type":"EmployeeMarkedAsLeaver","employeeId":"444","leavingDate":[2019,10,11]}
+444;{"type":"EmployeePostponedLeaving","employeeId":"444","leavingDate":[2019,10,24]}
+444;{"type":"EmployeePostponedLeaving","employeeId":"444","leavingDate":[2019,10,5]}
+555;{"type":"EmployeeMarkedAsLeaver","employeeId":"555","leavingDate":[2019,10,12]}
+555;{"type":"EmployeeCancelledLeaving","employeeId":"555","leavingDate":[2019,10,12]}

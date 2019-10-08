@@ -1,0 +1,2 @@
+{"type":"EmployeeLeft","employeeId":"123","leavingDate":[2019,10,7],"id":"123"}
+{"type":"EmployeeLeft","employeeId":"444","leavingDate":[2019,10,5],"id":"444"}

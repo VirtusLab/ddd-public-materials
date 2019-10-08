@@ -1,5 +1,6 @@
 package com.virtuslab.jit
 
+import com.virtuslab.jit.kafka.topology
 import org.apache.kafka.clients.consumer.ConsumerConfig
 import org.apache.kafka.streams.KafkaStreams
 import java.time.Duration
@@ -9,11 +10,11 @@ fun main(args: Array<String>) = processStream()
 
 private fun processStream() {
 
-    val topology = scheduleTopology(Duration.ofSeconds(30))
+    val topology = topology(Duration.ofSeconds(30))
 
     val props = Properties()
     props["bootstrap.servers"] = "localhost:9092"
-    props["application.id"] = "time-based-events-processing"
+    props["application.id"] = "just-in-time-events-processing"
     props[ConsumerConfig.AUTO_OFFSET_RESET_CONFIG] = "earliest"
     val streams = KafkaStreams(topology, props)
     streams.cleanUp()
