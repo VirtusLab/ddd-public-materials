@@ -1,6 +1,6 @@
----?include=time-based-domain-events/kafka/title.md
+---?include=time-based-domain-events/kafka/react-sphere/introduction.md
 ---?include=time-based-domain-events/about-me.md
----?include=time-based-domain-events/kafka/agenda.md
+---?include=time-based-domain-events/kafka/react-sphere/agenda.md
 ---?include=time-based-domain-events/modelling/context.md
 ---?include=time-based-domain-events/modelling/discount-eligibility.md
 ---?include=time-based-domain-events/kafka/recap.md
