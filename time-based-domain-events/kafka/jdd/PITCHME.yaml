@@ -7,6 +7,6 @@ theme-override: time-based-domain-events/.common-assets/css/PITCHME.css
 layout: top
 background: time-based-domain-events/.common-assets/img/bg.png
 footnote: "Time-based domain events with Kafka"
-published: false
+published: true
 remote-control: true
 code-line-numbers : true
