@@ -5,6 +5,18 @@
 ![](time-based-domain-events/kafka/.assets/diagrams/colleague_benefits_kafka.png)
 
 ---
+@title[Drivers]
+## Drivers
+</br>
+@ol
+1. Precision of **days**
+1. Isolation of processing
+1. Usage of existing infrastructure -> Kafka
+1. Fault-tolerance 
+1. Avoidance of duplication
+@olend
+
+---
 ## Kafka Streams
 @img[span-60](time-based-domain-events/kafka/.assets/img/kafka-topology.jpg)
 
