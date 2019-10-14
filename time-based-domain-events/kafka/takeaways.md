@@ -29,8 +29,23 @@
 - Measure performance and resource usage
 - Abstract time
 - Is it really suitable solution for scheduling?
-
 @olend
+
+---
+## Alternatives
+
+### Redis?
+
+@quote[Basically expired events are generated when the Redis server deletes the key and not when the time to live theoretically reaches the value of zero.](http://redis.io/topics/notifications)
+
+---
+## Alternatives
+</br>
+#### Polling on some persistent datastore
+@ol
+- how to scale it? 
+@olend
+
 ---
 ## References
 @snap[west snap-100]
