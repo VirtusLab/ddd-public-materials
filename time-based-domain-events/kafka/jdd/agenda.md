@@ -13,5 +13,3 @@
 - References
 @olend
 @snapend
-
----?image=time-based-domain-events/.common-assets/img/jdd_questions.png

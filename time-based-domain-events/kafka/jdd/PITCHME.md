@@ -11,4 +11,3 @@
 ---?include=time-based-domain-events/kafka/cancel.md
 ---?include=time-based-domain-events/kafka/takeaways.md
 ---?include=time-based-domain-events/questions.md
----?include=time-based-domain-events/kafka/jdd/ending.md

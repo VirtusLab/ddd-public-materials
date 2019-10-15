@@ -33,6 +33,16 @@
 
 ---
 ## Alternatives
+@ol
+- Kafka **Suppress** operator
+    - for windowed operations
+    - based on STREAM_TIME
+    - emitting final results as a main purpose
+
+@olend
+
+---
+## Alternatives
 
 ### Redis?
 
@@ -45,7 +55,9 @@
 @ol
 - how to scale it? 
 @olend
-
+@snap[south snap-100]
+![](time-based-domain-events/kafka/.assets/diagrams/database.png)
+@snapend
 ---
 ## References
 @snap[west snap-100]

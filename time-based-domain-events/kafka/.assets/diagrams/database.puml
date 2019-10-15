@@ -1,0 +1,22 @@
+@startuml
+!include <cloudinsight/server>
+!include <cloudinsight/kafka>
+!include <cloudinsight/java>
+
+
+
+skinparam defaultFontName Purisa
+skinparam handwritten true
+skinparam backgroundcolor transparent
+
+skinparam defaultTextAlignment center
+
+
+scale 200*800
+
+database "Database\n\n\n" #LightSkyBlue {
+
+
+}
+
+@enduml

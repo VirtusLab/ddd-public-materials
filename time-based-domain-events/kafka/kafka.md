@@ -10,10 +10,12 @@
 </br>
 @ol
 1. Precision of **days**
+1. 450k employees
+1. ~9k leavers per month
 1. Isolation of processing
 1. Usage of existing infrastructure -> Kafka
 1. Fault-tolerance 
-1. Avoidance of duplication
+1. Duplication avoidance
 @olend
 
 ---
