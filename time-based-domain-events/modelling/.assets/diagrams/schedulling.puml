@@ -24,16 +24,16 @@ file DiscountDisassociated #Orange [
 
 
 frame **FinancialYearEndProcessManager** #MediumPurple {
-    file RefreshDiscount #DeepSkyBlue [
+    file DiscountRefreshed #Orange [
         <$clock>
-        **RefreshDiscount**
+        **DiscountRefreshed**
     ]
 
 
-    DiscountCreated -R-> RefreshDiscount
+    DiscountCreated -R-> DiscountRefreshed
 }
 
-DiscountDisassociated  "Cancel" -U-> RefreshDiscount
+DiscountDisassociated  "Cancel" -U-> DiscountRefreshed
 
 
 @enduml

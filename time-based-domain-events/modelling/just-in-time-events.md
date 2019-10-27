@@ -34,6 +34,23 @@ Retroactive Event Determination and the Interpretation of Macroscopic Quantum Su
 @snapend
 
 ---
+## Retroactive event
+
+@fa[grin-beam-sweat fa-7x]
+
+@snap[west span-60 text-06]
+Retroactive Event Determination and the Interpretation of Macroscopic Quantum Superposition States in Consistent Histories and Relational Quantum Mechanics
+@snapend
+
+@snap[east span-30]
+![](time-based-domain-events/modelling/.assets/img/retroactive_event.jpg)
+@snapend
+
+@snap[south span-100]
+@size[0.4em](https://www.scribd.com/document/39063761/Nelson-Retroactive-Event-Determination)
+@snapend
+
+---
 ## ACL
 Anti-corruption layer
 <br/>

@@ -27,6 +27,17 @@
 <br/>
 @quote[Therefore, you have a name for that particular time-based Domain Event.](V. Vernon)
   
+---
+## Time-triggered events
+### Notation in Event storming
+<br/>
+@quote[Time can trigger events....The moment we make these events explicit, we usually discover that the actual trigger can be a little more sophisticated.](A. Brandolini)
+
+---
+## Time-triggered events
+### Notation in Event storming
+<br/>
+@quote[When modeling business processes, events are usually not happening within a given time-frame: making the time-frame explicit can lead to interesting insights.](A. Brandolini)
 
 ---
 @title[Time-based domain events]

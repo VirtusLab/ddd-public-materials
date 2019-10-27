@@ -48,7 +48,7 @@ file DiscountCreated #Orange [
 ]
 
 
-file DiscountEligibility #MediumPurple [
+file DiscountEligibility #BUSINESS [
     **DiscountEligibility**
 ....
    is discount eligibility date reached?
@@ -91,7 +91,7 @@ frame **DiscountEligibilityProcessManager** #MediumPurple {
     AssociateDiscount "2." -D-> DiscountEligibility
 }
 
-DiscountEligibility -> Discount2
+DiscountEligibility - Discount2
 Discount2 -> DiscountAccountAssociated
 
 

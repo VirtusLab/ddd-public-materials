@@ -63,7 +63,7 @@ file CancelEvent #DeepSkyBlue [
 
 rectangle Clock #Orange [
     <$clock>
-    **ScheduleEvent**
+    **ScheduledEvent**
 ....
     effectiveDate
 ]

@@ -22,7 +22,7 @@ file DiscountRefreshed #Orange [
     **DiscountRefreshed**
 ]
 
-file EffectiveDiscount #MediumPurple [
+file EffectiveDiscount #Yellow [
     **EffectiveDiscount**
 ....
    is Discount effective?
