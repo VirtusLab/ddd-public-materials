@@ -1,0 +1,6 @@
+type: output
+files:
+- name: src/Main.kt
+  visible: true
+- name: test/output.txt
+  visible: false
