@@ -80,3 +80,25 @@ A bar cannot have less or more beats than it is indicated by assigned **time sig
 A **tempo** indicates how fast the piece of music as a whole should be played. It is express in *beats per minutes* (**bpm** or **BPM**).
 
 The note value of a beat will typically be that indicated by the denominator of the time signature i.e. **4** in the **3/4** time signature.
+
+### Piece of music - music sheet
+
+![music-sheet](images/music-sheet.png)
+
+The individual instrument music representation is called **music sheet**.
+
+It consists of some **title**, **indication of instrument**, **tempo** and **bars** with *time signature**.
+
+### Duration of music - length
+
+Having **tempo** and number of **bars** with **time signatures** it is possible to calculate length of given piece of music.
+
+*length of song* = **beats per bars**/**tempo** * **number of bars** 
+
+For above example where:
+
+* **tempo** = 120 BPM
+* **number of bars** = 2
+* **beats per bars** = 3
+
+*length of song* = 3/120 * 2  => 3sec
