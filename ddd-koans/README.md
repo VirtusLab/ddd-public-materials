@@ -72,3 +72,11 @@ Notes in bars:
 * 2nd bar: **1/8** + **1/8** + **1/4** + **1/4** => **3/4**
 
 A bar cannot have less or more beats than it is indicated by assigned **time signature**. Where a beat is a note value.
+
+### Tempo
+
+![tempo](images/tempo.png)
+
+A **tempo** indicates how fast the piece of music as a whole should be played. It is express in *beats per minutes* (**bpm** or **BPM**).
+
+The note value of a beat will typically be that indicated by the denominator of the time signature i.e. **4** in the **3/4** time signature.
