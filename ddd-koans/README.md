@@ -54,3 +54,19 @@ Available values are (limited for the purpose of course):
 Mathematically speaking one whole note (**1/1**) is equivalent to two half notes (**1/2**)(**1/1** == 2***1/2**). 
 Same rule applies for the rest of values.
 
+### Bars
+
+![bars](images/bars.png)
+
+A written up piece of music is divided into chunks called **bars**.
+
+Each bar follows a **time signature** assigned at the beginning of bar until new **time signature** occurs.
+
+In the picture above, there are 2 **bars**, each in **3/4** time signature. It means that, each **bar** has length of 3 quarter notes (**3/4**).
+
+Notes in bars:
+
+* 1st bar: **1/4** + **1/4** + **1/16** + **1/16** + **1/16** + **1/16** => **3/4**
+* 2nd bar: **1/8** + **1/8** + **1/4** + **1/4** => **3/4**
+
+A bar cannot have less or more beats than it is indicated by assigned **time signature**. Where a beat is a note value.
