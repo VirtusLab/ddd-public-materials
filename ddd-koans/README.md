@@ -30,15 +30,15 @@ Together they tell us the total length of all symbols in a bar.
 
 In text time signatures are written using slash sign **/** like **3/4**.
 
-#### The upper number
+#### The upper number - numerator
 
-The upper number has one limitation - it needs to be greater than 0 integer.
+The upper number (numerator) has one limitation - it needs to be greater than 0 integer.
 However, for purpose of this example let's say that maximum number can be equal to **32**.
 
 
-#### The lower number
+#### The lower number - denominator
 
-The lower number always corresponds to the beat unit which is a value of music note.
+The lower number (denominator) always corresponds to the beat unit which is a value of music note.
 
 Available values are (limited for the purpose of course):
 
@@ -53,6 +53,8 @@ Available values are (limited for the purpose of course):
 
 Mathematically speaking one whole note (**1/1**) is equivalent to two half notes (**1/2**)(**1/1** == 2***1/2**). 
 Same rule applies for the rest of values.
+
+What is more, its value is a power of 2.
 
 ### Bars
 
