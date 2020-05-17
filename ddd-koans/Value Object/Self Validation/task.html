@@ -1,0 +1,27 @@
+<html>
+<p>
+    TimeSignature is described using two properties, the same you have declared in previous task.
+    However, values of this properties cannot be random integers. There are domain rules.
+    If you don't remember, here you go:
+    <ul>
+        <li>numerator is between 1 and 32,</li>
+        <li>denominator is between 1 and 32,</li>
+        <li>denominator is power of two.</li>
+    </ul>
+</p>
+<p>
+    <div>How should we validate the values? Please write your solution way that on illegal values throws exception.</div>
+    <div>Consider using <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/require.html">require function</a>.</div>
+</p>
+
+<p>
+    To check if number is power of two we provided extension functions <b>Int.main.isPowerOfTwo()</b>.
+</p>
+
+<div class="hint">
+    This may not be obvious at first glance, but if you correctly check if denominator is power of two, then checking
+    if denominator is between 1 and 63 would make test pass as values between 32 and 63 are covered by the power of two
+    condition.
+</div>
+
+</html>

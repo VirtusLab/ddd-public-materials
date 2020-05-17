@@ -1,0 +1,19 @@
+type: edu
+files:
+- name: src/Main.kt
+  visible: true
+  placeholders:
+  - offset: 20
+    length: 40
+    placeholder_text: TODO("Add numerator and denominator attributes")
+    dependency:
+      lesson: Value Object
+      task: Immutablity
+      file: src/Main.kt
+      placeholder: 1
+      is_visible: false
+  - offset: 83
+    length: 260
+    placeholder_text: TODO("Add code to self validate the TimeSignature")
+- name: test/Tests.kt
+  visible: false
