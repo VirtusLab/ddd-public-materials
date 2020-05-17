@@ -1,18 +1,31 @@
 <html>
-    <div>
-        Remember that TimeSignature must contain only two properties:
-        <ul>
-            <li>nominator,</li>
-            <li>denominator,</li>
-        </ul>
-        both of them should be of type <b>Int</b> and declared using <b>val</b> not <del>var</del>.
-    </div>
-    <br>
-    <div>
-        Doing it that way will ensure immutability of thr TimeSignature.
-    </div>
-
-    <div class="hint">
-        Remember not to use nullable type <b>Int?</b>.
-    </div>
+<h3>Immutability means that object's state cannot be changed after creation.</h3>
+<p>
+    In this task and at least few next you will develop TimeSignature class as it could serve as a great
+    example of value object. So here we go with reminder of what they are.
+</p>
+<h4>
+    Time signatures are symbols which
+    describe repeating beat rhythm in a piece of music. It tells us the total length of all symbols in a bar.
+    In text time signatures are written using the slash sign "/" like 3/4. The upper value is called numerator and
+    lower denominator.
+</h4>
+<p>
+<div>
+    As the description states TimeSignature must contain only two properties:
+    <ul>
+        <li>nominator,</li>
+        <li>denominator,</li>
+    </ul>
+    both of them should be of type <b>Int</b> and declared using <b>val</b> not
+    <del>var</del>.
+</div>
+<br>
+<div>
+    Doing it that way will ensure immutability of thr TimeSignature.
+</div>
+</p>
+<div class="hint">
+    Remember not to use nullable type <b>Int?</b>.
+</div>
 </html>
