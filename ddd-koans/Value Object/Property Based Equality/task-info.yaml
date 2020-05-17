@@ -21,5 +21,8 @@ files:
       file: src/Main.kt
       placeholder: 2
       is_visible: false
+  - offset: 498
+    length: 64
+    placeholder_text: TODO("Add code that compares two time signatures")
 - name: test/Tests.kt
   visible: false

@@ -8,5 +8,19 @@ class TimeSignature(val numerator: Int, val denominator: Int) {
         }
     }
 
+    override fun equals(other: Any?): Boolean =
+        if (other == null || other !is TimeSignature)
+            false
+        else {
+            other.denominator == denominator && other.numerator == numerator
+        }
+
+
+    override fun hashCode(): Int {
+        var result = numerator
+        result = 31 * result + denominator
+        return result
+    }
+
     override fun toString(): String = "TimeSignature($numerator/$denominator)"
 }
