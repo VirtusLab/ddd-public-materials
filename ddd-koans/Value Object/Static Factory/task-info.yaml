@@ -1,0 +1,37 @@
+type: edu
+files:
+- name: src/Main.kt
+  visible: true
+  placeholders:
+  - offset: 134
+    length: 197
+    placeholder_text: TODO("Write method that correctly creates TimeSignature")
+  - offset: 423
+    length: 40
+    placeholder_text: TODO("Add numerator and denominator attributes")
+    dependency:
+      lesson: Value Object
+      task: Property Based Equality
+      file: src/Main.kt
+      placeholder: 1
+      is_visible: false
+  - offset: 504
+    length: 260
+    placeholder_text: TODO("Add code to self validate the TimeSignature")
+    dependency:
+      lesson: Value Object
+      task: Property Based Equality
+      file: src/Main.kt
+      placeholder: 2
+      is_visible: false
+  - offset: 924
+    length: 64
+    placeholder_text: TODO("Add code that compares two time signatures")
+    dependency:
+      lesson: Value Object
+      task: Property Based Equality
+      file: src/Main.kt
+      placeholder: 3
+      is_visible: false
+- name: test/Tests.kt
+  visible: false

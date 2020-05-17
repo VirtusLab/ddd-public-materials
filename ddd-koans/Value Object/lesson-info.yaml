@@ -4,3 +4,4 @@ content:
 - Immutablity
 - Self Validation
 - Property Based Equality
+- Static Factory
