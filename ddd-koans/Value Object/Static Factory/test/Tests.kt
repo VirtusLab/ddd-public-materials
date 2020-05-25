@@ -28,9 +28,13 @@ class Test {
     @MethodSource("generateValidTimeSignatures")
     fun testIfOfFactoryMethodCreatesAllValidTimeSignaturesUsingAllValidStrings(arguments: Pair<Int, Int>) {
         val (numerator, denominator) = arguments
+        val timeSignatureString = "$numerator/$denominator"
+        val fromString = TimeSignature.of(timeSignatureString)
+        val fromNumeratorAndDenominator = TimeSignature.create(numerator, denominator)
         assertEquals(
-            TimeSignature.of("$numerator/$denominator"),
-            TimeSignature.create(numerator, denominator)
+            fromNumeratorAndDenominator,
+            fromString,
+            "TimeSignature created using \"$timeSignatureString\" should be equal to $fromNumeratorAndDenominator"
         )
     }
 
