@@ -6,7 +6,7 @@ files:
   - offset: 134
     length: 197
     placeholder_text: TODO("Write method that correctly creates TimeSignature")
-  - offset: 915
+  - offset: 423
     length: 40
     placeholder_text: TODO("Add numerator and denominator attributes")
     dependency:
@@ -15,7 +15,7 @@ files:
       file: src/Main.kt
       placeholder: 1
       is_visible: false
-  - offset: 996
+  - offset: 504
     length: 260
     placeholder_text: TODO("Add code to self validate the TimeSignature")
     dependency:
@@ -24,8 +24,8 @@ files:
       file: src/Main.kt
       placeholder: 2
       is_visible: false
-  - offset: 1416
-    length: 64
+  - offset: 932
+    length: 72
     placeholder_text: TODO("Add code that compares two time signatures")
     dependency:
       lesson: Value Object
@@ -33,8 +33,5 @@ files:
       file: src/Main.kt
       placeholder: 3
       is_visible: false
-  - offset: 410
-    length: 412
-    placeholder_text: TODO("Create method to create TimeSignature from String")
 - name: test/Tests.kt
   visible: false

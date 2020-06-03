@@ -1,1 +1,1 @@
-class TimeSignature(val numerator: Int, val denominator: Int)
+class TimeSignature(private val numerator: Int, private val denominator: Int)

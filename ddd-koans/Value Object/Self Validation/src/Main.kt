@@ -1,4 +1,4 @@
-class TimeSignature(val numerator: Int, val denominator: Int) {
+class TimeSignature(private val numerator: Int, private val denominator: Int) {
     init {
         require(numerator in 1..32) {
             "Numerator must be integer between 1 and 32"

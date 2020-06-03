@@ -23,7 +23,7 @@ sealed class TimeSignature {
 
 object InvalidTimeSignature : TimeSignature()
 
-class ValidTimeSignature(val numerator: Int, val denominator: Int) : TimeSignature() {
+class ValidTimeSignature(private val numerator: Int, private val denominator: Int) : TimeSignature() {
     init {
         require(numerator in 1..32) {
             "Numerator must be integer between 1 and 32"
