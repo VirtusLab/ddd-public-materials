@@ -2,7 +2,6 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Test
 import kotlin.reflect.KMutableProperty
-import kotlin.reflect.KVisibility
 import kotlin.reflect.full.declaredMemberProperties
 import kotlin.reflect.jvm.jvmErasure
 
