@@ -8,3 +8,5 @@ files:
     placeholder_text: TODO("Add numerator and denominator attributes")
 - name: test/Tests.kt
   visible: false
+- name: 3over4.png
+  visible: false
