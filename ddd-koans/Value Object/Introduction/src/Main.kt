@@ -1,3 +1,3 @@
 fun main() {
-    //Nothing to do here yet. Read the introduction part nad please go to next task
+    //Nothing to do here yet. Read the introduction part and feel free to move to the next exercies.
 }
