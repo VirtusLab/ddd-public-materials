@@ -1,7 +1,8 @@
-import org.junit.jupiter.api.assertDoesNotThrow
-import org.junit.jupiter.api.assertThrows
+import org.assertj.core.api.Assertions.assertThatCode
+import org.assertj.core.api.Assertions.assertThatExceptionOfType
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
+
 
 class Test {
 
@@ -9,18 +10,20 @@ class Test {
     @MethodSource("generateValidTimeSignatures")
     fun testIfCreatingAllValidTimeSignaturesWillNotThrowException(arguments: Pair<Int, Int>) {
         val (numerator, denominator) = arguments
-        assertDoesNotThrow("Creating TimeSignatures using values ($numerator/$denominator) should not throw exception on creation") {
-            allValidValuesForTimeSignature().map { (numerator, denominator) -> TimeSignature(numerator, denominator) }
-        }
+
+        assertThatCode { TimeSignature(numerator, denominator) }
+            .`as`("Creating TimeSignatures using values ($numerator/$denominator) should not throw exception on creation")
+            .doesNotThrowAnyException()
     }
 
     @ParameterizedTest
     @MethodSource("generateInvalidTimeSignatures")
     fun testIfCreatingInvalidTimeSignaturesWillThrowException(arguments: Pair<Int, Int>) {
         val (numerator, denominator) = arguments
-        assertThrows<Exception>("Invalid values ($numerator/$denominator) should cause throwing exception when creating TimeSignatures") {
-            TimeSignature(numerator, denominator)
-        }
+
+        assertThatExceptionOfType(Exception::class.java)
+            .`as`("Invalid values ($numerator/$denominator) should cause throwing exception when creating TimeSignatures")
+            .isThrownBy { TimeSignature(numerator, denominator) }
     }
 
     companion object {
