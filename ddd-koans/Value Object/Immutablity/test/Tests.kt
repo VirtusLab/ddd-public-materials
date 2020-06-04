@@ -1,5 +1,4 @@
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertFalse
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import kotlin.reflect.KMutableProperty
 import kotlin.reflect.full.declaredMemberProperties
@@ -8,25 +7,24 @@ import kotlin.reflect.jvm.jvmErasure
 class Test {
     @Test
     fun testIfTimeSignatureIsImmutable() {
-        TimeSignature::class.declaredMemberProperties.forEach {
-            assertFalse(it is KMutableProperty<*>, "${it.name} should be declared as val not var")
-            assertEquals(Int::class, it.returnType.jvmErasure, "${it.name} should be declared with type Int")
-            assertFalse(it.returnType.isMarkedNullable, "${it.name} should not be marked as nullable")
+        TimeSignature::class.declaredMemberProperties.forEach { property ->
+            assertThat(property).`as`("${property.name} should be declared as val not var")
+                .isNotInstanceOf(KMutableProperty::class.java)
+
+            val returnType = property.returnType
+            assertThat(returnType.jvmErasure).`as`("${property.name} should be declared with type Int")
+                .isEqualTo(Int::class)
+            assertThat(returnType.isMarkedNullable).`as`("${property.name} should not be marked as nullable")
+                .isFalse()
         }
     }
 
     @Test
-    fun testIfTimeSignatureHasOnlyTwoAttributesOfDenominatorAndNumerator() {
-        val expectedPropertiesNames = setOf("numerator", "denominator")
+    fun testIfTimeSignatureHasOnlyTwoAttributesDenominatorAndNumerator() {
+        val declaredPropertiesNames = TimeSignature::class.declaredMemberProperties.map { it.name }
 
-        val declaredMemberProperties = TimeSignature::class.declaredMemberProperties
-        val declaredPropertiesNames = declaredMemberProperties.map { it.name }.toSet()
-
-        assertEquals(2, declaredMemberProperties.size, "TimeSignature should has exactly two properties")
-        assertEquals(
-            expectedPropertiesNames,
-            declaredPropertiesNames,
-            "TimeSignature's properties should have names: numerator, denominator"
-        )
+        assertThat(declaredPropertiesNames)
+            .`as`("TimeSignature's should have two properties: numerator, denominator")
+            .containsExactlyInAnyOrder("numerator", "denominator")
     }
 }
