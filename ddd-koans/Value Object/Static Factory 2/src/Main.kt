@@ -6,6 +6,18 @@ sealed class TimeSignature {
             else
                 InvalidTimeSignature
         }
+
+        fun of(timeSignature: String): TimeSignature {
+            val timeSignatureRegex = "^(\\d{1,2})/(\\d{1,2})$".toRegex()
+            val groupValues = timeSignatureRegex.matchEntire(timeSignature)?.groupValues
+            return if (groupValues == null) {
+                InvalidTimeSignature
+            } else {
+                val (numerator, denominator) = (groupValues[1] to groupValues[2])
+                create(numerator.toInt(), denominator.toInt())
+            }
+        }
+
     }
 }
 

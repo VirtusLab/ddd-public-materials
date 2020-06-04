@@ -6,7 +6,7 @@ files:
   - offset: 134
     length: 197
     placeholder_text: TODO("Write method that correctly creates TimeSignature")
-  - offset: 915
+  - offset: 423
     length: 56
     placeholder_text: TODO("Add numerator and denominator attributes")
     dependency:
@@ -15,7 +15,7 @@ files:
       file: src/Main.kt
       placeholder: 1
       is_visible: false
-  - offset: 1012
+  - offset: 520
     length: 260
     placeholder_text: TODO("Add code to self validate the TimeSignature")
     dependency:
@@ -24,7 +24,7 @@ files:
       file: src/Main.kt
       placeholder: 2
       is_visible: false
-  - offset: 1432
+  - offset: 940
     length: 64
     placeholder_text: TODO("Add code that compares two time signatures")
     dependency:

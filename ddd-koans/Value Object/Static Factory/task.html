@@ -16,22 +16,4 @@
         extends TimeSignature. Now you are going to implement <b>create</b> method that creates ValidTimeSignature or returns
         InvalidTimeSignature object.
     </p>
-
-    <p>
-        In text time signatures are written using the slash sign "/" like "3/4". <br/>
-        It is an understandable notation for Musicians which can be easily followed in our model.
-    </p>
-    <p>
-        Do you think that musicians would understand such snippet <i>TimeSignature.of("1/2")</i>? <br/>
-        <hr>
-        Hopefully, they do! <br/>
-
-        Let's then implement such feature inside <b>TimeSignature</b> value object.
-    </p>
-    <p>
-        You have to create <b>of</b> method that creates TimeSignature from String such as "1/2" or "4/4".
-        The method call should look like this <i>TimeSignature.of("1/2")</i> and in the given case create ValidTimeSignature(1,2).
-        Please create the given method in such manner that it accepts just the minimal acceptable string representation of time signature,
-        any additional whitespaces (like " 1/2", "4/4 &nbsp;&nbsp;&nbsp;&nbsp;") should return InvalidTimeSignature.
-    </p>
 </html>
