@@ -1,5 +1,4 @@
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertTrue
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 
@@ -8,20 +7,24 @@ class Test {
     @MethodSource("generateValidTimeSignatures")
     fun testIfCreatingAllValidTimeSignaturesWillGiveValidTimeSignatureInstance(arguments: Pair<Int, Int>) {
         val (numerator, denominator) = arguments
-        assertTrue(
-            TimeSignature.create(numerator, denominator) is ValidTimeSignature,
-            "Creating TimeSignatures using values ($numerator/$denominator) should provide ValidTimeSignature"
-        )
+
+        val timeSignature = TimeSignature.create(numerator, denominator)
+
+        assertThat(timeSignature)
+            .`as`("Creating TimeSignatures using values ($numerator/$denominator) should provide ValidTimeSignature")
+            .isExactlyInstanceOf(ValidTimeSignature::class.java)
     }
 
     @ParameterizedTest
     @MethodSource("generateInvalidTimeSignatures")
     fun testIfCreatingInvalidTimeSignaturesWillGiveInvalidTimeSignatureObject(arguments: Pair<Int, Int>) {
         val (numerator, denominator) = arguments
-        assertTrue(
-            TimeSignature.create(numerator, denominator) is InvalidTimeSignature,
-            "Creating TimeSignatures using values ($numerator/$denominator) should provide InvalidTimeSignature"
-        )
+
+        val timeSignature = TimeSignature.create(numerator, denominator)
+
+        assertThat(timeSignature)
+            .`as`("Creating TimeSignatures using values ($numerator/$denominator) should provide ValidTimeSignature")
+            .isExactlyInstanceOf(InvalidTimeSignature::class.java)
     }
 
     @ParameterizedTest
@@ -29,22 +32,22 @@ class Test {
     fun testIfOfFactoryMethodCreatesAllValidTimeSignaturesUsingAllValidStrings(arguments: Pair<Int, Int>) {
         val (numerator, denominator) = arguments
         val timeSignatureString = "$numerator/$denominator"
-        val fromString = TimeSignature.of(timeSignatureString)
-        val fromNumeratorAndDenominator = TimeSignature.create(numerator, denominator)
-        assertEquals(
-            fromNumeratorAndDenominator,
-            fromString,
-            "TimeSignature created using \"$timeSignatureString\" should be equal to $fromNumeratorAndDenominator"
-        )
+
+        val fromStringTimeSignature = TimeSignature.of(timeSignatureString)
+        val fromValuesTimeSignature = TimeSignature.create(numerator, denominator)
+
+        assertThat(fromStringTimeSignature)
+            .`as`("TimeSignature created using \"$timeSignatureString\" should be equal to $fromValuesTimeSignature")
+            .isEqualTo(fromValuesTimeSignature)
     }
 
     @ParameterizedTest
     @MethodSource("generateInvalidTimeSignatureStrings")
     fun testIfOfFactoryMethodCreatesInvalidTimeSignaturesOnInvalidStrings(invalidTimeSignature: String) {
-        assertTrue(
-            TimeSignature.of(invalidTimeSignature) is InvalidTimeSignature,
-            "Creating TimeSignatures using values \"$invalidTimeSignature\" should return InvalidTimeSignature"
-        )
+        val timeSignature = TimeSignature.of(invalidTimeSignature)
+
+        assertThat(timeSignature).`as`("Creating TimeSignatures using values \"$invalidTimeSignature\" should return InvalidTimeSignature")
+            .isExactlyInstanceOf(InvalidTimeSignature::class.java)
     }
 
 
