@@ -1,0 +1,8 @@
+type: framework
+content:
+- Introduction
+- Immutablity
+- Self Validation
+- Property Based Equality
+- Static Factory
+- Reflect Domain Representation

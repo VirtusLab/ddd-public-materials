@@ -1,0 +1,1 @@
+fun Int.isPowerOfTwo() = this.and(this - 1) == 0
