@@ -1,3 +1,19 @@
 <html>
-
+<p>
+    Please think about the time signature tasks you have finished so far. Could you imagine that by mistake you can add
+    or subtract or do something else with both numerator and denominator? Would it be wise or bring any value?
+    No, I would be just a mistake. However, you can find it out in runtime or hopefully using unit tests.
+    Maybe we could use compiler to cover our mistake. But how?
+</p>
+<p>
+    On the other hand, such a mistake could be done because so far numerator and denominator were represented as
+    Int values. We both know that numerator and denominator are not just typical Int values and Int as a type does
+    not reflect to any concept from music domain. To know what is represented with the values we need to
+    check properties' names. So we need a rescue here. The concept that will help us is called called <i>tiny types</i>.
+</p>
+<p>
+    So <i>tiny type</i> is very small and simple value object with just one property. Typically it wraps primitive
+    type. In this task you will have to find right names for two tiny types, add them as private property in
+    ValidTimeSignature (maintaining immutability) and write <i>create</i> factory method again.
+</p>
 </html>
