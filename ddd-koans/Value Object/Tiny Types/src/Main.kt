@@ -24,13 +24,13 @@ object InvalidTimeSignature : TimeSignature()
 
 data class ValidTimeSignature(private val numerator: Numerator, private val denominator: Denominator) : TimeSignature()
 
-data class Numerator(val value: Int) {
+data class Numerator(private val value: Int) {
     init {
         require(value in 1..32)
     }
 }
 
-data class Denominator(val value: Int) {
+data class Denominator(private val value: Int) {
     init {
         require(value in 1..32 && value.isPowerOfTwo())
     }

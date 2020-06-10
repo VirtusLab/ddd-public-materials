@@ -13,7 +13,7 @@ files:
     - offset: 981
       length: 9
       placeholder_text: TinyType2
-    - offset: 1072
+    - offset: 1080
       length: 11
       placeholder_text: TinyType1
 - name: test/Tests.kt
