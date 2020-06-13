@@ -12,9 +12,12 @@ class Test {
 
     @ParameterizedTest
     @ValueSource(strings = ["Numerator", "Denominator"])
-    fun testIfNumeratorAndDenominatorClassAreAvailableInClassPath(className: String) {
+    fun testIfNumeratorAndDenominatorClassAreAvailableInClassPathAndAreDataClasses(className: String) {
         assertThatCode { Class.forName(className) }
             .`as`("Class $className should be available in classpath").doesNotThrowAnyException()
+        assertThat(Class.forName(className).kotlin.isData)
+            .`as`("$className as small value object should be declared as data class")
+            .isTrue()
     }
 
     @Test

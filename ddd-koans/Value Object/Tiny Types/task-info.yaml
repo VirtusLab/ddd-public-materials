@@ -10,11 +10,11 @@ files:
     - offset: 879
       length: 70
       placeholder_text: 'val writePropertiesHere: Nothing'
-    - offset: 981
-      length: 9
-      placeholder_text: TinyType2
-    - offset: 1080
-      length: 11
-      placeholder_text: TinyType1
+    - offset: 970
+      length: 20
+      placeholder_text: 'class TinyType2'
+    - offset: 1069
+      length: 22
+      placeholder_text: 'class TinyType1'
 - name: test/Tests.kt
   visible: false
