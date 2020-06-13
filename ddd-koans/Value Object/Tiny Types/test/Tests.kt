@@ -71,7 +71,7 @@ class Test {
         val timeSignature = TimeSignature.create(numerator, denominator)
 
         assertThat(timeSignature)
-            .`as`("Creating TimeSignatures using values ($numerator/$denominator) should provide ValidTimeSignature")
+            .`as`("Creating TimeSignatures using values ($numerator/$denominator) should provide InvalidTimeSignature")
             .isExactlyInstanceOf(InvalidTimeSignature::class.java)
     }
 
