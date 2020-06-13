@@ -10,12 +10,10 @@ sealed class TimeSignature {
 
         fun of(timeSignature: String): TimeSignature {
             val groupValues = timeSignatureRegex.matchEntire(timeSignature)?.groupValues
-            return if (groupValues == null) {
-                InvalidTimeSignature
-            } else {
+            return groupValues?.let {
                 val (numerator, denominator) = (groupValues[1] to groupValues[2])
                 create(numerator.toInt(), denominator.toInt())
-            }
+            } ?: InvalidTimeSignature
         }
     }
 }
