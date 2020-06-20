@@ -1,0 +1,14 @@
+type: theory
+files:
+- name: src/Main.kt
+  visible: true
+  placeholders:
+  - offset: 155
+    length: 260
+    placeholder_text: TODO("Add code to self validate the TimeSignature")
+    dependency:
+      lesson: Value Object
+      task: Reflect Domain Representation
+      file: src/Main.kt
+      placeholder: 4
+      is_visible: false
