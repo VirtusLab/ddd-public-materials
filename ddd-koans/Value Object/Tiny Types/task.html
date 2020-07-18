@@ -3,13 +3,13 @@
     When musicians use <b>Time signature</b>, they don't think about putting any number as numerator or denominator.
     For them, numerator and denominator properties are pure concepts which are used to describe only a <b>Time signature</b>.
     <br/>
-    Having that said, do you think that the current implementation of <b>Time signature</b> is also pure?
+    Having said that, do you think that the current implementation of <b>Time signature</b> is also pure?
 </p>
 
 <p>
     Numerator and denominator are represented as Int values.
     We know that Numerator and Denominator are not just typical numeric values and Int as a type does not relate to the musical context.
-    Ints can be i.e subtracted, but do Numerator and Denominator also?
+    For instance, Ints can be subtracted, but do Numerator and Denominator also?
     Could you imagine that by mistake you can add or subtract both numerator and denominator?
     Would it be wise or bring any value? No, I would be just a mistake. However, you can find it out in runtime or hopefully using unit tests.
     Maybe we could use compiler to cover our mistake. But how?
