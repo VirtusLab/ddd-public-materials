@@ -1,4 +1,14 @@
-type: theory
+type: choice
+is_multiple_choice: false
+options:
+  - text: Banking
+    is_correct: false
+  - text: Music
+    is_correct: true
+  - text: Sport
+    is_correct: false
+message_correct: Congratulations!
+message_incorrect: Incorrect answer!
 files:
 - name: src/Main.kt
   visible: true
