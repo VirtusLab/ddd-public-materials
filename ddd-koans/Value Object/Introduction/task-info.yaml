@@ -1,4 +1,14 @@
-type: theory
+type: choice
+is_multiple_choice: false
+options:
+  - text: Value class
+    is_correct: false
+  - text: Valuable object
+    is_correct: false
+  - text: Value object
+    is_correct: true
+message_correct: Congratulations!
+message_incorrect: Incorrect answer!
 files:
 - name: src/Main.kt
   visible: true
