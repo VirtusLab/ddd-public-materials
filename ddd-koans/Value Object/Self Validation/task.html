@@ -1,43 +1,43 @@
 <html>
 
 <q>
-    Have you ever heard about 3/5 time signatures? - asks bassist.
+    Have you ever heard about 3/5 time signatures? - asks the bassist.
 </q>
 <br/>
 <q>
-    No, it sounds weird and incorrectly - answers drummer.
+    No, it sounds weird and incorrect - answers the drummer.
 </q>
 <q>
-    What about 200 over 4? - asks bassist
+    What about 200 over 4? - asks the bassist.
 </q>
 <br/>
 <q>
-    Nah, sounds crazy and could be expressed even with 32nds - answers drummer
+    Nah, sounds crazy and could be expressed even with 32nds - answers the drummer
 </q>
 
 <p>
-    <b>TimeSignature</b> is described using two properties, the same you have declared in previous task. <br/>
-    However, values of this properties cannot be random integers. There are <b>domain rules</b>.
+    <b>TimeSignature</b> is described using two properties, the same you have declared in the previous task. <br/>
+    However, values of these properties cannot be random integers. There are <b>domain rules</b>.
     If you don't remember, here you go:
     <ul>
         <li>numerator is a number between 1 and 32,</li>
         <li>denominator is a number between 1 and 32,</li>
-        <li>denominator is a number of power of two.</li>
+        <li>denominator is a power of two.</li>
     </ul>
 </p>
 <p>
-    <div>How should we validate the values? Let your code throw an exception of any kind on invalid values</div>
+    <div>How should we validate the values? Let your code throw an exception of any kind on invalid values.</div>
     <div>Consider using <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/require.html">require function</a>.</div>
 </p>
 
 <p>
-    To check if number is power of two we provided extension functions <b>Int.main.isPowerOfTwo()</b>.
+    To check if the number is a power of two we provided extension functions <b>Int.main.isPowerOfTwo()</b>.
 </p>
 
 <div class="hint">
-    This may not be obvious at first glance, but if you correctly check if denominator is power of two, then checking
-    if denominator is between 1 and 63 would make test pass as values between 32 and 63 are covered by the power of two
-    condition.
+    This may not be obvious at first glance, but if you correctly check if denominator is in a power of two,
+    then checking if denominator is between 1 and 63 would make the test pass as values between 32 and 63 are
+    covered by the power of two conditions.
 </div>
 
 </html>
