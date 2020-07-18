@@ -1,7 +1,6 @@
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import kotlin.reflect.KMutableProperty
-import kotlin.reflect.KVisibility
 import kotlin.reflect.full.declaredMemberProperties
 import kotlin.reflect.jvm.jvmErasure
 
@@ -11,8 +10,6 @@ class Test {
         TimeSignature::class.declaredMemberProperties.forEach { property ->
             assertThat(property).`as`("${property.name} should be declared as val not var")
                 .isNotInstanceOf(KMutableProperty::class.java)
-            assertThat(property.visibility).`as`("${property.name} should be declared as private")
-                .isEqualTo(KVisibility.PRIVATE)
 
             val returnType = property.returnType
             assertThat(returnType.jvmErasure).`as`("${property.name} should be declared with type Int")
