@@ -1,4 +1,22 @@
-type: theory
+type: choice
+is_multiple_choice: true
+options:
+  - text: Immutablity
+    is_correct: true
+  - text: Self-validation
+    is_correct: true
+  - text: Mutablity
+    is_correct: false
+  - text: Property-based equality
+    is_correct: true
+  - text: Interoperablity
+    is_correct: false
+  - text: Entity-Relationship model
+    is_correct: false
+  - text: Domian-Driven Design
+    is_correct: true
+message_correct: Congratulations!
+message_incorrect: Incorrect answer!
 files:
 - name: src/Main.kt
   visible: true
