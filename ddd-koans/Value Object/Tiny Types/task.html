@@ -3,26 +3,27 @@
     When musicians use <b>Time signature</b>, they don't think about putting any number as numerator or denominator.
     For them, numerator and denominator properties are pure concepts which are used to describe only a <b>Time signature</b>.
     <br/>
-    Having said that, do you think that the current implementation of <b>Time signature</b> is also pure?
+    Having that said, do you think that the current implementation of <b>Time signature</b> is also pure?
 </p>
 
 <p>
     Numerator and denominator are represented as Int values.
     We know that Numerator and Denominator are not just typical numeric values and Int as a type does not relate to the musical context.
-    For instance, Ints can be subtracted, but do Numerator and Denominator also?
+    Ints can be i.e subtracted, but do Numerator and Denominator also?
     Could you imagine that by mistake you can add or subtract both numerator and denominator?
-    Would it be wise or bring any value? No, I would be just a mistake. However, you can find it out in runtime or hopefully using unit tests.
-    Maybe we could use compiler to cover our mistake. But how?
+    Would it be wise or bring any value? No, I would be just a mistake.
+    However, you can find it out in runtime or hopefully using unit tests.
+    Maybe we could use a compiler to cover our mistake. But how?
 </p>
 <p>
-    The concept that will help us is called called <i>tiny types</i>.
-    They are very small and simple value object with just one property.
+    The concept that will help us is called <i>tiny types</i>.
+    They are very small and simple value objects with just one property.
     Typically they wrap a primitive type.
 </p>
 
 <p>
-    In this task you will have to find right names for two tiny types, mark them with
-    the keyword from previous task (to make things faster and easier), add them as private property in
-    ValidTimeSignature (maintaining immutability) and write <i>create</i> factory method again.
+    In this task you will have to find the right names for two tiny types, mark them with the keyword from the previous
+    task (to make things faster and easier), add them as private property in ValidTimeSignature (maintaining immutability)
+    and write with the <i>create</i> factory method again.
 </p>
 </html>
