@@ -11,6 +11,10 @@ data class ValidTimeSignature(private val numerator: Int, private val denominato
     }
 }
 
-fun main() {
-    //Nothing to do here yet. Read the summary and feel free to move to the next exercise.
-}
+fun `which of the below concepts are connected with the Value Object?`(): Set<String> =
+    setOf(
+        "Immutability",
+        "Self-validation",
+        "Property-based equality",
+        "Domain-Driven Design"
+    )

@@ -1,14 +1,10 @@
-type: choice
-is_multiple_choice: false
-options:
-  - text: Banking
-    is_correct: false
-  - text: Music
-    is_correct: true
-  - text: Sport
-    is_correct: false
-message_correct: Congratulations!
-message_incorrect: Incorrect answer!
+type: edu
 files:
 - name: src/Main.kt
   visible: true
+  placeholders:
+  - offset: 69
+    length: 7
+    placeholder_text: TODO("Place for the answer")
+- name: test/Tests.kt
+  visible: false

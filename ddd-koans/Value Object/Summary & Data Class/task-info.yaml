@@ -1,22 +1,4 @@
-type: choice
-is_multiple_choice: true
-options:
-  - text: Immutablity
-    is_correct: true
-  - text: Self-validation
-    is_correct: true
-  - text: Mutablity
-    is_correct: false
-  - text: Property-based equality
-    is_correct: true
-  - text: Interoperablity
-    is_correct: false
-  - text: Entity-Relationship model
-    is_correct: false
-  - text: Domian-Driven Design
-    is_correct: true
-message_correct: Congratulations!
-message_incorrect: Incorrect answer!
+type: edu
 files:
 - name: src/Main.kt
   visible: true
@@ -30,3 +12,10 @@ files:
       file: src/Main.kt
       placeholder: 4
       is_visible: false
+  - offset: 524
+    length: 116
+    placeholder_text: "\"Immutability\", \n        \"Self-validation\",\n        \"\
+      Mutability\",\n        \"Property-based equality\",\n        \"Interoperability\"\
+      ,\n        \"Entity-Relationship model\",\n        \"Domain-Driven Design\""
+- name: test/Tests.kt
+  visible: false
