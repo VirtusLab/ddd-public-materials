@@ -4,24 +4,26 @@
         Let’s go through the traits and concepts that are connected to Value Object and you have already learned about so far.
         <ul>
             <li>
-                A value object is immutable. It <b>must not</b> have any state other than initial, therefore its methods
-                cannot alter its state. However, it is still possible for methods to return new instances of
-                the value object.
+                A value object is immutable. It <b>must not</b> have any state other than initial, therefore
+                its methods cannot alter its state. However, it is still possible for methods to return new
+                instances of the value object.
             </li>
             <li>
                 Value objects should be self-validating. It should be impossible to create a value object with invalid
                 values. There should be no chance that an invalid value object is present in the system.
             </li>
             <li>
-                Value objects differ from each other only by properties as they don't have identities.
+                Value objects should be compared using their properties. They do not have an identity.
+                A value object is distinguishable from others just by its properties.
             </li>
             <li>
-                Use a static factory to create your value object with a cleaner and more concise code. You could also
-                use the approach to prevent throwing an exception on invalid data.
+                Use a static factory to create your value object with a cleaner and more concise code.
+                You could also use the approach to prevent throwing an exception on invalid data.
             </li>
             <li>
-                Remember, a value object's name, properties, methods reflect domain representation of that concept.
-                You create code not only for you but also for other people, including domain experts. That would probably make their life easier.
+                Remember, a value object and its name, properties, methods reflect domain representation of that concept.
+                You create code not only for you but also for other people, including domain experts.
+                That would probably make their life easier.
             </li>
         </ul>
         The above list is a mandatory starting point. Let’s continue to learn even more!
@@ -30,19 +32,19 @@
     <p>
         When you look at the previous six tasks, you may have noticed that the task of creating a value object could
         be a repeatable task and generate boilerplate code. If you thought about it, you would not be the first person
-        and thankfully in Kotlin (and some other languages), there is a way to cover some of the common properties of
-        value objects with a very simple approach.
+        and thankfully in Kotlin (and some other languages), there is a way to cover some of the common properties
+        of value objects with a very simple and basic approach.
     </p>
     <p>
-        To ensure immutability you had to use <i>val</i> keyword and provide equals based on properties.
-        Therefore use the val keyword on properties to ensure immutability and make it a data class (see example on the left) using <i>data</i> keyword.
-        Using such data classes gives you some other features that are all covered
-        in here: <a href="https://kotlinlang.org/docs/reference/data-classes.html">link</a>.
+        So to ensure immutability you have to use val keyword in case of properties and to provide equals method that
+        covers equality based on data you could use data keyword right before keyword class in the class declaration.
+        Using such data classes gives you some other features that are all covered in here:
+        <a href="https://kotlinlang.org/docs/reference/data-classes.html">link</a>.
     </p>
     <p>
-        To give you an opportunity to use the keyword a small task was prepared at the end of this part of course.
-        It covers one extra concept connected with the Domain-Driven Design and Value Objects.
-        Take a look at how TimeSignature is implemented as <i>data class</i>.
+        To give you an opportunity to use the keyword small task was prepared at the end of this part of course.
+        It would cover one extra concept connected with the Domain-Driven Design and Value Objects. Please also,
+        take a look at how TimeSignature is implemented using <i>data class</i> in this task and the next one.
     </p>
 
     <h3>Quiz time</h3>
