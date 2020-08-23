@@ -14,7 +14,7 @@ files:
       is_visible: false
   - offset: 524
     length: 116
-    placeholder_text: "\"Immutability\", \n        \"Self-validation\",\n        \"\
+    placeholder_text: "        \"Immutability\", \n        \"Self-validation\",\n        \"\
       Mutability\",\n        \"Property-based equality\",\n        \"Interoperability\"\
       ,\n        \"Entity-Relationship model\",\n        \"Domain-Driven Design\""
 - name: test/Tests.kt
