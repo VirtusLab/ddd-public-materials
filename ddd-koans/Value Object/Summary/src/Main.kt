@@ -1,8 +1,16 @@
+fun `which of the below concepts are connected with the Value Object?`(): Set<String> =
+    setOf(
+        "Immutability",
+        "Self-validation",
+        "Property-based equality",
+        "Domain-Driven Design"
+    )
+
 data class TimeSignature(private val numerator: Numerator, private val denominator: Denominator) {
     companion object {
         private val timeSignatureRegex = "^(\\d{1,2})/(\\d{1,2})$".toRegex()
 
-        fun create(numerator: Int, denominator: Int): TimeSignature =
+        fun create(numerator: Int, denominator: Int) =
             TimeSignature(Numerator(numerator), Denominator(denominator))
 
         fun of(timeSignature: String): TimeSignature {

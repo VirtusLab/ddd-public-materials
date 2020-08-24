@@ -3,44 +3,35 @@ files:
 - name: src/Main.kt
   visible: true
   placeholders:
-  - offset: 134
-    length: 197
-    placeholder_text: TODO("Write method that correctly creates TimeSignature")
-    dependency:
-      lesson: Value Object
-      task: Static Factory
-      file: src/Main.kt
-      placeholder: 1
-      is_visible: false
-  - offset: 410
-    length: 370
-    placeholder_text: TODO("Implement function that creates TimeSignature from String")
-  - offset: 873
+  - offset: 20
     length: 56
     placeholder_text: TODO("Add numerator and denominator attributes")
     dependency:
       lesson: Value Object
-      task: Static Factory
+      task: Property Based Equality
       file: src/Main.kt
-      placeholder: 2
+      placeholder: 1
       is_visible: false
-  - offset: 970
+  - offset: 99
     length: 260
     placeholder_text: TODO("Add code to self validate the TimeSignature")
     dependency:
       lesson: Value Object
-      task: Static Factory
+      task: Property Based Equality
       file: src/Main.kt
-      placeholder: 3
+      placeholder: 2
       is_visible: false
-  - offset: 1390
+  - offset: 514
     length: 64
     placeholder_text: TODO("Add code that compares two time signatures")
     dependency:
       lesson: Value Object
-      task: Static Factory
+      task: Property Based Equality
       file: src/Main.kt
-      placeholder: 4
+      placeholder: 3
       is_visible: false
+  - offset: 899
+    length: 436
+    placeholder_text: TODO("Implement of method")
 - name: test/Tests.kt
   visible: false

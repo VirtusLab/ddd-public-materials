@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import org.junit.jupiter.params.provider.ValueSource
+import java.lang.reflect.Constructor
 import kotlin.reflect.KMutableProperty
 import kotlin.reflect.full.declaredMemberProperties
 import kotlin.reflect.jvm.jvmErasure
@@ -21,16 +22,17 @@ class Test {
 
     @Test
     fun testIfValidTimeSignatureHasOnlyTwoAttributesDenominatorAndNumerator() {
-        val declaredPropertiesNames = ValidTimeSignature::class.declaredMemberProperties.map { it.name }
+        val declaredPropertiesNames = TimeSignature::class.declaredMemberProperties.map { it.name }
 
         assertThat(declaredPropertiesNames)
-            .`as`("ValidTimeSignature should have two properties: numerator, denominator")
+            .`as`("TimeSignature should have expected properties")
+            .overridingErrorMessage("TimeSignature should have two only two properties: numerator, denominator")
             .containsExactlyInAnyOrder("numerator", "denominator")
     }
 
     @Test
     fun testIfValidTimeSignaturePropertiesAreDeclaredWithExpectedTinyTypes() {
-        ValidTimeSignature::class.declaredMemberProperties.forEach { property ->
+        TimeSignature::class.declaredMemberProperties.forEach { property ->
             assertThat(property).`as`("${property.name} should be declared as val not var")
                 .isNotInstanceOf(KMutableProperty::class.java)
 
@@ -38,11 +40,13 @@ class Test {
             val typeName = property.name.capitalize()
 
             assertThat(returnType.jvmErasure)
-                .`as`("${property.name} should be declared with tiny type $typeName")
+                .`as`("${property.name} should be declared with tiny type")
+                .overridingErrorMessage("${property.name} should be declared with tiny type $typeName")
                 .isEqualTo(Class.forName(typeName).kotlin)
 
             assertThat(returnType.isMarkedNullable)
                 .`as`("${property.name} should not be marked as nullable")
+                .overridingErrorMessage("${property.name} should not be nullable")
                 .isFalse()
         }
     }
@@ -55,8 +59,8 @@ class Test {
         val timeSignature = TimeSignature.create(numerator, denominator)
 
         assertThat(timeSignature)
-            .`as`("Creating TimeSignatures using values ($numerator/$denominator) should provide ValidTimeSignature")
-            .isExactlyInstanceOf(ValidTimeSignature::class.java)
+            .`as`("Creating TimeSignatures using values ($numerator/$denominator) should provide TimeSignature")
+            .isExactlyInstanceOf(TimeSignature::class.java)
     }
 
     @ParameterizedTest
@@ -64,17 +68,17 @@ class Test {
     fun testIfCreatingInvalidTimeSignaturesWillGiveInvalidTimeSignatureObject(arguments: Pair<Int, Int>) {
         val (numerator, denominator) = arguments
 
-        val timeSignature = TimeSignature.create(numerator, denominator)
-
-        assertThat(timeSignature)
-            .`as`("Creating TimeSignatures using values ($numerator/$denominator) should provide InvalidTimeSignature")
-            .isExactlyInstanceOf(InvalidTimeSignature::class.java)
+        assertThatCode { TimeSignature.create(numerator, denominator) }
+            .`as`("Creating TimeSignatures using values ($numerator/$denominator)")
+            .withFailMessage("Creating TimeSignatures using values ($numerator/$denominator) end up throwing exception")
     }
 
     @ParameterizedTest
     @MethodSource("testIfDenominatorAcceptsOnlyIntegersThatArePowerOfTwoAndBetween1And32")
     fun testIfDenominatorAcceptsOnlyIntegersThatArePowerOfTwoAndBetween1And32(value: Int) {
-        assertThatCode { Denominator(value) }
+        val constructor = checkIfTypesExistsWithConstructor("Denominator")
+
+        assertThatCode { constructor.newInstance(value) }
             .`as`("Denominator accepts only value that is power of two and between 1 and 32, $value is not one of them")
             .doesNotThrowAnyException()
     }
@@ -82,15 +86,18 @@ class Test {
     @ParameterizedTest
     @MethodSource("testIfDenominatorDoesNotAcceptIntegersThatAreNotPowerOfTwoOrBetween1And32")
     fun testIfDenominatorDoesNotAcceptIntegersThatAreNotPowerOfTwoOrBetween1And32(value: Int) {
+        val constructor = checkIfTypesExistsWithConstructor("Denominator")
+
         assertThatExceptionOfType(Exception::class.java)
             .`as`("Denominator cannot accept value of $value, because it is not power of two and between 1 and 32")
-            .isThrownBy { Denominator(value) }
+            .isThrownBy { constructor.newInstance(value) }
     }
-
     @ParameterizedTest
     @MethodSource("testIfNumeratorAcceptsOnlyIntegersThatAreBetween1And32")
     fun testIfNumeratorAcceptsOnlyIntegersThatAreBetween1And32(value: Int) {
-        assertThatCode { Numerator(value) }
+        val constructor = checkIfTypesExistsWithConstructor("Numerator")
+
+        assertThatCode { constructor.newInstance(value) }
             .`as`("Numerator accepts only value that is between 1 and 32, $value is not one of them")
             .doesNotThrowAnyException()
     }
@@ -98,9 +105,21 @@ class Test {
     @ParameterizedTest
     @MethodSource("testIfNumeratorDoesNotAcceptIntegersThatAreNotBetween1And32")
     fun testIfNumeratorDoesNotAcceptIntegersThatAreNotBetween1And32(value: Int) {
+        val constructor = checkIfTypesExistsWithConstructor("Numerator")
+
         assertThatExceptionOfType(Exception::class.java)
-            .`as`("Denominator cannot accept value of $value, because it is not between 1 and 32")
-            .isThrownBy { Numerator(value) }
+            .`as`("Numerator cannot accept value of $value, because it is not between 1 and 32")
+            .isThrownBy { constructor.newInstance(value) }
+    }
+
+    private fun checkIfTypesExistsWithConstructor(type: String): Constructor<out Any> {
+        assertThatCode { Class.forName(type) }
+            .overridingErrorMessage("$type does not exists.")
+            .doesNotThrowAnyException()
+        assertThatCode { Class.forName(type).getConstructor(Int::class.java) }
+            .overridingErrorMessage("$type does not exists.")
+            .doesNotThrowAnyException()
+        return Class.forName(type).getConstructor(Int::class.java)
     }
 
     companion object {

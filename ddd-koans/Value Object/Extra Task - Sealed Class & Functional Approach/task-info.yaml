@@ -1,0 +1,16 @@
+type: edu
+files:
+- name: src/Main.kt
+  visible: true
+  placeholders:
+  - offset: 104
+    length: 260
+    placeholder_text: TODO("Add code to self validate the TimeSignature")
+    dependency:
+      lesson: Value Object
+      task: Summary & Data Class
+      file: src/Main.kt
+      placeholder: 1
+      is_visible: false
+- name: test/Tests.kt
+  visible: false

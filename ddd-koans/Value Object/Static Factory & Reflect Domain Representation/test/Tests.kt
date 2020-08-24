@@ -1,4 +1,5 @@
 import org.assertj.core.api.Assertions.assertThat
+import org.assertj.core.api.Assertions.assertThatCode
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 
@@ -10,7 +11,7 @@ class Test {
         val timeSignatureString = "$numerator/$denominator"
 
         val fromStringTimeSignature = TimeSignature.of(timeSignatureString)
-        val fromValuesTimeSignature = TimeSignature.create(numerator, denominator)
+        val fromValuesTimeSignature = TimeSignature(numerator, denominator)
 
         assertThat(fromStringTimeSignature)
             .`as`("TimeSignature created using \"$timeSignatureString\" should be equal to $fromValuesTimeSignature")
@@ -20,10 +21,9 @@ class Test {
     @ParameterizedTest
     @MethodSource("generateInvalidTimeSignatureStrings")
     fun testIfOfFactoryMethodCreatesInvalidTimeSignaturesOnInvalidStrings(invalidTimeSignature: String) {
-        val timeSignature = TimeSignature.of(invalidTimeSignature)
-
-        assertThat(timeSignature).`as`("Creating TimeSignatures using values \"$invalidTimeSignature\" should return InvalidTimeSignature")
-            .isExactlyInstanceOf(InvalidTimeSignature::class.java)
+        assertThatCode { TimeSignature.of(invalidTimeSignature) }
+            .`as`("Creating TimeSignatures using values \"$invalidTimeSignature\"")
+            .withFailMessage("Creating TimeSignatures using values \"$invalidTimeSignature\" ends in exception")
     }
 
     companion object {

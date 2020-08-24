@@ -3,18 +3,18 @@ files:
 - name: src/Main.kt
   visible: true
   placeholders:
-  - offset: 200
-    length: 164
-    placeholder_text: TODO("Write new method that will create time signature from
-      Ints")
-  - offset: 837
-    length: 70
-    placeholder_text: 'val writePropertiesHere: Nothing'
-  - offset: 928
-    length: 20
-    placeholder_text: class TinyType2
-  - offset: 1027
-    length: 22
-    placeholder_text: class TinyType1
+    - offset: 25
+      length: 70
+      placeholder_text: 'val writePropertiesHere: Nothing'
+    - offset: 282
+      length: 61
+      placeholder_text: TODO("Implement method create to construct TimeSignature with
+        ints")
+    - offset: 782
+      length: 20
+      placeholder_text: class TinyType2
+    - offset: 881
+      length: 22
+      placeholder_text: class TinyType1
 - name: test/Tests.kt
   visible: false
