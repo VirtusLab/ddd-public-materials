@@ -1,11 +1,33 @@
-data class TimeSignature(private val numerator: Int, private val denominator: Int) {
-    init {
-        require(numerator in 1..32) {
-            "Numerator must be integer between 1 and 32"
-        }
-        require(denominator in 1..32 && denominator.isPowerOfTwo()) {
-            "Denominator must be integer that is power of two and between 1 and 32"
+sealed class TimeSignature {
+    companion object {
+        private val timeSignatureRegex = "^(\\d{1,2})/(\\d{1,2})$".toRegex()
+
+        fun create(numerator: Int, denominator: Int): TimeSignature =
+            runCatching { ValidTimeSignature(Numerator(numerator), Denominator(denominator)) }
+                .getOrDefault(InvalidTimeSignature)
+
+        fun of(timeSignature: String): TimeSignature {
+            val groupValues = timeSignatureRegex.matchEntire(timeSignature)?.groupValues
+            return groupValues?.let {
+                val (numerator, denominator) = (groupValues[1] to groupValues[2])
+                create(numerator.toInt(), denominator.toInt())
+            } ?: InvalidTimeSignature
         }
     }
 }
 
+object InvalidTimeSignature : TimeSignature()
+
+data class ValidTimeSignature(private val numerator: Numerator, private val denominator: Denominator) : TimeSignature()
+
+data class Numerator(private val value: Int) {
+    init {
+        require(value in 1..32)
+    }
+}
+
+data class Denominator(private val value: Int) {
+    init {
+        require(value in 1..32 && value.isPowerOfTwo())
+    }
+}
