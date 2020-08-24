@@ -1,3 +1,2 @@
-fun main() {
-    // Nothing to do here
-}
+fun `what is the domain that the course focuses on?`(): String =
+    "Music"

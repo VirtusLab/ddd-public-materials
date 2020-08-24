@@ -1,4 +1,10 @@
-type: theory
+type: edu
 files:
 - name: src/Main.kt
   visible: true
+  placeholders:
+  - offset: 69
+    length: 7
+    placeholder_text: TODO("Place for the answer")
+- name: test/Tests.kt
+  visible: false

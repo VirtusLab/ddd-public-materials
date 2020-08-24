@@ -1,3 +1,2 @@
-fun main() {
-    //Nothing to do here yet. Read the introduction part and feel free to move to the next exercise.
-}
+fun `what is the domain-driven design concept that would be covered in the lesson?`(): String =
+    "Value object"

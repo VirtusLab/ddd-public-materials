@@ -1,4 +1,4 @@
-type: theory
+type: edu
 files:
 - name: src/Main.kt
   visible: true
@@ -12,3 +12,10 @@ files:
       file: src/Main.kt
       placeholder: 4
       is_visible: false
+  - offset: 524
+    length: 116
+    placeholder_text: "        \"Immutability\", \n        \"Self-validation\",\n        \"\
+      Mutability\",\n        \"Property-based equality\",\n        \"Interoperability\"\
+      ,\n        \"Entity-Relationship model\",\n        \"Domain-Driven Design\""
+- name: test/Tests.kt
+  visible: false
