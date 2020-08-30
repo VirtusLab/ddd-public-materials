@@ -10,12 +10,16 @@ class Test {
         val (numerator, denominator) = arguments
         val timeSignatureString = "$numerator/$denominator"
 
-        val fromStringTimeSignature = TimeSignature.of(timeSignatureString)
-        val fromValuesTimeSignature = TimeSignature(numerator, denominator)
+        assertThatCode {
+            val fromStringTimeSignature = TimeSignature.of(timeSignatureString)
+            val fromValuesTimeSignature = TimeSignature(numerator, denominator)
 
-        assertThat(fromStringTimeSignature)
-            .`as`("TimeSignature created using \"$timeSignatureString\" should be equal to $fromValuesTimeSignature")
-            .isEqualTo(fromValuesTimeSignature)
+            assertThat(fromStringTimeSignature)
+                .`as`("TimeSignature created using \"$timeSignatureString\" should be equal to $fromValuesTimeSignature")
+                .isEqualTo(fromValuesTimeSignature)
+        }
+            .withFailMessage("TimeSignature created using \"$timeSignatureString\" should be created, but exception was thrown")
+            .doesNotThrowAnyException()
     }
 
     @ParameterizedTest
