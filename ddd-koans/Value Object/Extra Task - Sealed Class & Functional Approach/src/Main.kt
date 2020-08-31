@@ -31,3 +31,12 @@ data class Denominator(private val value: Int) {
         require(value in 1..32 && value.isPowerOfTwo())
     }
 }
+
+fun main() {
+    val timeSignaturesToBe = listOf(Pair(1, 1), Pair(1, 2), Pair(3,4), Pair(4, 3))
+
+    //val timeSignatures = timeSignaturesToBe.map { (n, d) -> ValidTimeSignature(Numerator(n), Denominator(d)) }
+    val timeSignatures = timeSignaturesToBe.map { (n, d) -> TimeSignature.create(n, d) }
+
+    println(timeSignatures)
+}

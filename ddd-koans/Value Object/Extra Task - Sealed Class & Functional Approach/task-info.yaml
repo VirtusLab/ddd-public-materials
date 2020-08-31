@@ -8,6 +8,6 @@ files:
     placeholder_text: TODO("Implement the method to prevent exception throwing")
   - offset: 709
     length: 20
-    placeholder_text: throw Exception("We dont want exception")
+    placeholder_text: throw Exception("We don't want exception")
 - name: test/Tests.kt
   visible: false
