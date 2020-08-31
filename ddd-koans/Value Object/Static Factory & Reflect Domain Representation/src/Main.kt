@@ -27,12 +27,16 @@ class TimeSignature(private val numerator: Int, private val denominator: Int) {
     companion object {
         fun of(timeSignature: String): TimeSignature {
             val timeSignatureRegex = "^(\\d{1,2})/(\\d{1,2})$".toRegex()
-            val groupValues = timeSignatureRegex.matchEntire(timeSignature)?.groupValues
-            return groupValues?.let {
-                val (numerator, denominator) = (groupValues[1] to groupValues[2])
-                TimeSignature(numerator.toInt(), denominator.toInt())
-            } ?: throw IllegalArgumentException("The numerator and denominator must be present")
+            return runCatching {
+                timeSignatureRegex.matchEntire(timeSignature)
+                    ?.groupValues
+                    ?.let { group -> group[1] to group[2] }
+                    ?.let { (numerator, denominator) -> TimeSignature(numerator.toInt(), denominator.toInt()) }
+                    ?: throw InvalidTimeSignatureException()
+            }.getOrElse { throw InvalidTimeSignatureException() }
         }
 
     }
 }
+
+class InvalidTimeSignatureException: Exception("Failed to create TimeSignature")

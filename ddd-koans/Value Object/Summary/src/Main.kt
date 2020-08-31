@@ -11,15 +11,18 @@ data class TimeSignature(private val numerator: Numerator, private val denominat
         private val timeSignatureRegex = "^(\\d{1,2})/(\\d{1,2})$".toRegex()
 
         fun create(numerator: Int, denominator: Int) =
-            TimeSignature(Numerator(numerator), Denominator(denominator))
+            runCatching {
+                TimeSignature(Numerator(numerator), Denominator(denominator))
+            }.getOrElse { throw InvalidTimeSignatureException() }
 
-        fun of(timeSignature: String): TimeSignature {
-            val groupValues = timeSignatureRegex.matchEntire(timeSignature)?.groupValues
-            return groupValues?.let {
-                val (numerator, denominator) = (groupValues[1] to groupValues[2])
-                create(numerator.toInt(), denominator.toInt())
-            } ?: throw Exception("Invalid or not present either denominator or numerator")
-        }
+
+        fun of(timeSignature: String): TimeSignature =
+            timeSignatureRegex.matchEntire(timeSignature)
+                ?.groupValues
+                ?.takeIf { it.size == 3 }
+                ?.let { group -> group[1] to group[2] }
+                ?.let { (numerator, denominator) -> create(numerator.toInt(), denominator.toInt()) }
+                ?: throw InvalidTimeSignatureException()
     }
 }
 
@@ -34,3 +37,5 @@ data class Denominator(private val value: Int) {
         require(value in 1..32 && value.isPowerOfTwo())
     }
 }
+
+class InvalidTimeSignatureException : Exception("Failed to create TimeSignature")

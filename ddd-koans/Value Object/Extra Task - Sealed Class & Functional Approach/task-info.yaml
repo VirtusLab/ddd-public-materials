@@ -3,11 +3,11 @@ files:
 - name: src/Main.kt
   visible: true
   placeholders:
-  - offset: 692
-    length: 20
-    placeholder_text: throw Exception("We dont want exception")
   - offset: 212
     length: 134
     placeholder_text: TODO("Implement the method to prevent exception throwing")
+  - offset: 709
+    length: 20
+    placeholder_text: throw Exception("We dont want exception")
 - name: test/Tests.kt
   visible: false

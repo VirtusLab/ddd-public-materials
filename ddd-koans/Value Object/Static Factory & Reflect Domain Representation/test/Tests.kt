@@ -16,6 +16,7 @@ class Test {
 
             assertThat(fromStringTimeSignature)
                 .`as`("TimeSignature created using \"$timeSignatureString\" should be equal to $fromValuesTimeSignature")
+                .withFailMessage("Created $fromStringTimeSignature from \"$timeSignatureString\" does not match expected $fromValuesTimeSignature")
                 .isEqualTo(fromValuesTimeSignature)
         }
             .withFailMessage("TimeSignature created using \"$timeSignatureString\" should be created, but exception was thrown")
@@ -25,9 +26,14 @@ class Test {
     @ParameterizedTest
     @MethodSource("generateInvalidTimeSignatureStrings")
     fun testIfOfFactoryMethodCreatesInvalidTimeSignaturesOnInvalidStrings(invalidTimeSignature: String) {
-        assertThatCode { TimeSignature.of(invalidTimeSignature) }
-            .`as`("Creating TimeSignatures using values \"$invalidTimeSignature\"")
-            .withFailMessage("Creating TimeSignatures using values \"$invalidTimeSignature\" ends in exception")
+        assertThatCode {
+            assertThatCode { TimeSignature.of(invalidTimeSignature) }
+                .isExactlyInstanceOf(InvalidTimeSignatureException::class.java)
+                .`as`("Creating TimeSignature using \"$invalidTimeSignature\" should fail")
+                .withFailMessage("Creating TimeSignature using \"$invalidTimeSignature\" did not fail")
+        }
+            .withFailMessage("\"$invalidTimeSignature\" is invalid therefore only InvalidTimeSignatureException should have been thrown")
+            .doesNotThrowAnyException()
     }
 
     companion object {

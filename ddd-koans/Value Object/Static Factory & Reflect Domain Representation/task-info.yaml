@@ -31,7 +31,7 @@ files:
       placeholder: 3
       is_visible: false
   - offset: 899
-    length: 436
+    length: 488
     placeholder_text: TODO("Implement of method")
 - name: test/Tests.kt
   visible: false

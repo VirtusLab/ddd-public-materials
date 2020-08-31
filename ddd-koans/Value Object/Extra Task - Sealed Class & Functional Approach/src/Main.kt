@@ -6,13 +6,13 @@ sealed class TimeSignature {
             runCatching { ValidTimeSignature(Numerator(numerator), Denominator(denominator)) }
                 .getOrDefault(InvalidTimeSignature)
 
-        fun of(timeSignature: String): TimeSignature {
-            val groupValues = timeSignatureRegex.matchEntire(timeSignature)?.groupValues
-            return groupValues?.let {
-                val (numerator, denominator) = (groupValues[1] to groupValues[2])
-                create(numerator.toInt(), denominator.toInt())
-            } ?: InvalidTimeSignature
-        }
+        fun of(timeSignature: String): TimeSignature =
+            timeSignatureRegex.matchEntire(timeSignature)
+                ?.groupValues
+                ?.takeIf { it.size == 3 }
+                ?.let { group -> group[1] to group[2] }
+                ?.let { (numerator, denominator) -> create(numerator.toInt(), denominator.toInt()) }
+                ?: InvalidTimeSignature
     }
 }
 

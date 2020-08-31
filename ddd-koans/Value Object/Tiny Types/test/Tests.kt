@@ -69,8 +69,9 @@ class Test {
         val (numerator, denominator) = arguments
 
         assertThatCode { TimeSignature.create(numerator, denominator) }
+            .isExactlyInstanceOf(InvalidTimeSignatureException::class.java)
             .`as`("Creating TimeSignatures using values ($numerator/$denominator)")
-            .withFailMessage("Creating TimeSignatures using values ($numerator/$denominator) end up throwing exception")
+            .withFailMessage("Creating TimeSignatures using values ($numerator/$denominator) end up throwing InvalidTimeSignatureException")
     }
 
     @ParameterizedTest
