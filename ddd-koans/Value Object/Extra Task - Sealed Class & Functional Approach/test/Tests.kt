@@ -1,4 +1,5 @@
 import org.assertj.core.api.Assertions.assertThat
+import org.assertj.core.api.Assertions.assertThatCode
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 
@@ -22,9 +23,14 @@ class Test {
 
         val timeSignature = TimeSignature.create(numerator, denominator)
 
-        assertThat(timeSignature)
-            .`as`("Creating TimeSignatures using values ($numerator/$denominator) should provide ValidTimeSignature")
-            .isExactlyInstanceOf(InvalidTimeSignature::class.java)
+        assertThatCode {
+            assertThat(timeSignature)
+                .`as`("Creating TimeSignature ($numerator/$denominator) should return InvalidTimeSignature and exception should not be thrown")
+                .isExactlyInstanceOf(InvalidTimeSignature::class.java)
+        }
+            .withFailMessage("Creating invalid TimeSignature($numerator/$denominator) should not throw exception, but it had")
+            .doesNotThrowAnyException()
+
     }
 
     @ParameterizedTest
