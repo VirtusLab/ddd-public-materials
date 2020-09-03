@@ -33,10 +33,11 @@ data class Denominator(private val value: Int) {
 }
 
 fun main() {
-    val timeSignaturesToBe = listOf(Pair(1, 1), Pair(1, 2), Pair(3,4), Pair(4, 3))
+    val validTimeSignatures = setOf("1/2", "3/4", "4/4")
+    val invalidTimeSignatures = setOf("1/3", "5/7")
+    val timeSignatureToCreate = validTimeSignatures + invalidTimeSignatures
 
-    //val timeSignatures = timeSignaturesToBe.map { (n, d) -> ValidTimeSignature(Numerator(n), Denominator(d)) }
-    val timeSignatures = timeSignaturesToBe.map { (n, d) -> TimeSignature.create(n, d) }
-
-    println(timeSignatures)
+    timeSignatureToCreate
+        .map { input -> TimeSignature.of(input) }
+        .forEach(::println)
 }

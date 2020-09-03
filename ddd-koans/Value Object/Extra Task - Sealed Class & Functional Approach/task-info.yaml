@@ -5,7 +5,7 @@ files:
   placeholders:
   - offset: 212
     length: 134
-    placeholder_text: TODO("Implement the method to prevent exception throwing")
+    placeholder_text: throw Exception("We don't want exception")
   - offset: 709
     length: 20
     placeholder_text: throw Exception("We don't want exception")
