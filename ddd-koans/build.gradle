@@ -3,7 +3,6 @@ buildscript {
 
     repositories {
         mavenCentral()
-        
     }
 
     dependencies {
@@ -50,11 +49,9 @@ subprojects {
     sourceSets {
         main {
             kotlin.srcDir 'src'
-            java.srcDir 'src'
         }
         test {
             kotlin.srcDir 'test'
-            java.srcDir 'test'
         }
     }
 

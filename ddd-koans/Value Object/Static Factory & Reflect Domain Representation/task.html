@@ -1,0 +1,46 @@
+<html>
+
+<q>
+    You cannot create music with an incorrect time signature like 1/17! You've just failed your exam - said the senior conductor.
+</q>
+<br/>
+<q>
+    Oh, right, it was the reason why it sounded so odd - answers the music student.
+</q>
+<p>
+    In text time signatures are written using the slash sign "/" like "3/4". <br/>
+    It is an understandable notation for Musicians which can be easily followed in our model.
+</p>
+<p>
+    Do you think that musicians would understand such a snippet <i>TimeSignature.of("1/2")?</i><br/>
+</p>
+<p>
+    ...
+</p>
+<p>
+    Hopefully, they do!
+</p>
+
+<hr>
+
+<p> Let's then implement such a feature inside the <b>TimeSignature</b> value object. </p>
+<p>
+    You have to create a <b>of</b> method that creates TimeSignature from String such as "1/2" or "4/4".
+    The method call should look like this <i>TimeSignature.of("1/2")</i>. Please create the given method in such manner
+    that it accepts just the minimal acceptable string representation of time signature,
+    any additional whitespaces  (like " 1/2", "4/4 &nbsp;&nbsp;&nbsp;&nbsp;") or just wrong values should end up throwing
+    the provided InvalidTimeSignatureException.
+</p>
+<hr>
+    The <b>of</b> method is so called: <i>static factory method</i>. Kotlin has no concept of static methods, however,
+    the functionality was replaced by companion objects
+    (<a href="https://kotlinlang.org/docs/tutorials/kotlin-for-py/objects-and-companion-objects.html#companion-objects">link</a>).
+
+    Such methods, as well as other similar creational patterns, are useful in some situations and have some advantages:
+<ul>
+    <li>have names in opposite to constructors</li>
+    <li>return different types including subtypes</li>
+    <li>sometimes encapsulate more complex logic for the object creation (this task)</li>
+</ul>
+
+</html>

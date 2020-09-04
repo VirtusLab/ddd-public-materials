@@ -4,7 +4,7 @@ content:
 - Immutablity
 - Self Validation
 - Property Based Equality
-- Static Factory
-- Reflect Domain Representation
-- Summary & Data Class
+- Static Factory & Reflect Domain Representation
 - Tiny Types
+- Summary
+- Extra Task - Sealed Class & Functional Approach

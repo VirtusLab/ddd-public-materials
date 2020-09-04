@@ -1,0 +1,30 @@
+<html>
+<p>
+    Please take a look at the code in the <i>main</i> function and run it. What has happened? Has anything been printed?
+</p>
+
+<p>
+    Sadly, the flow of this simple logic was broken because current implementation throws an exception. It may have disastrous effects if not handled properly.
+
+    This is not the best thing to do so we would change the way we create TimeSignatures to be sure that exceptions are not thrown.
+</p>
+
+<p>
+    First of all, we are going to use a concept that origins in functional programming, but will help us in here.
+    So, if you don't know about <i>sealed classes</i> in Kotlin, read the
+    <a href="https://kotlinlang.org/docs/reference/sealed-classes.html">documentation</a>.
+</p>
+
+<p>
+    As you can see in the code in the example we changed our TimeSignature class to ValidTimeSignatures and
+    extend the newly created sealed class TimeSignature.
+</p>
+<p>
+    We have also created an object InvalidTimeSignature that also extends TimeSignature.
+    If you are unfamiliar with objects in Kotlin, please read the documentation: <a href="https://kotlinlang.org/docs/tutorials/kotlin-for-py/objects-and-companion-objects.html#object-declarations">link</a>.
+</p>
+<p>
+    Now you are going to implement the <b>create</b> and fix <b>of</b> method
+    that create ValidTimeSignatures or returns the InvalidTimeSignature object.
+</p>
+</html>

@@ -1,8 +1,38 @@
 import org.assertj.core.api.Assertions.assertThat
+import org.assertj.core.api.Assertions.assertThatCode
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 
 class Test {
+    @ParameterizedTest
+    @MethodSource("generateValidTimeSignatures")
+    fun testIfCreatingAllValidTimeSignaturesWillGiveValidTimeSignatureInstance(arguments: Pair<Int, Int>) {
+        val (numerator, denominator) = arguments
+
+        val timeSignature = TimeSignature.create(numerator, denominator)
+
+        assertThat(timeSignature)
+            .`as`("Creating TimeSignatures using values ($numerator/$denominator) should provide ValidTimeSignature")
+            .isExactlyInstanceOf(ValidTimeSignature::class.java)
+    }
+
+    @ParameterizedTest
+    @MethodSource("generateInvalidTimeSignatures")
+    fun testIfCreatingInvalidTimeSignaturesWillGiveInvalidTimeSignatureObject(arguments: Pair<Int, Int>) {
+        val (numerator, denominator) = arguments
+
+        val timeSignature = TimeSignature.create(numerator, denominator)
+
+        assertThatCode {
+            assertThat(timeSignature)
+                .`as`("Creating TimeSignature ($numerator/$denominator) should return InvalidTimeSignature and exception should not be thrown")
+                .isExactlyInstanceOf(InvalidTimeSignature::class.java)
+        }
+            .withFailMessage("Creating invalid TimeSignature($numerator/$denominator) should not throw exception, but it had")
+            .doesNotThrowAnyException()
+
+    }
+
     @ParameterizedTest
     @MethodSource("generateValidTimeSignatures")
     fun testIfOfFactoryMethodCreatesAllValidTimeSignaturesUsingAllValidStrings(arguments: Pair<Int, Int>) {

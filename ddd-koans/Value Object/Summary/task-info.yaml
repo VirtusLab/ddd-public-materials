@@ -1,0 +1,12 @@
+type: edu
+files:
+- name: src/Main.kt
+  visible: true
+  placeholders:
+  - offset: 107
+    length: 108
+    placeholder_text: "\"Immutability\", \n        \"Self-validation\",\n        \"\
+      Mutability\",\n        \"Property-based equality\",\n        \"Interoperability\"\
+      ,\n        \"Entity-Relationship model\",\n        \"Domain-Driven Design\""
+- name: test/Tests.kt
+  visible: false

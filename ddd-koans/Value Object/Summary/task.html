@@ -1,0 +1,39 @@
+<html>
+<h3>Summary</h3>
+<p>
+    Let’s go through the traits and concepts that are connected to Value Object and you have already learned about so far.
+<ul>
+    <li>
+        A value object is immutable. It <b>must not</b> have any state other than initial, therefore
+        its methods cannot alter its state. However, it is still possible for methods to return new
+        instances of the value object.
+    </li>
+    <li>
+        Value objects should be self-validating. It should be impossible to create a value object with invalid
+        values. There should be no chance that an invalid value object is present in the system.
+    </li>
+    <li>
+        Value objects should be compared using their properties. They do not have an identity.
+        A value object is distinguishable from others just by its properties.
+    </li>
+    <li>
+        Use a static factory to create your value object with a cleaner and more concise code.
+        You could also use the approach to prevent throwing an exception on invalid data.
+    </li>
+    <li>
+        Remember, a value object and its name, properties, methods reflect domain representation of that concept.
+        You create code not only for you but also for other people, including domain experts.
+        That would probably make their life easier.
+    </li>
+    <li>
+        Creating tiny types to represent very simple value objects can prevent mistakes in compile time.
+    </li>
+</ul>
+The above list is a mandatory starting point. Let’s continue to learn even more!
+</p>
+
+<h4>Quiz time</h4>
+<p>
+    Please remove not matching options from the set of answers in the first method in the code.
+</p>
+</html>
