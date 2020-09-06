@@ -4,7 +4,7 @@ class TimeSignature(private val numberOfBeats: Int, private val noteValue: Int) 
             "Number of beats must be integer between 1 and 32"
         }
         require(noteValue in 1..32 && noteValue.isPowerOfTwo()) {
-            "NoteValue must be integer that is power of two and between 1 and 32"
+            "Note value must be integer that is power of two and between 1 and 32"
         }
     }
 

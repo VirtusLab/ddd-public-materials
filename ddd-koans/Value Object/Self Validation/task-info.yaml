@@ -13,7 +13,7 @@ files:
       placeholder: 1
       is_visible: false
   - offset: 101
-    length: 264
+    length: 265
     placeholder_text: TODO("Add code to self validate the TimeSignature")
 - name: test/Tests.kt
   visible: false
