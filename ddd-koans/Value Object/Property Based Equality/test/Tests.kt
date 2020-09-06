@@ -32,7 +32,7 @@ class Test {
 
     @ParameterizedTest
     @MethodSource("generateValidTimeSignatures")
-    fun testTimeSignaturesWithSameNumeratorAndNoteValuesAreEqual(numberOfBeatsAndNoteValue: Pair<Int, Int>) {
+    fun testTimeSignaturesWithSameNumberOfBEatsAndNoteValuesAreEqual(numberOfBeatsAndNoteValue: Pair<Int, Int>) {
         val (numberOfBeats, noteValue) = numberOfBeatsAndNoteValue
 
         val timeSignature = TimeSignature(numberOfBeats, noteValue)
@@ -44,7 +44,7 @@ class Test {
     }
 
     @Test
-    fun testTimeSignatureWithBothDifferentNumeratorAndNoteValueAreNotEqual() {
+    fun testTimeSignatureWithBothDifferentNumberOfBEatsAndNoteValueAreNotEqual() {
         val timeSignature = TimeSignature(1, 1)
         val otherTimeSignature = TimeSignature(32, 32)
 

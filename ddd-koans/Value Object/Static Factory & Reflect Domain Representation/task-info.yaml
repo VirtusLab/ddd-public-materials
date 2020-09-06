@@ -13,7 +13,7 @@ files:
       placeholder: 1
       is_visible: false
   - offset: 101
-    length: 258
+    length: 264
     placeholder_text: TODO("Add code to self validate the TimeSignature")
     dependency:
       lesson: Value Object
@@ -21,7 +21,7 @@ files:
       file: src/Main.kt
       placeholder: 2
       is_visible: false
-  - offset: 514
+  - offset: 520
     length: 68
     placeholder_text: TODO("Add code that compares two time signatures")
     dependency:
@@ -30,7 +30,7 @@ files:
       file: src/Main.kt
       placeholder: 3
       is_visible: false
-  - offset: 907
+  - offset: 913
     length: 492
     placeholder_text: TODO("Implement of method")
 - name: test/Tests.kt
