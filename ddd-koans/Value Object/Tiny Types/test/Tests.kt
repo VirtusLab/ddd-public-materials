@@ -26,8 +26,8 @@ class Test {
 
         assertThat(declaredPropertiesNames)
             .`as`("TimeSignature should have expected properties")
-            .overridingErrorMessage("TimeSignature should have two only two properties: numerator, denominator")
-            .containsExactlyInAnyOrder("numerator", "denominator")
+            .overridingErrorMessage("TimeSignature should have two only two properties: numberOfBeats, denominator")
+            .containsExactlyInAnyOrder("numberOfBeats", "denominator")
     }
 
     @Test
@@ -54,24 +54,24 @@ class Test {
     @ParameterizedTest
     @MethodSource("generateValidTimeSignatures")
     fun testIfCreatingAllValidTimeSignaturesWillGiveValidTimeSignatureInstance(arguments: Pair<Int, Int>) {
-        val (numerator, denominator) = arguments
+        val (numberOfBeats, denominator) = arguments
 
-        val timeSignature = TimeSignature.create(numerator, denominator)
+        val timeSignature = TimeSignature.create(numberOfBeats, denominator)
 
         assertThat(timeSignature)
-            .`as`("Creating TimeSignatures using values ($numerator/$denominator) should provide TimeSignature")
+            .`as`("Creating TimeSignatures using values ($numberOfBeats/$denominator) should provide TimeSignature")
             .isExactlyInstanceOf(TimeSignature::class.java)
     }
 
     @ParameterizedTest
     @MethodSource("generateInvalidTimeSignatures")
     fun testIfCreatingInvalidTimeSignaturesWillGiveInvalidTimeSignatureObject(arguments: Pair<Int, Int>) {
-        val (numerator, denominator) = arguments
+        val (numberOfBeats, denominator) = arguments
 
-        assertThatCode { TimeSignature.create(numerator, denominator) }
+        assertThatCode { TimeSignature.create(numberOfBeats, denominator) }
             .isExactlyInstanceOf(InvalidTimeSignatureException::class.java)
-            .`as`("Creating TimeSignatures using values ($numerator/$denominator)")
-            .withFailMessage("Creating TimeSignatures using values ($numerator/$denominator) end up throwing InvalidTimeSignatureException")
+            .`as`("Creating TimeSignatures using values ($numberOfBeats/$denominator)")
+            .withFailMessage("Creating TimeSignatures using values ($numberOfBeats/$denominator) end up throwing InvalidTimeSignatureException")
     }
 
     @ParameterizedTest
@@ -126,16 +126,16 @@ class Test {
     companion object {
         @JvmStatic
         fun generateInvalidTimeSignatures(): List<Pair<Int, Int>> {
-            val denominatorInValidRangeButNotPowerOfTwo = (1..32).flatMap { numerator ->
-                (1..32).filterNot { it.isPowerOfTwo() }.map { numerator to it }
+            val denominatorInValidRangeButNotPowerOfTwo = (1..32).flatMap { numberOfBeats ->
+                (1..32).filterNot { it.isPowerOfTwo() }.map { numberOfBeats to it }
             }
             val denominatorIsZero = 1 to 0
             val denominatorIs33 = 1 to 33
             val denominatorIsPowerOfTwoButBiggerThan32 = 1 to 64
-            val numeratorIsZero = 0 to 1
-            val numeratorIs33 = 33 to 1
+            val numberOfBeatsIsZero = 0 to 1
+            val numberOfBeatsIs33 = 33 to 1
             return denominatorInValidRangeButNotPowerOfTwo + denominatorIsZero + denominatorIs33 +
-                    denominatorIsPowerOfTwoButBiggerThan32 + numeratorIs33 + numeratorIsZero
+                    denominatorIsPowerOfTwoButBiggerThan32 + numberOfBeatsIs33 + numberOfBeatsIsZero
         }
 
         @JvmStatic

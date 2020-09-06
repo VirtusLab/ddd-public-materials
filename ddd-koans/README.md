@@ -30,9 +30,9 @@ Together they tell us the total length of all symbols in a bar.
 
 In text time signatures are written using the slash sign **"/"** like **3/4**.
 
-#### The upper number - numerator
+#### The upper number - number of beats
 
-The upper number (numerator) has one limitation - it needs to be greater than 0 integer.
+The upper number (number of beats) has one limitation - it needs to be greater than 0 integer.
 However, for the purpose of this example let's say that the maximum number is **32**.
 
 

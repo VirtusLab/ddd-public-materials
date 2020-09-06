@@ -1,6 +1,6 @@
-class TimeSignature(private val numerator: Int, private val denominator: Int) {
+class TimeSignature(private val numberOfBeats: Int, private val denominator: Int) {
     init {
-        require(numerator in 1..32) {
+        require(numberOfBeats in 1..32) {
             "Numerator must be integer between 1 and 32"
         }
         require(denominator in 1..32 && denominator.isPowerOfTwo()) {
@@ -12,17 +12,17 @@ class TimeSignature(private val numerator: Int, private val denominator: Int) {
         if (other == null || other !is TimeSignature)
             false
         else {
-            other.denominator == denominator && other.numerator == numerator
+            other.denominator == denominator && other.numberOfBeats == numberOfBeats
         }
 
 
     override fun hashCode(): Int {
-        var result = numerator
+        var result = numberOfBeats
         result = 31 * result + denominator
         return result
     }
 
-    override fun toString(): String = "TimeSignature($numerator/$denominator)"
+    override fun toString(): String = "TimeSignature($numberOfBeats/$denominator)"
 
     companion object {
         fun of(timeSignature: String): TimeSignature {
@@ -31,7 +31,7 @@ class TimeSignature(private val numerator: Int, private val denominator: Int) {
                 timeSignatureRegex.matchEntire(timeSignature)
                     ?.groupValues
                     ?.let { group -> group[1] to group[2] }
-                    ?.let { (numerator, denominator) -> TimeSignature(numerator.toInt(), denominator.toInt()) }
+                    ?.let { (numberOfBeats, denominator) -> TimeSignature(numberOfBeats.toInt(), denominator.toInt()) }
                     ?: throw InvalidTimeSignatureException()
             }.getOrElse { throw InvalidTimeSignatureException() }
         }

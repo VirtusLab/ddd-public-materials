@@ -1,6 +1,6 @@
-class TimeSignature(private val numerator: Int, private val denominator: Int) {
+class TimeSignature(private val numberOfBeats: Int, private val denominator: Int) {
     init {
-        require(numerator in 1..32) {
+        require(numberOfBeats in 1..32) {
             "Numerator must be integer between 1 and 32"
         }
         require(denominator in 1..32 && denominator.isPowerOfTwo()) {
@@ -8,5 +8,5 @@ class TimeSignature(private val numerator: Int, private val denominator: Int) {
         }
     }
 
-    override fun toString(): String = "TimeSignature($numerator/$denominator)"
+    override fun toString(): String = "TimeSignature($numberOfBeats/$denominator)"
 }

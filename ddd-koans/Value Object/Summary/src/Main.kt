@@ -6,13 +6,13 @@ fun `which of the below concepts are connected with the Value Object?`(): Set<St
         "Domain-Driven Design"
     )
 
-data class TimeSignature(private val numerator: Numerator, private val denominator: Denominator) {
+data class TimeSignature(private val numberOfBeats: Numerator, private val denominator: Denominator) {
     companion object {
         private val timeSignatureRegex = "^(\\d{1,2})/(\\d{1,2})$".toRegex()
 
-        fun create(numerator: Int, denominator: Int) =
+        fun create(numberOfBeats: Int, denominator: Int) =
             runCatching {
-                TimeSignature(Numerator(numerator), Denominator(denominator))
+                TimeSignature(Numerator(numberOfBeats), Denominator(denominator))
             }.getOrElse { throw InvalidTimeSignatureException() }
 
 
@@ -21,7 +21,7 @@ data class TimeSignature(private val numerator: Numerator, private val denominat
                 ?.groupValues
                 ?.takeIf { it.size == 3 }
                 ?.let { group -> group[1] to group[2] }
-                ?.let { (numerator, denominator) -> create(numerator.toInt(), denominator.toInt()) }
+                ?.let { (numberOfBeats, denominator) -> create(numberOfBeats.toInt(), denominator.toInt()) }
                 ?: throw InvalidTimeSignatureException()
     }
 }

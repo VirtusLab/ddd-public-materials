@@ -7,12 +7,12 @@ class Test {
     @ParameterizedTest
     @MethodSource("generateValidTimeSignatures")
     fun testIfOfFactoryMethodCreatesAllValidTimeSignaturesUsingAllValidStrings(arguments: Pair<Int, Int>) {
-        val (numerator, denominator) = arguments
-        val timeSignatureString = "$numerator/$denominator"
+        val (numberOfBeats, denominator) = arguments
+        val timeSignatureString = "$numberOfBeats/$denominator"
 
         assertThatCode {
             val fromStringTimeSignature = TimeSignature.of(timeSignatureString)
-            val fromValuesTimeSignature = TimeSignature(numerator, denominator)
+            val fromValuesTimeSignature = TimeSignature(numberOfBeats, denominator)
 
             assertThat(fromStringTimeSignature)
                 .`as`("TimeSignature created using \"$timeSignatureString\" should be equal to $fromValuesTimeSignature")
@@ -39,16 +39,16 @@ class Test {
     companion object {
         @JvmStatic
         fun generateInvalidTimeSignatures(): List<Pair<Int, Int>> {
-            val denominatorInValidRangeButNotPowerOfTwo = (1..32).flatMap { numerator ->
-                (1..32).filterNot { it.isPowerOfTwo() }.map { numerator to it }
+            val denominatorInValidRangeButNotPowerOfTwo = (1..32).flatMap { numberOfBeats ->
+                (1..32).filterNot { it.isPowerOfTwo() }.map { numberOfBeats to it }
             }
             val denominatorIsZero = 1 to 0
             val denominatorIs33 = 1 to 33
             val denominatorIsPowerOfTwoButBiggerThan32 = 1 to 64
-            val numeratorIsZero = 0 to 1
-            val numeratorIs33 = 33 to 1
+            val numberOfBeatsIsZero = 0 to 1
+            val numberOfBeatsIs33 = 33 to 1
             return denominatorInValidRangeButNotPowerOfTwo + denominatorIsZero + denominatorIs33 +
-                    denominatorIsPowerOfTwoButBiggerThan32 + numeratorIs33 + numeratorIsZero
+                    denominatorIsPowerOfTwoButBiggerThan32 + numberOfBeatsIs33 + numberOfBeatsIsZero
         }
 
         @JvmStatic

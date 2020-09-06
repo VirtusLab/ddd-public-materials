@@ -9,36 +9,36 @@ class Test {
     @ParameterizedTest
     @MethodSource("generateValidTimeSignatures")
     fun testIfCreatingAllValidTimeSignaturesWillNotThrowException(arguments: Pair<Int, Int>) {
-        val (numerator, denominator) = arguments
+        val (numberOfBeats, denominator) = arguments
 
-        assertThatCode { TimeSignature(numerator, denominator) }
-            .`as`("Creating TimeSignatures using values ($numerator/$denominator) should not throw exception on creation")
+        assertThatCode { TimeSignature(numberOfBeats, denominator) }
+            .`as`("Creating TimeSignatures using values ($numberOfBeats/$denominator) should not throw exception on creation")
             .doesNotThrowAnyException()
     }
 
     @ParameterizedTest
     @MethodSource("generateInvalidTimeSignatures")
     fun testIfCreatingInvalidTimeSignaturesWillThrowException(arguments: Pair<Int, Int>) {
-        val (numerator, denominator) = arguments
+        val (numberOfBeats, denominator) = arguments
 
         assertThatExceptionOfType(Exception::class.java)
-            .`as`("Invalid values ($numerator/$denominator) should cause throwing exception when creating TimeSignatures")
-            .isThrownBy { TimeSignature(numerator, denominator) }
+            .`as`("Invalid values ($numberOfBeats/$denominator) should cause throwing exception when creating TimeSignatures")
+            .isThrownBy { TimeSignature(numberOfBeats, denominator) }
     }
 
     companion object {
         @JvmStatic
         fun generateInvalidTimeSignatures(): List<Pair<Int, Int>> {
-            val denominatorInValidRangeButNotPowerOfTwo = (1..32).flatMap { numerator ->
-                (1..32).filterNot { it.isPowerOfTwo() }.map { numerator to it }
+            val denominatorInValidRangeButNotPowerOfTwo = (1..32).flatMap { numberOfBeats ->
+                (1..32).filterNot { it.isPowerOfTwo() }.map { numberOfBeats to it }
             }
             val denominatorIsZero = 1 to 0
             val denominatorIs33 = 1 to 33
             val denominatorIsPowerOfTwoButBiggerThan32 = 1 to 64
-            val numeratorIsZero = 0 to 1
-            val numeratorIs33 = 33 to 1
+            val numberOfBeatsIsZero = 0 to 1
+            val numberOfBeatsIs33 = 33 to 1
             return denominatorInValidRangeButNotPowerOfTwo + denominatorIsZero + denominatorIs33 +
-                    denominatorIsPowerOfTwoButBiggerThan32 + numeratorIs33 + numeratorIsZero
+                    denominatorIsPowerOfTwoButBiggerThan32 + numberOfBeatsIs33 + numberOfBeatsIsZero
         }
 
         @JvmStatic

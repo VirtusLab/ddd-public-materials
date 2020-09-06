@@ -1,23 +1,23 @@
-data class TimeSignature(private val numerator: Numerator, private val denominator: Denominator) {
+data class TimeSignature(private val numberOfBeats: NumberOfBeats, private val denominator: Denominator) {
     companion object {
         private val timeSignatureRegex = "^(\\d{1,2})/(\\d{1,2})$".toRegex()
 
-        fun create(numerator: Int, denominator: Int): TimeSignature =
+        fun create(numberOfBeats: Int, denominator: Int): TimeSignature =
             runCatching {
-                TimeSignature(Numerator(numerator), Denominator(denominator))
+                TimeSignature(NumberOfBeats(numberOfBeats), Denominator(denominator))
             }.getOrElse { throw InvalidTimeSignatureException() }
 
         fun of(timeSignature: String): TimeSignature =
             timeSignatureRegex.matchEntire(timeSignature)
                 ?.groupValues
                 ?.let { group -> group[1] to group[2] }
-                ?.let { (numerator, denominator) -> create(numerator.toInt(), denominator.toInt()) }
+                ?.let { (numberOfBeats, denominator) -> create(numberOfBeats.toInt(), denominator.toInt()) }
                 ?: throw InvalidTimeSignatureException()
 
     }
 }
 
-data class Numerator(private val value: Int) {
+data class NumberOfBeats(private val value: Int) {
     init {
         require(value in 1..32)
     }

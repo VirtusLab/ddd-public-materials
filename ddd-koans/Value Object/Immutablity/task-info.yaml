@@ -4,8 +4,8 @@ files:
   visible: true
   placeholders:
   - offset: 20
-    length: 56
-    placeholder_text: TODO("Add numerator and denominator attributes")
+    length: 60
+    placeholder_text: TODO("Add numberOfBeats and denominator attributes")
 - name: test/Tests.kt
   visible: false
 - name: 3over4.png

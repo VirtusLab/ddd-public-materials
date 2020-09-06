@@ -2,9 +2,9 @@ import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 
 fun allValidValuesForTimeSignature() =
-    (1..32).flatMap { numerator ->
+    (1..32).flatMap { numberOfBeats ->
         allValidDenominatorValues()
-            .map { denominator -> numerator to denominator }
+            .map { denominator -> numberOfBeats to denominator }
     }
 
 private fun allValidDenominatorValues() =
