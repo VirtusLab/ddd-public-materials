@@ -4,16 +4,16 @@ files:
   visible: true
   placeholders:
   - offset: 20
-    length: 60
-    placeholder_text: TODO("Add numberOfBeats and denominator attributes")
+    length: 58
+    placeholder_text: TODO("Add numberOfBeats and noteValue attributes")
     dependency:
       lesson: Value Object
       task: Property Based Equality
       file: src/Main.kt
       placeholder: 1
       is_visible: false
-  - offset: 103
-    length: 264
+  - offset: 101
+    length: 258
     placeholder_text: TODO("Add code to self validate the TimeSignature")
     dependency:
       lesson: Value Object
@@ -21,8 +21,8 @@ files:
       file: src/Main.kt
       placeholder: 2
       is_visible: false
-  - offset: 522
-    length: 72
+  - offset: 514
+    length: 68
     placeholder_text: TODO("Add code that compares two time signatures")
     dependency:
       lesson: Value Object
@@ -30,8 +30,8 @@ files:
       file: src/Main.kt
       placeholder: 3
       is_visible: false
-  - offset: 923
-    length: 496
+  - offset: 907
+    length: 492
     placeholder_text: TODO("Implement of method")
 - name: test/Tests.kt
   visible: false

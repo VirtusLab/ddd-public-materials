@@ -20,11 +20,11 @@ class Test {
     }
 
     @Test
-    fun testIfTimeSignatureHasOnlyTwoAttributesDenominatorAndNumberOfBeats() {
+    fun testIfTimeSignatureHasOnlyTwoAttributesNoteValueAndNumberOfBeats() {
         val declaredPropertiesNames = TimeSignature::class.declaredMemberProperties.map { it.name }
 
         assertThat(declaredPropertiesNames)
-            .`as`("TimeSignature's should have two properties: numberOfBeats, denominator")
-            .containsExactlyInAnyOrder("numberOfBeats", "denominator")
+            .`as`("TimeSignature's should have two properties: numberOfBeats, noteValue")
+            .containsExactlyInAnyOrder("numberOfBeats", "noteValue")
     }
 }

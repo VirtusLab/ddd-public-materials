@@ -4,16 +4,16 @@ files:
   visible: true
   placeholders:
   - offset: 20
-    length: 60
-    placeholder_text: TODO("Add numberOfBeats and denominator attributes")
+    length: 58
+    placeholder_text: TODO("Add numberOfBeats and noteValue attributes")
     dependency:
       lesson: Value Object
       task: Immutablity
       file: src/Main.kt
       placeholder: 1
       is_visible: false
-  - offset: 103
-    length: 264
+  - offset: 101
+    length: 258
     placeholder_text: TODO("Add code to self validate the TimeSignature")
 - name: test/Tests.kt
   visible: false

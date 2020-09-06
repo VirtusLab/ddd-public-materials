@@ -7,28 +7,28 @@ class Test {
     @ParameterizedTest
     @MethodSource("generateValidTimeSignatures")
     fun testIfCreatingAllValidTimeSignaturesWillGiveValidTimeSignatureInstance(arguments: Pair<Int, Int>) {
-        val (numberOfBeats, denominator) = arguments
+        val (numberOfBeats, noteValue) = arguments
 
-        val timeSignature = TimeSignature.create(numberOfBeats, denominator)
+        val timeSignature = TimeSignature.create(numberOfBeats, noteValue)
 
         assertThat(timeSignature)
-            .`as`("Creating TimeSignatures using values ($numberOfBeats/$denominator) should provide ValidTimeSignature")
+            .`as`("Creating TimeSignatures using values ($numberOfBeats/$noteValue) should provide ValidTimeSignature")
             .isExactlyInstanceOf(ValidTimeSignature::class.java)
     }
 
     @ParameterizedTest
     @MethodSource("generateInvalidTimeSignatures")
     fun testIfCreatingInvalidTimeSignaturesWillGiveInvalidTimeSignatureObject(arguments: Pair<Int, Int>) {
-        val (numberOfBeats, denominator) = arguments
+        val (numberOfBeats, noteValue) = arguments
 
-        val timeSignature = TimeSignature.create(numberOfBeats, denominator)
+        val timeSignature = TimeSignature.create(numberOfBeats, noteValue)
 
         assertThatCode {
             assertThat(timeSignature)
-                .`as`("Creating TimeSignature ($numberOfBeats/$denominator) should return InvalidTimeSignature and exception should not be thrown")
+                .`as`("Creating TimeSignature ($numberOfBeats/$noteValue) should return InvalidTimeSignature and exception should not be thrown")
                 .isExactlyInstanceOf(InvalidTimeSignature::class.java)
         }
-            .withFailMessage("Creating invalid TimeSignature($numberOfBeats/$denominator) should not throw exception, but it had")
+            .withFailMessage("Creating invalid TimeSignature($numberOfBeats/$noteValue) should not throw exception, but it had")
             .doesNotThrowAnyException()
 
     }
@@ -36,11 +36,11 @@ class Test {
     @ParameterizedTest
     @MethodSource("generateValidTimeSignatures")
     fun testIfOfFactoryMethodCreatesAllValidTimeSignaturesUsingAllValidStrings(arguments: Pair<Int, Int>) {
-        val (numberOfBeats, denominator) = arguments
-        val timeSignatureString = "$numberOfBeats/$denominator"
+        val (numberOfBeats, noteValue) = arguments
+        val timeSignatureString = "$numberOfBeats/$noteValue"
 
         val fromStringTimeSignature = TimeSignature.of(timeSignatureString)
-        val fromValuesTimeSignature = TimeSignature.create(numberOfBeats, denominator)
+        val fromValuesTimeSignature = TimeSignature.create(numberOfBeats, noteValue)
 
         assertThat(fromStringTimeSignature)
             .`as`("TimeSignature created using \"$timeSignatureString\" should be equal to $fromValuesTimeSignature")
@@ -59,16 +59,16 @@ class Test {
     companion object {
         @JvmStatic
         fun generateInvalidTimeSignatures(): List<Pair<Int, Int>> {
-            val denominatorInValidRangeButNotPowerOfTwo = (1..32).flatMap { numberOfBeats ->
+            val noteValueInValidRangeButNotPowerOfTwo = (1..32).flatMap { numberOfBeats ->
                 (1..32).filterNot { it.isPowerOfTwo() }.map { numberOfBeats to it }
             }
-            val denominatorIsZero = 1 to 0
-            val denominatorIs33 = 1 to 33
-            val denominatorIsPowerOfTwoButBiggerThan32 = 1 to 64
+            val noteValueIsZero = 1 to 0
+            val noteValueIs33 = 1 to 33
+            val noteValueIsPowerOfTwoButBiggerThan32 = 1 to 64
             val numberOfBeatsIsZero = 0 to 1
             val numberOfBeatsIs33 = 33 to 1
-            return denominatorInValidRangeButNotPowerOfTwo + denominatorIsZero + denominatorIs33 +
-                    denominatorIsPowerOfTwoButBiggerThan32 + numberOfBeatsIs33 + numberOfBeatsIsZero
+            return noteValueInValidRangeButNotPowerOfTwo + noteValueIsZero + noteValueIs33 +
+                    noteValueIsPowerOfTwoButBiggerThan32 + numberOfBeatsIs33 + numberOfBeatsIsZero
         }
 
         @JvmStatic
@@ -80,17 +80,17 @@ class Test {
             val empty = ""
             val blank = "    "
             val blankWithSlash = "  /  "
-            val zeroNominatorAndDenominator = "0/0"
+            val zeroNominatorAndNoteValue = "0/0"
             val threeNumbers = "2/2/2"
             val timeSignatureAndExtraWhitespace = " 1/12      "
             val slashOnly = "/"
             val timeSignatureUsingLetters = "a/b"
             val timeSignatureUsingSpecialCharacters = "&/@"
             val nominatorOnly = "1/"
-            val denominatorOnly = "/1"
-            return invalidTimeSignatureStrings + empty + blank + blankWithSlash + zeroNominatorAndDenominator +
+            val noteValueOnly = "/1"
+            return invalidTimeSignatureStrings + empty + blank + blankWithSlash + zeroNominatorAndNoteValue +
                     threeNumbers + timeSignatureAndExtraWhitespace + slashOnly + timeSignatureUsingLetters +
-                    nominatorOnly + denominatorOnly + timeSignatureUsingSpecialCharacters
+                    nominatorOnly + noteValueOnly + timeSignatureUsingSpecialCharacters
         }
     }
 }

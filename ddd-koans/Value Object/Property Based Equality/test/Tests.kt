@@ -18,38 +18,38 @@ class Test {
     }
 
     @ParameterizedTest
-    @MethodSource("generateDifferentDenominators")
-    fun testShouldNotBeEqualIfDenominatorsAreDifferent(pairOfDenominators: Pair<Int, Int>) {
-        val (d1, d2) = pairOfDenominators
+    @MethodSource("generateDifferentNoteValues")
+    fun testShouldNotBeEqualIfNoteValuesAreDifferent(pairOfNoteValues: Pair<Int, Int>) {
+        val (d1, d2) = pairOfNoteValues
 
         val timeSignature = TimeSignature(1, d1)
         val otherTimeSignature = TimeSignature(1, d2)
 
         assertThat(timeSignature)
-            .`as`("TimeSignatures with different denominators should not be equal.")
+            .`as`("TimeSignatures with different noteValues should not be equal.")
             .isNotEqualTo(otherTimeSignature)
     }
 
     @ParameterizedTest
     @MethodSource("generateValidTimeSignatures")
-    fun testTimeSignaturesWithSameNumeratorAndDenominatorsAreEqual(numberOfBeatsAndDenominator: Pair<Int, Int>) {
-        val (numberOfBeats, denominator) = numberOfBeatsAndDenominator
+    fun testTimeSignaturesWithSameNumeratorAndNoteValuesAreEqual(numberOfBeatsAndNoteValue: Pair<Int, Int>) {
+        val (numberOfBeats, noteValue) = numberOfBeatsAndNoteValue
 
-        val timeSignature = TimeSignature(numberOfBeats, denominator)
-        val otherTimeSignature = TimeSignature(numberOfBeats, denominator)
+        val timeSignature = TimeSignature(numberOfBeats, noteValue)
+        val otherTimeSignature = TimeSignature(numberOfBeats, noteValue)
 
         assertThat(timeSignature)
-            .`as`("TimeSignatures of same numberOfBeatss and denominators should be equal")
+            .`as`("TimeSignatures of same numberOfBeatss and noteValues should be equal")
             .isEqualTo(otherTimeSignature)
     }
 
     @Test
-    fun testTimeSignatureWithBothDifferentNumeratorAndDenominatorAreNotEqual() {
+    fun testTimeSignatureWithBothDifferentNumeratorAndNoteValueAreNotEqual() {
         val timeSignature = TimeSignature(1, 1)
         val otherTimeSignature = TimeSignature(32, 32)
 
         assertThat(timeSignature)
-            .`as`("TimeSignatures with different both numberOfBeatss and denominators are not equal")
+            .`as`("TimeSignatures with different both numberOfBeatss and noteValues are not equal")
             .isNotEqualTo(otherTimeSignature)
     }
 
@@ -59,7 +59,7 @@ class Test {
             (1..32).flatMap { n1 -> (1..32).filter { n2 -> n1 != n2 }.map { n2 -> n1 to n2 } }
 
         @JvmStatic
-        fun generateDifferentDenominators() =
+        fun generateDifferentNoteValues() =
             (1..32).filter { it.isPowerOfTwo() }
                 .flatMap { d1 -> (1..32).filter { it.isPowerOfTwo() }.filter { d2 -> d1 != d2 }.map { d2 -> d1 to d2 } }
 

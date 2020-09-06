@@ -4,17 +4,17 @@ files:
   visible: true
   placeholders:
   - offset: 25
-    length: 78
+    length: 74
     placeholder_text: 'val writePropertiesHere: Nothing'
-  - offset: 324
-    length: 69
+  - offset: 318
+    length: 65
     placeholder_text: TODO("Implement method create to construct TimeSignature with
       ints")
-  - offset: 836
+  - offset: 822
     length: 24
     placeholder_text: class TinyType2
-  - offset: 939
-    length: 22
+  - offset: 925
+    length: 20
     placeholder_text: class TinyType1
 - name: test/Tests.kt
   visible: false

@@ -36,9 +36,9 @@ The upper number (number of beats) has one limitation - it needs to be greater t
 However, for the purpose of this example let's say that the maximum number is **32**.
 
 
-#### The lower number - denominator
+#### The lower number - note value
 
-The lower number (denominator) always corresponds to the beat unit which is a value of a music note.
+The lower number (note value) always corresponds to the beat unit which is a value of a music note.
 
 Available values are (limited for the purpose of course):
 
@@ -79,7 +79,7 @@ A bar cannot have more or less beats than it is indicated by the assigned **time
 
 A **tempo** indicates how fast the piece of music as a whole should be played. It is expressed in *beats per minute* (**bpm** or **BPM**).
 
-The note value of a beat will typically be indicated by the denominator of the time signature i.e. **4** in the **3/4** time signature.
+The note value of a beat will typically be indicated by the note value of the time signature i.e. **4** in the **3/4** time signature.
 
 ### Piece of music - music sheet
 
