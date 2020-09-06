@@ -60,17 +60,17 @@ class Test {
             val empty = ""
             val blank = "    "
             val blankWithSlash = "  /  "
-            val zeroNominatorAndNoteValue = "0/0"
+            val zeroNumberOfBeatsAndNoteValue = "0/0"
             val threeNumbers = "2/2/2"
             val timeSignatureAndExtraWhitespace = " 1/12      "
             val slashOnly = "/"
             val timeSignatureUsingLetters = "a/b"
             val timeSignatureUsingSpecialCharacters = "&/@"
-            val nominatorOnly = "1/"
+            val numberOfBeatsOnly = "1/"
             val noteValueOnly = "/1"
-            return invalidTimeSignatureStrings + empty + blank + blankWithSlash + zeroNominatorAndNoteValue +
+            return invalidTimeSignatureStrings + empty + blank + blankWithSlash + zeroNumberOfBeatsAndNoteValue +
                     threeNumbers + timeSignatureAndExtraWhitespace + slashOnly + timeSignatureUsingLetters +
-                    nominatorOnly + noteValueOnly + timeSignatureUsingSpecialCharacters
+                    numberOfBeatsOnly + noteValueOnly + timeSignatureUsingSpecialCharacters
         }
     }
 }
