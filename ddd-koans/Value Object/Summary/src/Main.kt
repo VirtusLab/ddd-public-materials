@@ -6,7 +6,7 @@ fun `which of the below concepts are connected with the Value Object?`(): Set<St
         "Domain-Driven Design"
     )
 
-data class TimeSignature(private val numberOfBeats: Numerator, private val noteValue: noteValue) {
+data class TimeSignature(private val numberOfBeats: Numerator, private val noteValue: NoteValue) {
     companion object {
         private val timeSignatureRegex = "^(\\d{1,2})/(\\d{1,2})$".toRegex()
 

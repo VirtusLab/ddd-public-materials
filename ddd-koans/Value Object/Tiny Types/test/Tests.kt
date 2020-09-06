@@ -11,8 +11,8 @@ import kotlin.reflect.jvm.jvmErasure
 class Test {
 
     @ParameterizedTest
-    @ValueSource(strings = ["Numerator", "NoteValue"])
-    fun testIfNumeratorAndNoteValueClassAreAvailableInClassPathAndAreDataClasses(className: String) {
+    @ValueSource(strings = ["NumberOfBeats", "NoteValue"])
+    fun testIfNumberOfBeatsAndNoteValueClassAreAvailableInClassPathAndAreDataClasses(className: String) {
         assertThatCode { Class.forName(className) }
             .`as`("Class $className should be available in classpath").doesNotThrowAnyException()
         assertThat(Class.forName(className).kotlin.isData)
@@ -21,7 +21,7 @@ class Test {
     }
 
     @Test
-    fun testIfValidTimeSignatureHasOnlyTwoAttributesNoteValueAndNumerator() {
+    fun testIfValidTimeSignatureHasOnlyTwoAttributesNoteValueAndNumberOfBeats() {
         val declaredPropertiesNames = TimeSignature::class.declaredMemberProperties.map { it.name }
 
         assertThat(declaredPropertiesNames)
@@ -94,22 +94,22 @@ class Test {
             .isThrownBy { constructor.newInstance(value) }
     }
     @ParameterizedTest
-    @MethodSource("testIfNumeratorAcceptsOnlyIntegersThatAreBetween1And32")
-    fun testIfNumeratorAcceptsOnlyIntegersThatAreBetween1And32(value: Int) {
-        val constructor = checkIfTypesExistsWithConstructor("Numerator")
+    @MethodSource("testIfNumberOfBeatsAcceptsOnlyIntegersThatAreBetween1And32")
+    fun testIfNumberOfBeatsAcceptsOnlyIntegersThatAreBetween1And32(value: Int) {
+        val constructor = checkIfTypesExistsWithConstructor("NumberOfBeats")
 
         assertThatCode { constructor.newInstance(value) }
-            .`as`("Numerator accepts only value that is between 1 and 32, $value is not one of them")
+            .`as`("NumberOfBeats accepts only value that is between 1 and 32, $value is not one of them")
             .doesNotThrowAnyException()
     }
 
     @ParameterizedTest
-    @MethodSource("testIfNumeratorDoesNotAcceptIntegersThatAreNotBetween1And32")
-    fun testIfNumeratorDoesNotAcceptIntegersThatAreNotBetween1And32(value: Int) {
-        val constructor = checkIfTypesExistsWithConstructor("Numerator")
+    @MethodSource("testIfNumberOfBeatsDoesNotAcceptIntegersThatAreNotBetween1And32")
+    fun testIfNumberOfBeatsDoesNotAcceptIntegersThatAreNotBetween1And32(value: Int) {
+        val constructor = checkIfTypesExistsWithConstructor("NumberOfBeats")
 
         assertThatExceptionOfType(Exception::class.java)
-            .`as`("Numerator cannot accept value of $value, because it is not between 1 and 32")
+            .`as`("NumberOfBeats cannot accept value of $value, because it is not between 1 and 32")
             .isThrownBy { constructor.newInstance(value) }
     }
 
@@ -151,11 +151,11 @@ class Test {
                 .toList() + Int.MAX_VALUE + Int.MIN_VALUE
 
         @JvmStatic
-        fun testIfNumeratorDoesNotAcceptIntegersThatAreNotBetween1And32() =
+        fun testIfNumberOfBeatsDoesNotAcceptIntegersThatAreNotBetween1And32() =
             (-1000..1000).filterNot { it in 1..32 }.toList() + Int.MAX_VALUE + Int.MIN_VALUE
 
         @JvmStatic
-        fun testIfNumeratorAcceptsOnlyIntegersThatAreBetween1And32() = (1..32).toList()
+        fun testIfNumberOfBeatsAcceptsOnlyIntegersThatAreBetween1And32() = (1..32).toList()
 
     }
 }
