@@ -3,11 +3,11 @@ import org.junit.jupiter.api.Test
 
 fun allValidValuesForTimeSignature() =
     (1..32).flatMap { numberOfBeats ->
-        allValidNoteValueValues()
+        allValidNoteValues()
             .map { noteValue -> numberOfBeats to noteValue }
     }
 
-private fun allValidNoteValueValues() =
+private fun allValidNoteValues() =
     (1..32).filter { it.isPowerOfTwo() }
 
 abstract class QuizTest<T>(private val expectedAnswer: T, private val answerProvider: () -> T) {
