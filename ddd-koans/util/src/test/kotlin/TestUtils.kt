@@ -2,12 +2,12 @@ import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 
 fun allValidValuesForTimeSignature() =
-    (1..32).flatMap { numerator ->
-        allValidDenominatorValues()
-            .map { denominator -> numerator to denominator }
+    (1..32).flatMap { numberOfBeats ->
+        allValidNoteValues()
+            .map { noteValue -> numberOfBeats to noteValue }
     }
 
-private fun allValidDenominatorValues() =
+private fun allValidNoteValues() =
     (1..32).filter { it.isPowerOfTwo() }
 
 abstract class QuizTest<T>(private val expectedAnswer: T, private val answerProvider: () -> T) {

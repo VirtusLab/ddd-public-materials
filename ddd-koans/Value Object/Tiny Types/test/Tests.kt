@@ -11,8 +11,8 @@ import kotlin.reflect.jvm.jvmErasure
 class Test {
 
     @ParameterizedTest
-    @ValueSource(strings = ["Numerator", "Denominator"])
-    fun testIfNumeratorAndDenominatorClassAreAvailableInClassPathAndAreDataClasses(className: String) {
+    @ValueSource(strings = ["NumberOfBeats", "NoteValue"])
+    fun testIfNumberOfBeatsAndNoteValueClassAreAvailableInClassPathAndAreDataClasses(className: String) {
         assertThatCode { Class.forName(className) }
             .`as`("Class $className should be available in classpath").doesNotThrowAnyException()
         assertThat(Class.forName(className).kotlin.isData)
@@ -21,13 +21,13 @@ class Test {
     }
 
     @Test
-    fun testIfValidTimeSignatureHasOnlyTwoAttributesDenominatorAndNumerator() {
+    fun testIfValidTimeSignatureHasOnlyTwoAttributesNoteValueAndNumberOfBeats() {
         val declaredPropertiesNames = TimeSignature::class.declaredMemberProperties.map { it.name }
 
         assertThat(declaredPropertiesNames)
             .`as`("TimeSignature should have expected properties")
-            .overridingErrorMessage("TimeSignature should have two only two properties: numerator, denominator")
-            .containsExactlyInAnyOrder("numerator", "denominator")
+            .overridingErrorMessage("TimeSignature should have two only two properties: numberOfBeats, noteValue")
+            .containsExactlyInAnyOrder("numberOfBeats", "noteValue")
     }
 
     @Test
@@ -54,62 +54,62 @@ class Test {
     @ParameterizedTest
     @MethodSource("generateValidTimeSignatures")
     fun testIfCreatingAllValidTimeSignaturesWillGiveValidTimeSignatureInstance(arguments: Pair<Int, Int>) {
-        val (numerator, denominator) = arguments
+        val (numberOfBeats, noteValue) = arguments
 
-        val timeSignature = TimeSignature.create(numerator, denominator)
+        val timeSignature = TimeSignature.create(numberOfBeats, noteValue)
 
         assertThat(timeSignature)
-            .`as`("Creating TimeSignatures using values ($numerator/$denominator) should provide TimeSignature")
+            .`as`("Creating TimeSignatures using values ($numberOfBeats/$noteValue) should provide TimeSignature")
             .isExactlyInstanceOf(TimeSignature::class.java)
     }
 
     @ParameterizedTest
     @MethodSource("generateInvalidTimeSignatures")
     fun testIfCreatingInvalidTimeSignaturesWillGiveInvalidTimeSignatureObject(arguments: Pair<Int, Int>) {
-        val (numerator, denominator) = arguments
+        val (numberOfBeats, noteValue) = arguments
 
-        assertThatCode { TimeSignature.create(numerator, denominator) }
+        assertThatCode { TimeSignature.create(numberOfBeats, noteValue) }
             .isExactlyInstanceOf(InvalidTimeSignatureException::class.java)
-            .`as`("Creating TimeSignatures using values ($numerator/$denominator)")
-            .withFailMessage("Creating TimeSignatures using values ($numerator/$denominator) end up throwing InvalidTimeSignatureException")
+            .`as`("Creating TimeSignatures using values ($numberOfBeats/$noteValue)")
+            .withFailMessage("Creating TimeSignatures using values ($numberOfBeats/$noteValue) end up throwing InvalidTimeSignatureException")
     }
 
     @ParameterizedTest
-    @MethodSource("testIfDenominatorAcceptsOnlyIntegersThatArePowerOfTwoAndBetween1And32")
-    fun testIfDenominatorAcceptsOnlyIntegersThatArePowerOfTwoAndBetween1And32(value: Int) {
-        val constructor = checkIfTypesExistsWithConstructor("Denominator")
+    @MethodSource("testIfNoteValueAcceptsOnlyIntegersThatArePowerOfTwoAndBetween1And32")
+    fun testIfNoteValueAcceptsOnlyIntegersThatArePowerOfTwoAndBetween1And32(value: Int) {
+        val constructor = checkIfTypesExistsWithConstructor("NoteValue")
 
         assertThatCode { constructor.newInstance(value) }
-            .`as`("Denominator accepts only value that is power of two and between 1 and 32, $value is not one of them")
+            .`as`("NoteValue accepts only value that is power of two and between 1 and 32, $value is not one of them")
             .doesNotThrowAnyException()
     }
 
     @ParameterizedTest
-    @MethodSource("testIfDenominatorDoesNotAcceptIntegersThatAreNotPowerOfTwoOrBetween1And32")
-    fun testIfDenominatorDoesNotAcceptIntegersThatAreNotPowerOfTwoOrBetween1And32(value: Int) {
-        val constructor = checkIfTypesExistsWithConstructor("Denominator")
+    @MethodSource("testIfNoteValueDoesNotAcceptIntegersThatAreNotPowerOfTwoOrBetween1And32")
+    fun testIfNoteValueDoesNotAcceptIntegersThatAreNotPowerOfTwoOrBetween1And32(value: Int) {
+        val constructor = checkIfTypesExistsWithConstructor("NoteValue")
 
         assertThatExceptionOfType(Exception::class.java)
-            .`as`("Denominator cannot accept value of $value, because it is not power of two and between 1 and 32")
+            .`as`("NoteValue cannot accept value of $value, because it is not power of two and between 1 and 32")
             .isThrownBy { constructor.newInstance(value) }
     }
     @ParameterizedTest
-    @MethodSource("testIfNumeratorAcceptsOnlyIntegersThatAreBetween1And32")
-    fun testIfNumeratorAcceptsOnlyIntegersThatAreBetween1And32(value: Int) {
-        val constructor = checkIfTypesExistsWithConstructor("Numerator")
+    @MethodSource("testIfNumberOfBeatsAcceptsOnlyIntegersThatAreBetween1And32")
+    fun testIfNumberOfBeatsAcceptsOnlyIntegersThatAreBetween1And32(value: Int) {
+        val constructor = checkIfTypesExistsWithConstructor("NumberOfBeats")
 
         assertThatCode { constructor.newInstance(value) }
-            .`as`("Numerator accepts only value that is between 1 and 32, $value is not one of them")
+            .`as`("NumberOfBeats accepts only value that is between 1 and 32, $value is not one of them")
             .doesNotThrowAnyException()
     }
 
     @ParameterizedTest
-    @MethodSource("testIfNumeratorDoesNotAcceptIntegersThatAreNotBetween1And32")
-    fun testIfNumeratorDoesNotAcceptIntegersThatAreNotBetween1And32(value: Int) {
-        val constructor = checkIfTypesExistsWithConstructor("Numerator")
+    @MethodSource("testIfNumberOfBeatsDoesNotAcceptIntegersThatAreNotBetween1And32")
+    fun testIfNumberOfBeatsDoesNotAcceptIntegersThatAreNotBetween1And32(value: Int) {
+        val constructor = checkIfTypesExistsWithConstructor("NumberOfBeats")
 
         assertThatExceptionOfType(Exception::class.java)
-            .`as`("Numerator cannot accept value of $value, because it is not between 1 and 32")
+            .`as`("NumberOfBeats cannot accept value of $value, because it is not between 1 and 32")
             .isThrownBy { constructor.newInstance(value) }
     }
 
@@ -126,36 +126,36 @@ class Test {
     companion object {
         @JvmStatic
         fun generateInvalidTimeSignatures(): List<Pair<Int, Int>> {
-            val denominatorInValidRangeButNotPowerOfTwo = (1..32).flatMap { numerator ->
-                (1..32).filterNot { it.isPowerOfTwo() }.map { numerator to it }
+            val noteValueInValidRangeButNotPowerOfTwo = (1..32).flatMap { numberOfBeats ->
+                (1..32).filterNot { it.isPowerOfTwo() }.map { numberOfBeats to it }
             }
-            val denominatorIsZero = 1 to 0
-            val denominatorIs33 = 1 to 33
-            val denominatorIsPowerOfTwoButBiggerThan32 = 1 to 64
-            val numeratorIsZero = 0 to 1
-            val numeratorIs33 = 33 to 1
-            return denominatorInValidRangeButNotPowerOfTwo + denominatorIsZero + denominatorIs33 +
-                    denominatorIsPowerOfTwoButBiggerThan32 + numeratorIs33 + numeratorIsZero
+            val noteValueIsZero = 1 to 0
+            val noteValueIs33 = 1 to 33
+            val noteValueIsPowerOfTwoButBiggerThan32 = 1 to 64
+            val numberOfBeatsIsZero = 0 to 1
+            val numberOfBeatsIs33 = 33 to 1
+            return noteValueInValidRangeButNotPowerOfTwo + noteValueIsZero + noteValueIs33 +
+                    noteValueIsPowerOfTwoButBiggerThan32 + numberOfBeatsIs33 + numberOfBeatsIsZero
         }
 
         @JvmStatic
         fun generateValidTimeSignatures() = allValidValuesForTimeSignature()
 
         @JvmStatic
-        fun testIfDenominatorAcceptsOnlyIntegersThatArePowerOfTwoAndBetween1And32() =
+        fun testIfNoteValueAcceptsOnlyIntegersThatArePowerOfTwoAndBetween1And32() =
             (1..32).filter { it.isPowerOfTwo() }.toList()
 
         @JvmStatic
-        fun testIfDenominatorDoesNotAcceptIntegersThatAreNotPowerOfTwoOrBetween1And32() =
+        fun testIfNoteValueDoesNotAcceptIntegersThatAreNotPowerOfTwoOrBetween1And32() =
             (-1000..1000).filterNot { it.isPowerOfTwo() && it in 1..32 }
                 .toList() + Int.MAX_VALUE + Int.MIN_VALUE
 
         @JvmStatic
-        fun testIfNumeratorDoesNotAcceptIntegersThatAreNotBetween1And32() =
+        fun testIfNumberOfBeatsDoesNotAcceptIntegersThatAreNotBetween1And32() =
             (-1000..1000).filterNot { it in 1..32 }.toList() + Int.MAX_VALUE + Int.MIN_VALUE
 
         @JvmStatic
-        fun testIfNumeratorAcceptsOnlyIntegersThatAreBetween1And32() = (1..32).toList()
+        fun testIfNumberOfBeatsAcceptsOnlyIntegersThatAreBetween1And32() = (1..32).toList()
 
     }
 }

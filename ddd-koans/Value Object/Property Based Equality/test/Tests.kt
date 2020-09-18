@@ -5,61 +5,61 @@ import org.junit.jupiter.params.provider.MethodSource
 
 class Test {
     @ParameterizedTest
-    @MethodSource("generateDifferentNumerators")
-    fun testShouldNotBeEqualIfNumeratorsAreDifferent(pairOfNumerators: Pair<Int, Int>) {
-        val (n1, n2) = pairOfNumerators
+    @MethodSource("generateDifferentNumberOfBeats")
+    fun testShouldNotBeEqualIfNumberOfBeatsAreDifferent(pairOfNumberOfBeats: Pair<Int, Int>) {
+        val (n1, n2) = pairOfNumberOfBeats
 
         val timeSignature = TimeSignature(n1, 1)
         val otherTimeSignature = TimeSignature(n2, 1)
 
         assertThat(timeSignature)
-            .`as`("TimeSignature created with different numerators should not be equal")
+            .`as`("TimeSignature created with different numberOfBeatss should not be equal")
             .isNotEqualTo(otherTimeSignature)
     }
 
     @ParameterizedTest
-    @MethodSource("generateDifferentDenominators")
-    fun testShouldNotBeEqualIfDenominatorsAreDifferent(pairOfDenominators: Pair<Int, Int>) {
-        val (d1, d2) = pairOfDenominators
+    @MethodSource("generateDifferentNoteValues")
+    fun testShouldNotBeEqualIfNoteValuesAreDifferent(pairOfNoteValues: Pair<Int, Int>) {
+        val (d1, d2) = pairOfNoteValues
 
         val timeSignature = TimeSignature(1, d1)
         val otherTimeSignature = TimeSignature(1, d2)
 
         assertThat(timeSignature)
-            .`as`("TimeSignatures with different denominators should not be equal.")
+            .`as`("TimeSignatures with different noteValues should not be equal.")
             .isNotEqualTo(otherTimeSignature)
     }
 
     @ParameterizedTest
     @MethodSource("generateValidTimeSignatures")
-    fun testTimeSignaturesWithSameNumeratorAndDenominatorsAreEqual(numeratorAndDenominator: Pair<Int, Int>) {
-        val (numerator, denominator) = numeratorAndDenominator
+    fun testTimeSignaturesWithSameNumberOfBEatsAndNoteValuesAreEqual(numberOfBeatsAndNoteValue: Pair<Int, Int>) {
+        val (numberOfBeats, noteValue) = numberOfBeatsAndNoteValue
 
-        val timeSignature = TimeSignature(numerator, denominator)
-        val otherTimeSignature = TimeSignature(numerator, denominator)
+        val timeSignature = TimeSignature(numberOfBeats, noteValue)
+        val otherTimeSignature = TimeSignature(numberOfBeats, noteValue)
 
         assertThat(timeSignature)
-            .`as`("TimeSignatures of same numerators and denominators should be equal")
+            .`as`("TimeSignatures of same numberOfBeatss and noteValues should be equal")
             .isEqualTo(otherTimeSignature)
     }
 
     @Test
-    fun testTimeSignatureWithBothDifferentNumeratorAndDenominatorAreNotEqual() {
+    fun testTimeSignatureWithBothDifferentNumberOfBEatsAndNoteValueAreNotEqual() {
         val timeSignature = TimeSignature(1, 1)
         val otherTimeSignature = TimeSignature(32, 32)
 
         assertThat(timeSignature)
-            .`as`("TimeSignatures with different both numerators and denominators are not equal")
+            .`as`("TimeSignatures with different both numberOfBeatss and noteValues are not equal")
             .isNotEqualTo(otherTimeSignature)
     }
 
     companion object {
         @JvmStatic
-        fun generateDifferentNumerators() =
+        fun generateDifferentNumberOfBeats() =
             (1..32).flatMap { n1 -> (1..32).filter { n2 -> n1 != n2 }.map { n2 -> n1 to n2 } }
 
         @JvmStatic
-        fun generateDifferentDenominators() =
+        fun generateDifferentNoteValues() =
             (1..32).filter { it.isPowerOfTwo() }
                 .flatMap { d1 -> (1..32).filter { it.isPowerOfTwo() }.filter { d2 -> d1 != d2 }.map { d2 -> d1 to d2 } }
 

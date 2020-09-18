@@ -3,10 +3,10 @@ files:
 - name: src/Main.kt
   visible: true
   placeholders:
-  - offset: 212
-    length: 134
+  - offset: 214
+    length: 138
     placeholder_text: throw Exception("We don't want exception")
-  - offset: 709
+  - offset: 719
     length: 20
     placeholder_text: throw Exception("We don't want exception")
 - name: test/Tests.kt
