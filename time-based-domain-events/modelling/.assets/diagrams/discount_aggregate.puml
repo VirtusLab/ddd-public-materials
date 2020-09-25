@@ -1,0 +1,27 @@
+@startuml
+!include <tupadr3/common>
+!include <tupadr3/font-awesome-5/clock>
+!include <tupadr3/font-awesome-5/calendar_alt>
+!include <tupadr3/font-awesome-5/gripfire>
+
+skinparam defaultFontName Purisa
+skinparam handwritten true
+skinparam backgroundcolor transparent
+
+skinparam defaultTextAlignment center
+
+
+scale 2200*2480
+
+
+file Discount2 #Yellow [
+    **Discount**
+    <<aggregate>>
+---
+    **DiscountEligibility**
+....
+   is discount eligibility date reached?
+]
+
+
+@enduml

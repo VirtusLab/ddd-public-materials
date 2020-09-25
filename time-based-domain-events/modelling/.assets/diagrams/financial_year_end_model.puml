@@ -22,15 +22,14 @@ file DiscountRefreshed #Orange [
     **DiscountRefreshed**
 ]
 
-file EffectiveDiscount #Yellow [
+
+file Discount #Yellow [
+    **Discount**
+    <<aggregate>>
+---
     **EffectiveDiscount**
 ....
    is Discount effective?
-]
-
-file Discount #Yellow [
-    <<aggregate>>
-    **Discount**
 ]
 
 frame **FinancialYearEndProcessManager** #MediumPurple {
@@ -43,8 +42,7 @@ frame **FinancialYearEndProcessManager** #MediumPurple {
     DiscountCreated -R-> RefreshDiscount
 }
 
-RefreshDiscount -> EffectiveDiscount
-EffectiveDiscount - Discount
+RefreshDiscount --R--> Discount
 Discount -> DiscountRefreshed
 
 

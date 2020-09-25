@@ -1,0 +1,18 @@
+@startuml
+skinparam defaultFontName Purisa
+skinparam handwritten true
+skinparam backgroundcolor transparent
+
+
+scale 1200*480
+
+file RetroactiveEvent #Orange [
+    **RetroactiveEvent**
+....
+    occurred: 2020-01-01
+    applies: 2023-01-01
+]
+
+
+
+@enduml

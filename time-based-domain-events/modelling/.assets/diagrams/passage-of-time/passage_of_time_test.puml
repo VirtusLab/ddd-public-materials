@@ -1,0 +1,36 @@
+@startuml
+!include <tupadr3/common>
+!include <tupadr3/font-awesome-5/clock>
+!include <tupadr3/font-awesome-5/calendar_alt>
+!include <tupadr3/font-awesome-5/gripfire>
+
+skinparam defaultFontName Purisa
+skinparam handwritten true
+skinparam backgroundcolor transparent
+
+skinparam defaultTextAlignment center
+
+
+file EmployeeJoined #Orange [
+    **EmployeeJoined**
+....
+    employeeId=12345
+]
+
+file SixMonthPassed #Orange [
+        <$clock>
+    **SixMonthPassed**
+]
+
+file DiscountAssociated #Orange [
+    **DiscountAssociated**
+....
+    employeeId=12345
+    accountId=???
+]
+
+
+EmployeeJoined -d[hidden]- SixMonthPassed
+SixMonthPassed -d[hidden]- DiscountAssociated
+
+@enduml

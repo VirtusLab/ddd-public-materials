@@ -1,0 +1,15 @@
+---?include=time-based-domain-events/modelling/title.md
+---?include=time-based-domain-events/modelling/segfault-masterclass/agenda.md
+---?include=time-based-domain-events/modelling/segfault-masterclass/context.md
+---?include=time-based-domain-events/modelling/segfault-masterclass/understand-your-place.md
+---?include=time-based-domain-events/modelling/segfault-masterclass/context-relations.md
+---?include=time-based-domain-events/modelling/discount-eligibility.md
+---?include=time-based-domain-events/modelling/segfault-masterclass/discount-eligibility-model.md
+---?include=time-based-domain-events/modelling/segfault-masterclass/the-model.md
+---?include=time-based-domain-events/modelling/segfault-masterclass/passage-of-time.md
+---?include=time-based-domain-events/modelling/segfault-masterclass/just-in-time-events.md
+---?include=time-based-domain-events/modelling/undecided-leavers.md
+---?include=time-based-domain-events/modelling/context-wide-events.md
+---?include=time-based-domain-events/modelling/takeaways.md
+---?include=time-based-domain-events/modelling/references.md
+---?include=time-based-domain-events/questions.md

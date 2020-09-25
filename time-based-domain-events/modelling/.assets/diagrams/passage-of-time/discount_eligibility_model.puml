@@ -1,0 +1,116 @@
+@startuml
+!include <tupadr3/common>
+!include <tupadr3/font-awesome-5/clock>
+!include <tupadr3/font-awesome-5/calendar_alt>
+!include <tupadr3/font-awesome-5/gripfire>
+
+skinparam defaultFontName Purisa
+skinparam handwritten true
+skinparam backgroundcolor transparent
+
+skinparam defaultTextAlignment center
+
+
+
+frame **Whenever** as WT #MediumPurple {
+    file EmployeeJoined #Orange [
+        **EmployeeJoined**
+    ....
+        employeeId
+    ]
+
+    file CalculateDiscountEligibility #DeepSkyBlue [
+        **CalculateDiscountEligibility**
+    ....
+        employeeId
+    ]
+}
+
+file Eligibility #Yellow [
+    **DiscountEligibility**
+    <<aggregate>>
+---
+]
+
+file DiscountEligibilityCalculated #Orange [
+    **DiscountEligibilityCalculated**
+....
+    employeeId
+    eligibilityDate
+]
+
+
+EmployeeJoined -> CalculateDiscountEligibility
+CalculateDiscountEligibility -> Eligibility
+Eligibility -> DiscountEligibilityCalculated
+
+file DayPassed #Orange [
+     <$clock>
+    **DayPassed**
+]
+
+frame **DiscountEligibilityProcessManager** as PM  #MediumPurple {
+
+    file Eligibility2 #Yellow [
+        **DiscountEligibility**
+        <<aggregate>>
+    ---
+        eligibilityDate
+    ]
+
+}
+
+file DiscountBecameEffective #Orange [
+    **DiscountBecameEffective**
+....
+    employeeId
+]
+
+
+file Discount2 #Yellow [
+    **Discount**
+    <<aggregate>>
+---
+]
+
+
+file DiscountAssociated #Orange [
+    **DiscountAssociated**
+....
+    employeeId
+    accountId
+]
+
+file DiscountAccountSystem #IMPLEMENTATION [
+    **DiscountAccountSystem**
+]
+
+
+
+frame **DiscountAssociation** as DA #MediumPurple {
+
+    file CreateDiscountAccount #DeepSkyBlue [
+        **CreateDiscountAccount**
+    ]
+
+    file AssociateDiscount #DeepSkyBlue [
+        **AssociateDiscount**
+    ....
+        employeeId
+        accountId
+    ]
+
+    CreateDiscountAccount "1." -R-> DiscountAccountSystem
+    CreateDiscountAccount "2." -D-> AssociateDiscount
+    AssociateDiscount "3." -D-> Discount2
+}
+
+CalculateDiscountEligibility -d[hidden]-DayPassed
+DayPassed -D-> PM
+PM -R-> DiscountBecameEffective
+DiscountBecameEffective -D-> DA
+Discount2 -> DiscountAssociated
+
+
+
+@enduml

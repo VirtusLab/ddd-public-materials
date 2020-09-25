@@ -13,22 +13,19 @@ skinparam defaultTextAlignment center
 
 scale 2200*2480
 
+frame **Whenever** #MediumPurple {
+    file EmployeeJoined #Orange [
+        **EmployeeJoined**
+    ....
+        employeeId
+    ]
 
-file EmployeeJoined #Orange [
-    **EmployeeJoined**
-....
-    employeeId
-    dateOfJoining
-    dateOfBirth
-]
-
-file CreateDiscount #DeepSkyBlue [
-    **CreateDiscount**
-....
-    employeeId
-    dateOfJoining
-    dateOfBirth
-]
+    file CreateDiscount #DeepSkyBlue [
+        **CreateDiscount**
+    ....
+        employeeId
+    ]
+}
 
 file Discount1 #Yellow [
     <<aggregate>>
@@ -36,8 +33,12 @@ file Discount1 #Yellow [
 ]
 
 file Discount2 #Yellow [
-    <<aggregate>>
     **Discount**
+    <<aggregate>>
+---
+    **DiscountEligibility**
+....
+   is discount eligibility date reached?
 ]
 
 file DiscountCreated #Orange [
@@ -47,19 +48,16 @@ file DiscountCreated #Orange [
     eligibilityDate
 ]
 
-
-file DiscountEligibility #BUSINESS [
-    **DiscountEligibility**
-....
-   is discount eligibility date reached?
-]
-
-file DiscountAccountAssociated #Orange [
-    **DiscountAccountAssociated**
+file DiscountAssociated #Orange [
+    **DiscountAssociated**
 ....
     employeeId
     accountId
 ]
+
+    file DiscountAccountSystem #IMPLEMENTATION [
+        **DiscountAccountSystem**
+    ]
 
 
 EmployeeJoined -> CreateDiscount
@@ -73,9 +71,7 @@ frame **DiscountEligibilityProcessManager** #MediumPurple {
         **CreateDiscountAccount**
     ]
 
-    file DiscountAccountSystem #IMPLEMENTATION [
-        **DiscountAccountSystem**
-    ]
+
 
     file AssociateDiscount #DeepSkyBlue [
         2.
@@ -85,14 +81,14 @@ frame **DiscountEligibilityProcessManager** #MediumPurple {
     ]
 
     DiscountCreated -D-> CreateDiscountAccount
-    CreateDiscountAccount "1." -R-> DiscountAccountSystem
-    DiscountAccountSystem "On failure"..L.> CreateDiscountAccount
-    CreateDiscountAccount -[hidden]- AssociateDiscount
-    AssociateDiscount "2." -D-> DiscountEligibility
+    CreateDiscountAccount "1." ---R-> DiscountAccountSystem
+    DiscountAccountSystem "On failure:\nEligibilityDate + 1" .L.> CreateDiscountAccount
+    CreateDiscountAccount "2." --> AssociateDiscount
+    AssociateDiscount "3." -D-> Discount2
 }
 
-DiscountEligibility - Discount2
-Discount2 -> DiscountAccountAssociated
+
+Discount2 -> DiscountAssociated
 
 
 

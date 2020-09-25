@@ -1,0 +1,19 @@
+@startuml
+skinparam defaultFontName Purisa
+skinparam handwritten true
+skinparam backgroundcolor transparent
+
+
+
+
+file EmployeeDecidedToChangeDepartment #Orange [
+    **EmployeePromoted**
+]
+
+
+file EmployeeChangedDepartment #Orange [
+    **EmployeeChangedDepartment**
+]
+
+
+@enduml
