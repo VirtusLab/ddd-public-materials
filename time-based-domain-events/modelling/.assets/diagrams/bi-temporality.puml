@@ -1,0 +1,28 @@
+@startuml
+skinparam defaultFontName Purisa
+skinparam handwritten true
+skinparam backgroundcolor transparent
+
+
+scale 1200*480
+
+
+file EmployeePromoted #Orange [
+    **EmployeePromoted**
+....
+    occurred: 2020-01-01
+    applies: 2020-01-01
+]
+
+
+file EmployeeChangedDepartment #Orange [
+    **EmployeeChangedDepartment**
+....
+    occurred: 2020-03-01
+    applies: 2020-05-01
+]
+
+EmployeePromoted -[hidden]r- EmployeeChangedDepartment
+
+
+@enduml

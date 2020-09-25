@@ -34,7 +34,7 @@ file DiscountAssociated #Orange [
 
 
 DiscountEligibilityDate -> DiscountBecameEffective
-DiscountBecameEffective -D- DiscountAccountCreated
-DiscountAccountCreated -D- DiscountAssociated
+DiscountBecameEffective -R-> DiscountAccountCreated
+DiscountAccountCreated -R-> DiscountAssociated
 
 @enduml

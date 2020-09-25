@@ -13,33 +13,38 @@ skinparam defaultTextAlignment center
 
 scale 1200*480
 
+frame **Whenever** #MediumPurple {
+    file EmployeeLeft #Orange [
+        **EmployeeLeft**
+    ....
+        employeeId
+    ]
 
-file EmployeeLeft #Orange [
-    **EmployeeLeft**
-]
+
+    file DisassociateDiscount #DeepSkyBlue [
+        **DisassociateDiscount**
+    ....
+        employeeId
+    ]
+}
 
 file DiscountDisassociated #Orange [
     **DiscountDisassociated**
 ]
 
-file DisassociateDiscount #DeepSkyBlue [
-    **DisassociateDiscount**
-]
 
-file EffectiveDiscount #Yellow [
+
+file Discount1 #Yellow [
+    **Discount**
+    <<aggregate>>
+---
     **EffectiveDiscount**
 ....
    is Discount effective?
 ]
 
-file Discount1 #Yellow [
-    <<aggregate>>
-    **Discount**
-]
-
 EmployeeLeft -> DisassociateDiscount
-DisassociateDiscount -> EffectiveDiscount
-EffectiveDiscount - Discount1
+DisassociateDiscount -> Discount1
 Discount1 -> DiscountDisassociated
 
 

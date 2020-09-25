@@ -29,9 +29,6 @@ file EmployeePostponedLeaving #Orange [
     leavingDate
 ]
 
-file EmployeeCancelledLeaving #Orange [
-    **EmployeeCancelledLeaving**
-]
 
 file EmployeeLeft #Orange [
     **EmployeeLeft**
@@ -55,11 +52,7 @@ file ReScheduleEvent #DeepSkyBlue [
     event
 ]
 
-file CancelEvent #DeepSkyBlue [
-    **CancelEvent**
-....
-    event
-]
+
 
 rectangle Clock #Orange [
     <$clock>
@@ -78,16 +71,14 @@ EmployeeMarkedAsLeaver -> ScheduleEvent
 EmployeeWorkCycleContext -R-> EmployeePostponedLeaving
 EmployeePostponedLeaving -R--> ReScheduleEvent
 
-EmployeeWorkCycleContext -D-> EmployeeCancelledLeaving
-EmployeeCancelledLeaving -R-> CancelEvent
+
+
 
 ScheduleEvent -R-> Clock
 ReScheduleEvent -U-> Clock
 Clock -> PublishEvent
 PublishEvent -> EmployeeLeft
 
-CancelEvent -[hidden]U- ReScheduleEvent
-CancelEvent --U-> Clock
 
 }
 

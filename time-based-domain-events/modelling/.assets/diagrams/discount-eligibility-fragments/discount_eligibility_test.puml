@@ -1,0 +1,40 @@
+@startuml
+!include <tupadr3/common>
+!include <tupadr3/font-awesome-5/clock>
+!include <tupadr3/font-awesome-5/calendar_alt>
+!include <tupadr3/font-awesome-5/gripfire>
+
+skinparam defaultFontName Purisa
+skinparam handwritten true
+skinparam backgroundcolor transparent
+
+skinparam defaultTextAlignment center
+
+
+
+
+file DiscountCreated #Orange [
+    **DiscountCreated**
+....
+    employeeId=12345
+    eligibilityDate=2020-01-01
+]
+
+file AssociateDiscount #DeepSkyBlue [
+    **AssociateDiscount**
+....
+    accountId=XYZ
+]
+
+file DisscountAssociated #Orange [
+    **DisscountAssociated**
+....
+    employeeId=12345
+    accountId=XYZ
+]
+
+
+DiscountCreated -d[hidden]- AssociateDiscount
+AssociateDiscount -d[hidden]- DisscountAssociated
+
+@enduml
