@@ -1,0 +1,6 @@
+type: theory
+files:
+- name: src/Main.kt
+  visible: true
+- name: view.png
+  visible: false

@@ -1,0 +1,14 @@
+type: theory
+files:
+- name: src/Main.kt
+  visible: true
+- name: description.png
+  visible: false
+- name: failure.png
+  visible: false
+- name: run_task.png
+  visible: false
+- name: success.png
+  visible: false
+- name: check.png
+  visible: false

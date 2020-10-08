@@ -4,5 +4,6 @@ summary: (Work in Progress) DDD Koans provides an easy way to grasp basic unders
   about DDD Tactical Building Blocks. This is still draft.
 programming_language: Kotlin
 content:
+- EduTools and basics
 - Introduction
 - Value Object
