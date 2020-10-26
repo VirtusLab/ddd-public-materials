@@ -12,3 +12,5 @@ files:
   visible: false
 - name: check.png
   visible: false
+- name: arrows.png
+  visible: false
