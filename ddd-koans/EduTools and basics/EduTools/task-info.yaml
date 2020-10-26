@@ -4,3 +4,5 @@ files:
   visible: true
 - name: view.png
   visible: false
+- name: run_task.png
+  visible: false
