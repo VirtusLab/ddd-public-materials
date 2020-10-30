@@ -1,1 +1,0 @@
-class Test : SingleQuizTest("music", ::`what is the domain that the course focuses on?`)
