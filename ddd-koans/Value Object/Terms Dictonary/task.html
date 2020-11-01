@@ -25,7 +25,11 @@
     <ul>
         <li> <b>Value object</b> -
             domain-driven design building block, an immutable type that is defined by its state properties.
-            The value object should be also self-validating.
+            The value object must be self-validating, it means that it should prevent creating object in
+            inconsistent or invalid state. Value object should also has high cohesion, it means that all of the content
+            of the class should be close together and represent common purpose.
+            I.e. TimeSignature class is cohesive because it encapsulates number of beats and note value into
+            descriptive domain concept.
         </li>
         <li> <b>Immutability</b> -
             property of the object or data structure that prevents its state changes after its creation
