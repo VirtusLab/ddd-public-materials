@@ -1,0 +1,1 @@
+class Bar(private val ordinal: Int, private val timeSignature: TimeSignature, private val notes: Notes)

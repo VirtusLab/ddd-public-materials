@@ -1,0 +1,12 @@
+type: theory
+files:
+- name: src/Main.kt
+  visible: true
+- name: src/TimeSignature.kt
+  visible: true
+- name: src/Notes.kt
+  visible: true
+- name: src/Length.kt
+  visible: true
+- name: src/Bar.kt
+  visible: true
