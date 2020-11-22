@@ -3,7 +3,7 @@ import java.math.MathContext
 import java.time.Duration
 import NoteType.*
 
-data class Notes(private val notes: List<Note>) : Lengthy {
+data class Notes(private val notes: List<Note>) : LengthInTempo {
     override fun lengthIn(tempo: Tempo): Length =
         notes
             .map { it.lengthIn(tempo) }
@@ -13,9 +13,9 @@ data class Notes(private val notes: List<Note>) : Lengthy {
     operator fun plus(other: Notes): Notes = Notes(notes + other.notes)
 }
 
-data class Note(val noteType: NoteType, val pitch: Pitch) : Lengthy by noteType
+data class Note(val noteType: NoteType, val pitch: Pitch) : LengthInTempo by noteType
 
-enum class NoteType(private val lengthInBeats: BigDecimal) : Lengthy {
+enum class NoteType(private val lengthInBeats: BigDecimal) : LengthInTempo {
     WholeNote(4.toBigDecimal()),
     HalfNote(2.toBigDecimal()),
     QuarterNote(1.toBigDecimal()),

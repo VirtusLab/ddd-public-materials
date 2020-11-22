@@ -7,7 +7,7 @@ data class Length(private val durationInSeconds: BigDecimal) {
     val duration: Duration = Duration.ofMillis(durationInSeconds.multiply(1000.toBigDecimal()).toLong())
 }
 
-interface Lengthy {
+interface LengthInTempo {
     fun lengthIn(tempo: Tempo): Length
 }
 
