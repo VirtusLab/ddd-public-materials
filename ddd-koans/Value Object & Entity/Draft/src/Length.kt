@@ -11,8 +11,8 @@ interface LengthInTempo {
     fun lengthIn(tempo: Tempo): Length
 }
 
-data class Tempo(val bpmValue: Int) {
+data class Tempo(val bpm: Int) {
     init {
-        require(bpmValue in 1..399) { "Beat per minute values should be between zero and 400 (both exclusive)" }
+        require(bpm in 1..399) { "Beat per minute values should be between zero and 400 (both exclusive)" }
     }
 }

@@ -24,7 +24,7 @@ enum class NoteType(private val lengthInBeats: BigDecimal) : LengthInTempo {
     ThirtySecondNote("0.125".toBigDecimal());
 
     override fun lengthIn(tempo: Tempo): Length = Length(
-        MILLISECONDS_IN_MINUTE.multiply(lengthInBeats).divide(tempo.bpmValue.toBigDecimal(), MathContext.DECIMAL32)
+        MILLISECONDS_IN_MINUTE.multiply(lengthInBeats).divide(tempo.bpm.toBigDecimal(), MathContext.DECIMAL32)
     )
 
     fun toNote(pitchStringRepresentation: String) = Note(this, Pitch.valueOf(pitchStringRepresentation))
