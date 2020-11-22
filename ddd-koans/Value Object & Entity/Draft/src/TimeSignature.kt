@@ -3,7 +3,7 @@ sealed class TimeSignature {
         private val timeSignatureRegex = "^(\\d{1,2})/(\\d{1,2})$".toRegex()
 
         fun create(numberOfBeats: Int, noteValue: Int): TimeSignature =
-            runCatching { ValidTimeSignature(NumberOfBeats(numberOfBeats), NoteValue(noteValue)) }
+            runCatching { ValidTimeSignature(NumberOfBeats(numberOfBeats), NoteValue.of(noteValue)) }
                 .getOrDefault(InvalidTimeSignature)
 
         fun of(timeSignature: String): TimeSignature =
@@ -24,11 +24,5 @@ data class ValidTimeSignature(private val numberOfBeats: NumberOfBeats, private 
 data class NumberOfBeats(private val value: Int) {
     init {
         require(value in 1..32)
-    }
-}
-
-data class NoteValue(private val value: Int) {
-    init {
-        require(value in 1..32 && value.isPowerOfTwo())
     }
 }

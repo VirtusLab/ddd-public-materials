@@ -1,7 +1,7 @@
 import java.math.BigDecimal
 import java.math.MathContext
 import java.time.Duration
-import NoteType.*
+import NoteValue.*
 
 data class Notes(private val notes: List<Note>) : LengthInTempo {
     override fun lengthIn(tempo: Tempo): Length =
@@ -13,15 +13,17 @@ data class Notes(private val notes: List<Note>) : LengthInTempo {
     operator fun plus(other: Notes): Notes = Notes(notes + other.notes)
 }
 
-data class Note(val noteType: NoteType, val pitch: Pitch) : LengthInTempo by noteType
+data class Note(val noteValue: NoteValue, val pitch: Pitch) : LengthInTempo by noteValue
 
-enum class NoteType(private val lengthInBeats: BigDecimal) : LengthInTempo {
-    WholeNote(4.toBigDecimal()),
-    HalfNote(2.toBigDecimal()),
-    QuarterNote(1.toBigDecimal()),
-    EighthNote("0.5".toBigDecimal()),
-    SixteenthNote("0.25".toBigDecimal()),
-    ThirtySecondNote("0.125".toBigDecimal());
+enum class NoteValue(private val value: Int) : LengthInTempo {
+    WholeNote(1),
+    HalfNote(2),
+    QuarterNote(4),
+    EighthNote(8),
+    SixteenthNote(16),
+    ThirtySecondNote(32);
+
+    private val lengthInBeats: BigDecimal = 4.toBigDecimal().divide(value.toBigDecimal())
 
     override fun lengthIn(tempo: Tempo): Length = Length(
         MILLISECONDS_IN_MINUTE.multiply(lengthInBeats).divide(tempo.bpm.toBigDecimal(), MathContext.DECIMAL32)
@@ -32,6 +34,8 @@ enum class NoteType(private val lengthInBeats: BigDecimal) : LengthInTempo {
 
     companion object {
         private val MILLISECONDS_IN_MINUTE = Duration.ofMinutes(1L).toSeconds().toBigDecimal()
+
+        fun of(value: Int): NoteValue = values().first { it.value == value }
     }
 }
 
@@ -47,5 +51,5 @@ enum class Pitch {
     fun sixteenthNote(): Note = toNote(SixteenthNote)
     fun thirtySecondNote(): Note = toNote(ThirtySecondNote)
 
-    private fun toNote(noteType: NoteType) = Note(noteType, this)
+    private fun toNote(noteValue: NoteValue) = Note(noteValue, this)
 }

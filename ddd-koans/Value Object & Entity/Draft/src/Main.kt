@@ -1,4 +1,4 @@
-import NoteType.*
+import NoteValue.*
 import Pitch.*
 
 fun main() {
@@ -16,6 +16,8 @@ fun main() {
             D2.thirtySecondNote()
         )
     )
+
+    println(TimeSignature.of("1/2"))
 
     println((notes + G2.sixteenthNote()).lengthIn(Tempo(123)))
 }
