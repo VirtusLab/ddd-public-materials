@@ -11,11 +11,11 @@ fun main() {
             WholeNote.toNote(F2),
             ThirtySecondNote.toNote(C2),
             ThirtySecondNote.toNote(D5),
-            F2.toWholeNote(),
-            A1.toSixteenthNote(),
-            D2.toThirtySecondNote()
+            F2.wholeNote(),
+            A1.sixteenthNote(),
+            D2.thirtySecondNote()
         )
     )
 
-    println((notes + G2.toSixteenthNote()).lengthIn(Tempo(123)))
+    println((notes + G2.sixteenthNote()).lengthIn(Tempo(123)))
 }

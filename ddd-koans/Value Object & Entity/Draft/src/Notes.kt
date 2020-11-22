@@ -40,12 +40,12 @@ enum class Pitch {
     E6, E7, E8, F0, F1, F2, F3, F4, F5, F6, F7, F8, G0, G1, G2, G3, G4, G5, G6, G7, G8, A0, A1, A2,
     A3, A4, A5, A6, A7, A8, H0, H1, H2, H3, H4, H5, H6, H7, H8;
 
-    fun toWholeNote(): Note = toNote(WholeNote)
-    fun toHalfNote(): Note = toNote(HalfNote)
-    fun toQuarterNote(): Note = toNote(QuarterNote)
-    fun toEighthNote(): Note = toNote(EighthNote)
-    fun toSixteenthNote(): Note = toNote(SixteenthNote)
-    fun toThirtySecondNote(): Note = toNote(ThirtySecondNote)
+    fun wholeNote(): Note = toNote(WholeNote)
+    fun halfNote(): Note = toNote(HalfNote)
+    fun quarterNote(): Note = toNote(QuarterNote)
+    fun eighthNote(): Note = toNote(EighthNote)
+    fun sixteenthNote(): Note = toNote(SixteenthNote)
+    fun thirtySecondNote(): Note = toNote(ThirtySecondNote)
 
     private fun toNote(noteType: NoteType) = Note(noteType, this)
 }
