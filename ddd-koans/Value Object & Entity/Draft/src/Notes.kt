@@ -27,8 +27,8 @@ enum class NoteType(private val lengthInBeats: BigDecimal) : LengthInTempo {
         MILLISECONDS_IN_MINUTE.multiply(lengthInBeats).divide(tempo.bpm.toBigDecimal(), MathContext.DECIMAL32)
     )
 
-    fun toNote(pitchStringRepresentation: String) = Note(this, Pitch.valueOf(pitchStringRepresentation))
-    fun toNote(pitch: Pitch) = Note(this, pitch)
+    operator fun invoke(pitchStringRepresentation: String) = Note(this, Pitch.valueOf(pitchStringRepresentation))
+    operator fun invoke(pitch: Pitch) = Note(this, pitch)
 
     companion object {
         private val MILLISECONDS_IN_MINUTE = Duration.ofMinutes(1L).toSeconds().toBigDecimal()
