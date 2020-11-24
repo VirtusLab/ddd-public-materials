@@ -29,58 +29,71 @@
     What's the most interesting, the note value's graphical representation is well-known to all of us. Please take
     a look at the below table. This round something, with or without stems and flags is the note value. The thing becomes
     a note only when written on the stave (the five parallel lines). As long as there is no stave, there is just a
-    plain note value.
+    plain note value. However, the note value concept is so bonded and indistinguishable with the note itself, that people
+    use it interchangeably.
 </p>
 <table style="text-align: center">
     <thead>
     <tr>
         <th>Note value symbol</th>
-        <th>Name</th>
+        <th>Name prefix</th>
         <th>Written in text as</th>
         <th>Relative value</th>
+        <th>Beat value</th>
     </tr>
     </thead>
     <tbody>
     <tr>
         <td><img src="images/whole-note.png" alt="whole-note"></td>
-        <td>whole note</td>
+        <td>whole</td>
         <td><strong>1/1</strong></td>
         <td>1</td>
+        <td>4</td>
     </tr>
     <tr>
         <td><img src="images/half-note.png" alt="half-note"></td>
-        <td>half note</td>
+        <td>half</td>
         <td><strong>1/2</strong></td>
+        <td>2</td>
         <td>2</td>
     </tr>
     <tr>
         <td><img src="images/quarter-note.png" alt="quarter-note"></td>
-        <td>quarter note</td>
+        <td>quarter</td>
         <td><strong>1/4</strong></td>
         <td>4</td>
+        <td>1</td>
     </tr>
     <tr>
         <td><img src="images/eight-note.png" alt="eight-note"></td>
-        <td>eighth note</td>
+        <td>eighth</td>
         <td><strong>1/8</strong></td>
         <td>8</td>
+        <td>0.5</td>
     </tr>
     <tr>
         <td><img src="images/16th-note.png" alt="sixteenth-note"></td>
-        <td>sixteenth note</td>
+        <td>sixteenth</td>
         <td><strong>1/16</strong></td>
         <td>16</td>
+        <td>0.25</td>
     </tr>
     <tr>
         <td><img src="images/32th-note.png" alt="thirtysecond-note"></td>
-        <td>thirty second note</td>
+        <td>thirty second</td>
         <td><strong>1/32</strong></td>
         <td>32</td>
+        <td>0.125</td>
     </tr>
     </tbody>
 </table>
 <p>
     There are more note values than that, but we will use just these six for the sake of simplicity.
 </p>
-
+<p>
+    You can also see the new version of the NoteValue class implemented this time as
+    <a href="https://kotlinlang.org/docs/reference/enum-classes.html">enum class</a>
+    as there are only six instances of note value. The relative value and the beat value of the notes
+    value are represented by <code>val value: Int</code> and <code>val lengthInBeats: BigDecimal</code>
+</p>
 </html>

@@ -1,0 +1,59 @@
+<html>
+<q>
+    Let's play this tune a little bit faster - says conductor.
+</q>
+</br>
+<q>
+    Like what? - asks drummer
+</q>
+</br>
+<q>
+    10 BPM more.
+</q>
+</br>
+<q>
+    Ok, so it gonna be 130BPM!
+</q>
+
+<h3>How to measure the real length of note value</h3>
+<p>
+    As was stated in the introduction, the note value represents length in abstract unit of beats.
+    Therefore, to get to know the real length in time, the beats must be translated to time unit and
+    the beat must be connected to corresponding note value.
+</p>
+<p>
+    In case of the beat matching the note value, the default assumption is
+    1 beat is equal to length of quarter note value and this will be only mapping in the course. So remember
+    <b>1 beat = length of quarter note value</b>. However it is possible
+    to use eight note value or half note value as equal to one beat.
+</p>
+<p>
+    In music the concept of this translation is called <i>tempo</i>. It represents number of beats in the minute.
+    The class was already implemented for you, please take a look. The 'bpm' is well known and widely used shortcut for
+    beats per minutes.
+</p>
+<h3>What to do?</h3>
+<p>
+    As you can see the Tempo class is already implemented and it is very simple tiny type, that is validated to be in
+    between 0 and 400 exclusive. However,
+    the most popular tempos are 60 bpm (1 beat per second) and 120 bpm (2 beats per second).
+</p>
+
+<p>
+    As you can notice, the LengthInTempo interface was added and NoteValue does implement it, but there is no
+    implementation
+    provided. Your task is to provide the implementation.
+</p>
+
+<p>
+    As you can see, the only method of the interface does return
+    yet another value object called Length that has one property: <code>val durationInSeconds: BigDecimal</code>.
+    Please make your solution return result accurate at least to the second decimal place measured in seconds.
+</p>
+
+<p>
+    If you have trouble achieving it that please read <a
+        href="https://docs.oracle.com/javase/7/docs/api/java/math/BigDecimal.html">
+    the documentation of BigDecimal class</a>.
+</p>
+</html>
