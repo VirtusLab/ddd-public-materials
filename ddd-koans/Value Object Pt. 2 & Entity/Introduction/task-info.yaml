@@ -1,0 +1,18 @@
+type: theory
+files:
+- name: src/Main.kt
+  visible: true
+- name: images/16th-note.png
+  visible: false
+- name: images/16th-note.png
+  visible: false
+- name: images/32th-note.png
+  visible: false
+- name: images/whole-note.png
+  visible: false
+- name: images/half-note.png
+  visible: false
+- name: images/eight-note.png
+  visible: false
+- name: images/quarter-note.png
+  visible: false
