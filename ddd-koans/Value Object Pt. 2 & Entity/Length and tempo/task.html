@@ -32,6 +32,41 @@
     The class was already implemented for you, please take a look. The 'bpm' is well known and widely used shortcut for
     beats per minutes.
 </p>
+<h4>Example how to calculate length:</h4>
+<p>
+<ul>
+    <li>
+        Note value: eighth note value
+    </li>
+    <li>
+        Tempo: 30 bpm
+    </li>
+    <li>
+        Target time unit: seconds
+    </li>
+</ul>
+Steps:
+<p>
+<ol>
+    <li>
+        As 1 beat equals value of quarter note value and eighth note value lasts half of quarter note value, then eighth
+    note value has value equal to 0.5 as <q><i>1 beat(s) / 2 = 0.5 beats</i></q>.
+    </li>
+    <li>
+        As tempo is <q><i>30 beats/minute</i></q>, then to obtain the value in minutes, we need to divide,
+        the eight note value in beats by the tempo value.<br>
+        <q><i>0.5 beats / (30 beats/minute) = (1/60) minute</i></q>
+    </li>
+    <li>
+        To obtain the time value in given unit, we must change the unit from minutes to seconds.
+        As we all know, one minute is 60 seconds.
+        Therefore:
+        <q><i>(1/60) minute * 60 (seconds/minute) = 1 s</i></q>
+    </li>
+</ol>
+<p>
+    Now we can provide the answer, the length on eighth note value in tempo 30 bpm is 1 second.
+</p>
 <h3>What to do?</h3>
 <p>
     As you can see the Tempo class is already implemented and it is very simple tiny type, that is validated to be in
