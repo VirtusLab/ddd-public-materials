@@ -1,0 +1,14 @@
+type: theory
+files:
+- name: src/Main.kt
+  visible: true
+  placeholders:
+  - offset: 435
+    length: 253
+    placeholder_text: TODO("Not yet implemented")
+    dependency:
+      lesson: Value Object Pt. 2 & Entity
+      task: Length and tempo
+      file: src/Main.kt
+      placeholder: 1
+      is_visible: false
