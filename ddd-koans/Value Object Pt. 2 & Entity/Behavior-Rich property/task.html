@@ -1,0 +1,30 @@
+<html>
+<p>
+    As you can see, the NoteValue value object encapsulates quite complicated
+    computation of the length in tempo. The Length value object isn't connected
+    to nor NoteValue or Tempo and is plain value, it is not part of the state of
+    any of the value objects.
+</p>
+<p>
+    Thanks to returning just the value, without changing
+    any state (which is impossible in case of value object!) makes the code
+    easy to test and does prevent need to make any assertions of any object state.
+</p>
+<p>
+    People sometimes argue, if value object can have behavior or should be just plain data containers.
+    The answer is simple yes they can, as long as, the properties of value object are not broken to provide the
+    behavior.
+</p>
+<p>
+    Additionally, yet very important, we can see cooperation of two value object to obtain
+    the third one. This is so-called rich-behaviour as stated in <a href="">Martin Fowler's blog</a>:
+</p>
+<q><i>
+    I find that value objects, particularly small ones, are often overlooked - seen as too trivial to be worth thinking about. But once I've spotted a good set of value objects, I find I can create a rich behavior over them.
+</i></q>
+<p>
+    Rich-behavior is considered to be yet another property or value object. If there is a single value object or
+    some cooperation of value objects, if it fits the domain, the value objects should have rich behavior. They don't
+    have to be just immutable data containers.
+</p>
+</html>

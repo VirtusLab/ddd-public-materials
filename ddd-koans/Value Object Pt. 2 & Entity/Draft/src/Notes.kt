@@ -26,14 +26,14 @@ enum class NoteValue(private val value: Int) : LengthInTempo {
     private val lengthInBeats: BigDecimal = 4.toBigDecimal().divide(value.toBigDecimal())
 
     override fun lengthIn(tempo: Tempo): Length = Length(
-        MILLISECONDS_IN_MINUTE.multiply(lengthInBeats).divide(tempo.bpm.toBigDecimal(), MathContext.DECIMAL32)
+        SECONDS_IN_MINUTE.multiply(lengthInBeats).divide(tempo.bpm.toBigDecimal(), MathContext.DECIMAL32)
     )
 
     operator fun invoke(pitchStringRepresentation: String) = Note(this, Pitch.valueOf(pitchStringRepresentation))
     operator fun invoke(pitch: Pitch) = Note(this, pitch)
 
     companion object {
-        private val MILLISECONDS_IN_MINUTE = Duration.ofMinutes(1L).toSeconds().toBigDecimal()
+        private val SECONDS_IN_MINUTE = Duration.ofMinutes(1L).toSeconds().toBigDecimal()
 
         fun of(value: Int): NoteValue = values().first { it.value == value }
     }
