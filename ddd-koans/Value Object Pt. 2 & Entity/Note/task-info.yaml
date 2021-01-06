@@ -1,0 +1,24 @@
+type: edu
+files:
+- name: src/Main.kt
+  visible: true
+  placeholders:
+  - offset: 544
+    length: 253
+    placeholder_text: TODO("Not yet implemented")
+    dependency:
+      lesson: Value Object Pt. 2 & Entity
+      task: Behavior-Rich property
+      file: src/Main.kt
+      placeholder: 1
+      is_visible: false
+  - offset: 1614
+    length: 21
+    placeholder_text: TODO("Implement me please!")
+  - offset: 866
+    length: 52
+    placeholder_text: TODO("Implement me please!")
+- name: test/Tests.kt
+  visible: false
+- name: src/Tempo.kt
+  visible: true

@@ -1,0 +1,55 @@
+<html>
+<h3>Theory</h3>
+<p>
+    This is finally the time, when the <b>note</b> is introduced. So far you have learned about
+    note value, however, how can we transform note values into notes?
+</p>
+<p>
+    As it was mentioned in the <i>Introduction</i> task: "The thing (note value's shape) becomes a note only when
+    written on the stave (the five parallel lines)". So, what is the purpose of the stave?
+</p>
+<p>
+    The stave represents a different musical pitch and the pitch is element that combined with note values
+    creates a note. So the question has to be asked again. What is pitch?
+</p>
+<p>
+    By English <a href="https://en.wikipedia.org/wiki/Pitch_(music)">wikipedia</a>:
+    <br>
+    <br>
+    <q>
+        Pitch is a perceptual property of sounds that allows their ordering on a frequency-related scale, or
+        more commonly, pitch is the quality that makes it possible to judge sounds as "higher" and "lower" in
+        the sense associated with musical melodies.
+    </q>
+    <br>
+    <br>
+    And additionally to present the relationship between pitch and frequency:
+    <br>
+    <br>
+    <q>
+        Pitch is closely related to frequency, but the two are not equivalent. Frequency is an objective, scientific
+        attribute that can be measured. Pitch is each person's subjective perception of a sound wave, which cannot be
+        directly measured. However, this does not necessarily mean that most people won't agree on which notes are higher
+        and lower.
+    </q>
+</p>
+<h3>Time to code</h3>
+<p>
+    Pitch is implemented as enum class (as there is finite number of pitches in music) and has been provided for you.
+    NoteValue has been already implemented by you.
+    <br>
+    <br>
+    The note implementation has also been provided as this is simple value object with two properties,
+    however it uses quite nice feature of Kotlin language called implementation by delegation <a href="https://kotlinlang.org/docs/reference/delegation.html#implementation-by-delegation">(link)</a>.
+    As you can guess, <code> : LengthInTempo by noteValue</code> means that the Note implements LengthInTempo
+    interface, however it delegates calls to interface method to its property noteValue as it does implement the same interface.
+    <br>
+    <br>
+    Some methods was added to the mentioned classes to make it easier to obtain Note class and some of them
+    needs implementation and here comes you.
+</p>
+<p>
+    PS. We moved the Tempo and Length connected stuff to different file.
+    PS2. Pitch is represented in text same as enum instances are named.
+</p>
+</html>
