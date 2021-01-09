@@ -16,9 +16,22 @@ class Test {
             .doesNotThrowAnyException()
 
         val note = noteFactory()
-        assertThat(note.pitch).`as`("Created note $note should contain expected pitch $pitch")
-            .overridingErrorMessage("Created note $note doesn't contain expected pitch $pitch")
-            .isEqualTo(pitch)
+        val expectedNote = Note(noteValue, pitch)
+        assertNote(note, expectedNote)
+    }
+
+    @ParameterizedTest
+    @MethodSource("generatePitchItsTransformationFunctionsAndNoteValueOfFunction")
+    fun testIfExpectedNoteIsCreated(arguments: Triple<Pitch, KFunction1<Pitch, Note>, NoteValue>) {
+        val (pitch, toNote, value) = arguments
+        assertThatCode { toNote(pitch) }
+            .`as`("'$toNote' should not throw exception with given $pitch")
+            .overridingErrorMessage("'$toNote' should not throw exception with given $pitch")
+            .doesNotThrowAnyException()
+
+        val note = toNote(pitch)
+        val expectedNote = Note(value, pitch)
+        assertNote(note, expectedNote)
     }
 
     @ParameterizedTest
@@ -32,19 +45,10 @@ class Test {
             .overridingErrorMessage("Creating note using invalid pitch string representation '$pitchRepresentation' invoked on note value $noteValue should thrown exception")
     }
 
-    @ParameterizedTest
-    @MethodSource("generatePitchItsTransformationFunctionsAndNoteValueOfFunction")
-    fun testIfExpectedNoteIsCreated(arguments: Triple<Pitch, KFunction1<Pitch, Note>, NoteValue>) {
-        val (pitch, toNote, value) = arguments
-        assertThatCode { toNote(pitch) }
-            .`as`("'$toNote' should not throw exception with given $pitch")
-            .overridingErrorMessage("'$toNote' should not throw exception with given $pitch")
-            .doesNotThrowAnyException()
-
-        val note = toNote(pitch)
-        assertThat(note.noteValue).`as`("The created note: $note should have expected note value: $value")
-            .overridingErrorMessage("The created note: $note has not expected note value: $value")
-            .isEqualTo(value)
+    private fun assertNote(note: Note, expectedNote: Note) {
+        assertThat(note).`as`("The created note: $note should be as expected one: $expectedNote")
+            .overridingErrorMessage("The created note: $note is not as expected: $expectedNote")
+            .isEqualTo(expectedNote)
     }
 
     companion object {
