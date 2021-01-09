@@ -7,7 +7,7 @@ data class Notes(private val notes: List<Note>) : LengthInTempo {
     override fun lengthIn(tempo: Tempo): Length {
         return notes
             .map { it.lengthIn(tempo) }
-            .fold(Length(0.toBigDecimal())) { sum, length -> sum + length }
+            .fold(Length(BigDecimal.ZERO)) { sum, length -> sum + length }
     }
 }
 

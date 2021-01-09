@@ -3,7 +3,10 @@ files:
 - name: src/Main.kt
   visible: true
   placeholders:
-  - offset: 806
+  - offset: 227
+    length: 127
+    placeholder_text: TODO("How should the length of notes be calculated?")
+  - offset: 805
     length: 253
     placeholder_text: TODO("Not yet implemented")
     dependency:
@@ -12,7 +15,7 @@ files:
       file: src/Main.kt
       placeholder: 1
       is_visible: false
-  - offset: 1128
+  - offset: 1127
     length: 52
     placeholder_text: TODO("Implement me please!")
     dependency:
@@ -21,7 +24,7 @@ files:
       file: src/Main.kt
       placeholder: 3
       is_visible: false
-  - offset: 1876
+  - offset: 1875
     length: 21
     placeholder_text: TODO("Implement me please!")
     dependency:
@@ -30,9 +33,6 @@ files:
       file: src/Main.kt
       placeholder: 2
       is_visible: false
-  - offset: 227
-    length: 128
-    placeholder_text: TODO("How should the length of notes be calculated?")
 - name: test/Tests.kt
   visible: false
 - name: src/Tempo.kt
