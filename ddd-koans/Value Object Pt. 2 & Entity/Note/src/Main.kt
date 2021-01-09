@@ -16,8 +16,8 @@ enum class NoteValue(private val relativeValue: Int) : LengthInTempo {
     private val lengthInBeats: BigDecimal = 4.toBigDecimal().divide(relativeValue.toBigDecimal())
 
     override fun lengthIn(tempo: Tempo): Length {
-        val minuteAsSeconds = Duration.ofMinutes(1L).toSeconds().toBigDecimal()
-        val durationInSeconds = minuteAsSeconds
+        val minuteInSeconds = 60.toBigDecimal()
+        val durationInSeconds = minuteInSeconds
             .multiply(lengthInBeats).divide(tempo.bpm.toBigDecimal(), MathContext.DECIMAL32)
         return Length(durationInSeconds)
     }
@@ -42,7 +42,7 @@ enum class Pitch {
     fun sixteenthNote(): Note = toNote(SixteenthNote)
     fun thirtySecondNote(): Note = toNote(ThirtySecondNote)
 
-    private fun toNote(noteValue: NoteValue) = Note(noteValue, this)
+    private fun toNote(noteValue: NoteValue): Note = Note(noteValue, this)
 }
 
 class InvalidPitchRepresentationException(invalidPitchStringRepresentation: String) :

@@ -4,7 +4,7 @@ files:
   visible: true
   placeholders:
   - offset: 545
-    length: 253
+    length: 221
     placeholder_text: TODO("Not yet implemented")
     dependency:
       lesson: Value Object Pt. 2 & Entity
@@ -12,10 +12,10 @@ files:
       file: src/Main.kt
       placeholder: 1
       is_visible: false
-  - offset: 881
+  - offset: 849
     length: 171
     placeholder_text: TODO("Implement me please!")
-  - offset: 1755
+  - offset: 1729
     length: 21
     placeholder_text: TODO("Implement me please!")
 - name: test/Tests.kt
