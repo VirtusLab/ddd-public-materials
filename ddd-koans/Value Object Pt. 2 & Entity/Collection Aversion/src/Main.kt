@@ -13,7 +13,7 @@ data class Notes(private val notes: List<Note>) : LengthInTempo {
 
 data class Note(val noteValue: NoteValue, val pitch: Pitch) : LengthInTempo by noteValue
 
-enum class NoteValue(private val relativeValue: Int): LengthInTempo {
+enum class NoteValue(private val relativeValue: Int) : LengthInTempo {
     WholeNote(1),
     HalfNote(2),
     QuarterNote(4),
@@ -30,7 +30,11 @@ enum class NoteValue(private val relativeValue: Int): LengthInTempo {
         return Length(durationInSeconds)
     }
 
-    operator fun invoke(pitchStringRepresentation: String) = Note(this, Pitch.valueOf(pitchStringRepresentation))
+    operator fun invoke(pitchStringRepresentation: String): Note {
+        return runCatching { Note(this, Pitch.valueOf(pitchStringRepresentation)) }
+            .getOrElse { throw InvalidPitchRepresentationException(pitchStringRepresentation) }
+    }
+
     operator fun invoke(pitch: Pitch) = Note(this, pitch)
 }
 
@@ -48,3 +52,6 @@ enum class Pitch {
 
     private fun toNote(noteValue: NoteValue) = Note(noteValue, this)
 }
+
+class InvalidPitchRepresentationException(invalidPitchStringRepresentation: String) :
+    Exception("The provided pitch representation '$invalidPitchStringRepresentation' is invalid.")

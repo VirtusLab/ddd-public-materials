@@ -40,7 +40,7 @@ class Test {
         val (noteValue, pitch) = arguments
         val pitchRepresentation = pitch.toString() + "test"
 
-        assertThatExceptionOfType(Exception::class.java).isThrownBy { noteValue(pitchRepresentation) }
+        assertThatExceptionOfType(InvalidPitchRepresentationException::class.java).isThrownBy { noteValue(pitchRepresentation) }
             .`as`("Creating note using invalid pitch string representation '$pitchRepresentation' invoked on note value $noteValue should thrown exception")
             .overridingErrorMessage("Creating note using invalid pitch string representation '$pitchRepresentation' invoked on note value $noteValue should thrown exception")
     }

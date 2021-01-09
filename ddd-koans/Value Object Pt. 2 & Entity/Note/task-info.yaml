@@ -3,7 +3,7 @@ files:
 - name: src/Main.kt
   visible: true
   placeholders:
-  - offset: 544
+  - offset: 545
     length: 253
     placeholder_text: TODO("Not yet implemented")
     dependency:
@@ -12,11 +12,11 @@ files:
       file: src/Main.kt
       placeholder: 1
       is_visible: false
-  - offset: 1614
-    length: 21
+  - offset: 881
+    length: 171
     placeholder_text: TODO("Implement me please!")
-  - offset: 866
-    length: 52
+  - offset: 1755
+    length: 21
     placeholder_text: TODO("Implement me please!")
 - name: test/Tests.kt
   visible: false
