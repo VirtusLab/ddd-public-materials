@@ -1,0 +1,51 @@
+type: edu
+files:
+- name: src/Main.kt
+  visible: true
+  placeholders:
+  - offset: 227
+    length: 127
+    placeholder_text: TODO("How should the length of notes be calculated?")
+    dependency:
+      lesson: Value Object Pt. 2 & Entity
+      task: Collection Aversion
+      file: src/Main.kt
+      placeholder: 1
+      is_visible: false
+  - offset: 413
+    length: 26
+    placeholder_text: TODO("Add just one note.")
+  - offset: 985
+    length: 221
+    placeholder_text: TODO("Not yet implemented")
+    dependency:
+      lesson: Value Object Pt. 2 & Entity
+      task: Collection Aversion
+      file: src/Main.kt
+      placeholder: 2
+      is_visible: false
+  - offset: 1289
+    length: 171
+    placeholder_text: TODO("Implement me please!")
+    dependency:
+      lesson: Value Object Pt. 2 & Entity
+      task: Collection Aversion
+      file: src/Main.kt
+      placeholder: 3
+      is_visible: false
+  - offset: 2169
+    length: 21
+    placeholder_text: TODO("Implement me please!")
+    dependency:
+      lesson: Value Object Pt. 2 & Entity
+      task: Collection Aversion
+      file: src/Main.kt
+      placeholder: 4
+      is_visible: false
+  - offset: 500
+    length: 33
+    placeholder_text: TODO("Add other Notes object")
+- name: test/Tests.kt
+  visible: false
+- name: src/Tempo.kt
+  visible: true

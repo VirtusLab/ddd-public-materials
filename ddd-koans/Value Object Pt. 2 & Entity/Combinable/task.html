@@ -1,0 +1,28 @@
+<html>
+<h3>Oops...</h3>
+<p>
+    In the previous task, one thing was added without much explanation or consideration. You may
+    have thought about it or not, it does not matter as the concept is going to be introduced now.
+</p>
+<h3>Combinable property</h3>
+<p>
+    The <code>operator fun plus(other: Length): Length</code> was added, this is not that trivial
+    as it seems. In the case of length, it is very natural to add one to another, however, it is worth
+    considering how you can combine other value objects. This doesn't have to be adding, it can be
+    any way to bind or bond values together.
+</p>
+<p>
+    The possibility to combine value objects is called <i>Combinable</i> property. It is connected
+    with behavior-rich property, as being combinable extends the behavior of the value object.
+</p>
+<h3>Your task</h3>
+<p>
+    The Notes class now is enriched with some method definition but is lacking implementation. Please
+    fill in the <code>Notes.plus(...)</code> methods to make the Notes (value object) combinable.
+    It seems to be quite natural to just add one note or notes to other notes container and it will
+    be used in further tasks.
+</p>
+<p>
+    PS. Adding note or notes to notes is not commutative!
+</p>
+</html>
