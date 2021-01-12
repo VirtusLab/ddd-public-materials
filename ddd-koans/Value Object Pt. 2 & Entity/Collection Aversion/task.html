@@ -1,0 +1,52 @@
+<html>
+<h3>Value of a note</h3>
+<p>
+    It may seem that one single note is quite a big thing. It has its value and pitch. It represents something.
+    However, when you play music, that is not enough. Music needs lots of notes to sound together or one after another.
+</p>
+<h3>How to collect notes?</h3>
+<p>
+    So, there is a need to collect notes in one container. Kotlin has special types for groups of objects i.e.
+    collection,
+    list, set, however, do the types relates anyhow to the domain? No, they don't. Additionally, does a group of
+    notes need any method like <a
+    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/binary-search.html"><code>binarySearch</code></a>
+    or <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/flat-map.html"><code>flatMap</code></a>?
+    Of course not!
+</p>
+<h3>Collection aversion to the rescue</h3>
+<p>
+    To remove direct usage of collections in our domain code and to create an only simple interface for a group of
+    notes, we need wrapper type. The original Kotlin collection would be wrapped in a new type with a new
+    interface only with behaviours that are sensible considering the music domain.
+</p>
+<p>
+    Such an approach is called collection aversion, there is no need for typically available in standard library
+    collections, so we use them from behind the wrapper types and as little as needed.
+</p>
+<p>
+    There are three main reasons to do that and you can see them in the above text:
+<ul>
+    <li>Collections with their names and behaviours are not part of the domain so we should not pollute domain model
+        with them.
+    </li>
+    <li>Interfaces of collection types are rather rich in behaviour, most of which is not necessary from the domain's
+        perspective. The wrapper type ensures smaller and more domain specific interface.
+    </li>
+    <li>
+        In case of Kotlin and some other languages, collections are created with a type parameter, when we create a wrapper
+        type it is just for one type and there is no problem with generics at all.
+    </li>
+</ul>
+</p>
+<h3>Time for code!</h3>
+<p>
+    As you could have noticed, our container for notes is called just Notes. As these are just notes, no more no less.
+    The Notes class is just wrapper of <code>List&lt;Note&gt;</code> and as note can have its length, the notes also
+    can have length and this is your task to implemented the method to do it.
+</p>
+<p>
+    PS. To make your task easier we implemented <code>operator fun plus(other: Length)</code> in Length class, so
+    you can add Lengths directly.
+</p>
+</html>

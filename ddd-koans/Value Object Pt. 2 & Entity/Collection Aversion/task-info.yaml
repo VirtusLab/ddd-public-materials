@@ -1,0 +1,39 @@
+type: edu
+files:
+- name: src/Main.kt
+  visible: true
+  placeholders:
+  - offset: 227
+    length: 127
+    placeholder_text: TODO("How should the length of notes be calculated?")
+  - offset: 806
+    length: 221
+    placeholder_text: TODO("Not yet implemented")
+    dependency:
+      lesson: Value Object Pt. 2 & Entity
+      task: Note
+      file: src/Main.kt
+      placeholder: 1
+      is_visible: false
+  - offset: 1110
+    length: 171
+    placeholder_text: TODO("Implement me please!")
+    dependency:
+      lesson: Value Object Pt. 2 & Entity
+      task: Note
+      file: src/Main.kt
+      placeholder: 2
+      is_visible: false
+  - offset: 1990
+    length: 21
+    placeholder_text: TODO("Implement me please!")
+    dependency:
+      lesson: Value Object Pt. 2 & Entity
+      task: Note
+      file: src/Main.kt
+      placeholder: 3
+      is_visible: false
+- name: test/Tests.kt
+  visible: false
+- name: src/Tempo.kt
+  visible: true

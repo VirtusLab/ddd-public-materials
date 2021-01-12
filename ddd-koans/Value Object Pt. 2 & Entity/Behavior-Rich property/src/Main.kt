@@ -13,8 +13,8 @@ enum class NoteValue(private val relativeValue: Int): LengthInTempo {
     private val lengthInBeats: BigDecimal = 4.toBigDecimal().divide(relativeValue.toBigDecimal())
 
     override fun lengthIn(tempo: Tempo): Length {
-        val minuteAsSeconds = Duration.ofMinutes(1L).toSeconds().toBigDecimal()
-        val durationInSeconds = minuteAsSeconds
+        val minuteInSeconds = 60.toBigDecimal()
+        val durationInSeconds = minuteInSeconds
             .multiply(lengthInBeats).divide(tempo.bpm.toBigDecimal(), MathContext.DECIMAL32)
         return Length(durationInSeconds)
     }
@@ -32,4 +32,9 @@ data class Length(private val durationInSeconds: BigDecimal) {
 
 interface LengthInTempo {
     fun lengthIn(tempo: Tempo): Length
+}
+
+fun main() {
+    val length = NoteValue.HalfNote.lengthIn(Tempo(120))
+    println("Example length in tempo: $length and its duration: ${length.duration}")
 }

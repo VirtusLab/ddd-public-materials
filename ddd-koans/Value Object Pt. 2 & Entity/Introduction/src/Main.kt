@@ -10,3 +10,7 @@ enum class NoteValue(private val relativeValue: Int) {
 
     private val lengthInBeats: BigDecimal = 4.toBigDecimal().divide(relativeValue.toBigDecimal())
 }
+
+fun main() {
+    println("Example note value: ${NoteValue.HalfNote}")
+}
