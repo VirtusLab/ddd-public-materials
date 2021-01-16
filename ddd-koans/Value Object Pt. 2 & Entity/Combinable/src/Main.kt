@@ -1,7 +1,6 @@
 import NoteValue.*
 import java.math.BigDecimal
 import java.math.MathContext
-import java.time.Duration
 
 data class Notes(private val notes: List<Note>) : LengthInTempo {
     override fun lengthIn(tempo: Tempo): Length {
