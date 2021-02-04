@@ -1,0 +1,12 @@
+---?include=time-based-domain-events/modelling/quickly/title.md
+---?include=time-based-domain-events/modelling/quickly/agenda.md
+---?include=time-based-domain-events/modelling/quickly/context-relations.md
+---?include=time-based-domain-events/modelling/quickly/discount-eligibility.md
+---?include=time-based-domain-events/modelling/quickly/discount-eligibility-model.md
+---?include=time-based-domain-events/modelling/quickly/the-model.md
+---?include=time-based-domain-events/modelling/quickly/just-in-time-events.md
+---?include=time-based-domain-events/modelling/quickly/undecided-leavers.md
+---?include=time-based-domain-events/modelling/context-wide-events.md
+---?include=time-based-domain-events/modelling/quickly/takeaways.md
+---?include=time-based-domain-events/modelling/quickly/worth-noting.md
+---?include=time-based-domain-events/questions.md
