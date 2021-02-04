@@ -7,4 +7,5 @@
 - [Passage of Time Event](https://verraes.net/2019/05/patterns-for-decoupling-distsys-passage-of-time-event/)
 - [DDD Crew - Domain Charts](https://github.com/ddd-crew/core-domain-charts)
 - Domain-Driven Design Distilled by Vaughn Vernon
+- Implementing Domain-Driven Design by Vaughn Vernon
 @ulend
