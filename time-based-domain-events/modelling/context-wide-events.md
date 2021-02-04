@@ -13,7 +13,6 @@
 @quote[When Financial Year Ends, all Effective Discounts need to be refreshed](Domain Expert)
 
 @fa[calendar-day fa-5x]
-
 ---
 ## Context-wide events
 <br/>

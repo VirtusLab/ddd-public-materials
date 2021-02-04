@@ -8,6 +8,10 @@
 What does it mean?
 @snapend
 
+Note:
+
+Nevertheless, it wasn't enough to understand what we should do, so the questions arose - What does it mean that Discount Become Effective?
+
 ---
 @title[Discount Eligibility]
 @quote[When **Discount Became Effective**, then **Discount Account is created** and then **associated to Employee**](Domain Expert)
@@ -15,11 +19,13 @@ What does it mean?
 </br>
 ![](time-based-domain-events/modelling/.assets/diagrams/discount_account_association.png)
 
----
-@title[Discount Eligibility]
-@quote[However, to create **Discount Account**, an external system needs to be called](Domain Expert)
-</br>
-@fa[meh fa-5x]
+Note:
+Here we have some answer. It looks like it's not only about the fact that DiscountBecomeEffective but
+rather when and what should happen next.
+
+We need create an account and assigned it. Only then Employee can spend Discount.
+
+What more?
 
 ---
 @title[Discount Eligibility]
@@ -30,18 +36,21 @@ What does it mean?
 @fa[frown fa-5x]
 @snapend
 
----
-@title[Discount Eligibility]
-<br/>
-<br/>
-![](time-based-domain-events/modelling/.assets/diagrams/external_system.png)
+Note:
+And here comes dragons - external dependencies
+Even worse - such dependencies may indicate wrong boundaries of responsibilities.
 
+Of course, being involved into engineering means asking a lot of questions like this ->
 
 ---
 ### What if??
 <br/>
 ![](time-based-domain-events/modelling/.assets/diagrams/external_system_crash.png)
 
+Note:
+
+What if external dependencies is unavailable?
+We asked such question, and the response brought some interesting insights.
 ---
 @title[ReSchedule]
 @quote[It's ok to re-schedule this event to next day](Domain Expert)
@@ -51,23 +60,10 @@ What does it mean?
 But events are facts in the past? How to schedule them?
 @snapend
 
----
-@title[Retries]
-![](time-based-domain-events/modelling/.assets/diagrams/external_system_retry.png)
+Note:
 
+Are we still care about this precise point in time named EligibilityDate?
 
----
-## Concerns
-@ol
-- Is **DiscountBecameEffective** event really relevant?
-- Should Time-based domain events be part of event stream?
-- Scheduled Commands vs Scheduled Events?
-- What is an **Aggregate**?
-@olend
+This and other concerns came into our mind.
 
----
-## Aggregate
-@snap[midpoint]
-![](time-based-domain-events/modelling/.assets/diagrams/discount_aggregate.png)
-
-@snapend
+With all of it in mind, we proposed some model.

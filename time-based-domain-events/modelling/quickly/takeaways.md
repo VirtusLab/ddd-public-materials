@@ -1,12 +1,3 @@
-## Takeaways
-@ol
-- Model towards Just In Time events
-- Consider putting Time-based Domain Events into Event Stream
-- Do not try to predict future state
-- Always check upon current state
-@olend
-
----
 ## Summary
 @ol
 - Time-based Domain Events exist
@@ -17,3 +8,8 @@
     - Scheduled Events @fa[meh]
 - Sometimes, it is an implementation detail @fa[grin-wink]
 @olend
+
+Note:
+
+That brings me to the end of my presentation.
+Thank you a lot!

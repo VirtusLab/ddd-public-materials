@@ -8,6 +8,13 @@
 ![](time-based-domain-events/modelling/.assets/diagrams/passage-of-time/passage_of_time.png)
 @snapend
 
+
+Note:
+
+In the context of time events, Mathias proposed Passage of Time pattern.
+I definitely find it useful and even tried to model Discount Eligibility in that in mind.
+Happy to share outcomes later.
+
 ---
 ## Worth noting
 ### Events for future/past
@@ -20,3 +27,10 @@
 @snap[east span-30 text-06 fragment]
 @box[rounded bg-orange](Bi-temporality #As At vs As Of)
 @snapend
+
+
+Note:
+
+Also, when speaking about different timelines there is a pattern of Retroactive event with two types of dates.
+
+It leads to brain-breaking analysis of bi-temporal perspective.
