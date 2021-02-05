@@ -6,4 +6,6 @@
 ---?include=time-based-domain-events/modelling/quickly/just-in-time-events.md
 ---?include=time-based-domain-events/modelling/quickly/undecided-leavers.md
 ---?include=time-based-domain-events/modelling/quickly/context-wide-events.md
+---?include=time-based-domain-events/modelling/quickly/takeaways.md
+---?include=time-based-domain-events/modelling/quickly/worth-noting.md
 ---?include=time-based-domain-events/modelling/quickly/questions.md
