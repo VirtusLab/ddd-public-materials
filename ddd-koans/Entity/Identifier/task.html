@@ -1,0 +1,52 @@
+<html>
+<h2>Identifier</h2>
+<p>
+    In the previous parts of the course, the identification topic was briefly mentioned. The value object that is
+    identified by its value as described, however, the opposite situation was not presented.
+</p>
+<p>
+    The domain concept not identified by its values is called <i>Entity</i> in DDD. Any entity represents more than just
+    simple data container, it has its identity and must be identifiable somehow. Here comes the concept of the
+    identifier.
+</p>
+<p>
+    How can you identify a person? You might have guessed that with the given name and surname, but are you sure about
+    that?
+    People sometimes share given names and surnames. So governments around the world bestow multi-character codes upon
+    every
+    citizen to make the citizens distinguishable. It is sometimes your id card id number or insurance number.
+</p>
+<p>
+    The described above identifier is of artificial identifier type. The numbers are not directly connected with the
+    entities,
+    however, now they are distinguishable. In software development, popular examples are UUIDs or sequential id get from
+    a database.
+</p>
+<p>
+    Yet, natural identifiers also exist.
+    <!--    TODO("Explain this")-->
+</p>
+<h2>First domain entity</h2>
+<p>
+    It is time to introduce the first domain concept that should be modeled as an entity and not as a value object.
+    <b>Bar</b>, based on <a href="https://en.wikipedia.org/wiki/Bar_(music)">Wikipedia</a>, is
+    <br>
+    <br>
+    <q>
+
+        segment of time corresponding to a specific number of beats in which each beat is represented by a particular
+        note value [...]. Dividing music into bars provides regular reference points to pinpoint locations within a
+        musical composition.
+        <br>
+        <br>
+        Typically, a piece consists of several bars of the same length, [...] the number of beats in each bar
+        is specified at the beginning of the score by the time signature
+    </q>
+    <br>
+    <br>
+    and now based on that you would implement the <code>Bar#id()</code> method for the Bar class. The only crucial
+    information
+    is that the bar identifier is defined in the context of a music piece/song, not globally as bars cannot exist outside the
+    piece.
+</p>
+<html>
