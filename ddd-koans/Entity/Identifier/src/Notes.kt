@@ -43,6 +43,10 @@ enum class NoteValue(private val relativeValue: Int) : LengthInTempo {
     }
 
     operator fun invoke(pitch: Pitch) = Note(this, pitch)
+
+    companion object {
+        fun fromRelativeValue(relativeValue: Int) = NoteValue.values().find { it.relativeValue == relativeValue }
+    }
 }
 
 enum class Pitch {
