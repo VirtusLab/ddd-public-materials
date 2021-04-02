@@ -1,0 +1,26 @@
+<html>
+<h2>First domain entity</h2>
+<p>
+    It is time to introduce the first domain concept that should be modeled as an entity and not as a value object.
+    <b>Bar</b>, based on <a href="https://en.wikipedia.org/wiki/Bar_(music)">Wikipedia</a>, is
+    <br>
+    <br>
+    <q>
+
+        segment of time corresponding to a specific number of beats in which each beat is represented by a particular
+        note value [...]. Dividing music into bars provides regular reference points to pinpoint locations within a
+        musical composition.
+        <br>
+        <br>
+        Typically, a piece consists of several bars of the same length, [...] the number of beats in each bar
+        is specified at the beginning of the score by the time signature
+    </q>
+    <br>
+    <br>
+    and now based on that you would implement the <code>Bar#id()</code> method for the Bar class. The only crucial
+    information
+    is that the bar identifier is defined in the context of a music piece/song, not globally as bars cannot exist
+    outside the
+    piece.
+</p>
+</html>

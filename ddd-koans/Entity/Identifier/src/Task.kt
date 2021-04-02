@@ -1,21 +1,35 @@
-interface Entity {
-    fun id(): Any
+import java.util.*
+
+// Simplified examples
+
+interface Identifiable<T> {
+    val id: T
 }
 
-class Bar(
-    private val ordinal: Ordinal,
-    private val notes: Notes,
-    private val timeSignature: ValidTimeSignature
-) : Entity {
-    override fun id(): Any = ordinal
+data class Book(private val isbn: ISBN, private val pages: List<Page>) : Identifiable<Book.ISBN> {
+    override val id: ISBN
+        get() = isbn
 
-    override fun toString(): String {
-        return "Bar(ordinalNumber=$ordinal, notes=$notes, timeSignature=$timeSignature)"
-    }
+    data class ISBN(private val value: String)
 }
 
-data class Ordinal(val value: Int) {
-    init {
-        require(value > 0) { "ordinal must be positive integer" }
-    }
+data class Page(private val pageNumber: PageNumber) : Identifiable<Page.PageNumber> {
+    override val id: PageNumber
+        get() = pageNumber
+
+    data class PageNumber(private val value: Int)
+}
+
+data class Task(private val taskId: UUID) : Identifiable<UUID> {
+    override val id: UUID
+        get() = taskId
+}
+
+data class Person(
+    private val nationalInsuranceNumber: String,
+    private val name: String,
+    private val surname: String
+) : Identifiable<String> {
+    override val id: String
+        get() = nationalInsuranceNumber
 }

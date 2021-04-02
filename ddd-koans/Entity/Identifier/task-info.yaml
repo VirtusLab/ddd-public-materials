@@ -1,16 +1,4 @@
-type: edu
+type: theory
 files:
 - name: src/Task.kt
   visible: true
-  placeholders:
-  - offset: 207
-    length: 7
-    placeholder_text: TODO("Which property or properties should be returned here?")
-- name: src/Notes.kt
-  visible: true
-- name: src/Tempo.kt
-  visible: true
-- name: src/TimeSignature.kt
-  visible: true
-- name: test/Tests.kt
-  visible: false
