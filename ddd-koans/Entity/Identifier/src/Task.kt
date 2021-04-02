@@ -3,15 +3,19 @@ interface Entity {
 }
 
 class Bar(
-    private val ordinalNumber: OrdinalNumber,
+    private val ordinal: Ordinal,
     private val notes: Notes,
     private val timeSignature: ValidTimeSignature
 ) : Entity {
-    override fun id(): Any = ordinalNumber
+    override fun id(): Any = ordinal
 
     override fun toString(): String {
-        return "Bar(ordinalNumber=$ordinalNumber, notes=$notes, timeSignature=$timeSignature)"
+        return "Bar(ordinalNumber=$ordinal, notes=$notes, timeSignature=$timeSignature)"
     }
 }
 
-data class OrdinalNumber(val value: Int)
+data class Ordinal(val value: Int) {
+    init {
+        require(value > 0) { "ordinal must be positive integer" }
+    }
+}
