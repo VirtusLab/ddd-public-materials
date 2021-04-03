@@ -2,8 +2,8 @@ sealed class TimeSignature {
     companion object {
         private val timeSignatureRegex = "^(\\d{1,2})/(\\d{1,2})$".toRegex()
 
-        fun create(numberOfBeats: Int, noteValue: Int): TimeSignature =
-            runCatching { ValidTimeSignature(NumberOfBeats(numberOfBeats), NoteValue.of(noteValue)) }
+        fun create(numberOfBeats: Int, noteValue: NoteValue): TimeSignature =
+            runCatching { ValidTimeSignature(NumberOfBeats(numberOfBeats), noteValue) }
                 .getOrDefault(InvalidTimeSignature)
 
         fun of(timeSignature: String): TimeSignature =
@@ -11,8 +11,11 @@ sealed class TimeSignature {
                 ?.groupValues
                 ?.takeIf { it.size == 3 }
                 ?.let { group -> group[1] to group[2] }
-                ?.let { (numberOfBeats, noteValue) -> create(numberOfBeats.toInt(), noteValue.toInt()) }
+                ?.let { (numberOfBeats, noteValue) -> noteValueOrNull(noteValue)?.let { numberOfBeats to it } }
+                ?.let { (numberOfBeats, noteValue) -> create(numberOfBeats.toInt(), noteValue) }
                 ?: InvalidTimeSignature
+
+        private fun noteValueOrNull(noteValue: String) = NoteValue.fromRelativeValue(noteValue.toInt())
     }
 }
 

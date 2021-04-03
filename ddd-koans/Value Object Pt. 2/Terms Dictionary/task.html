@@ -1,0 +1,49 @@
+<html>
+<h2>Domain terms</h2>
+<div>
+    <ul>
+        <li> <b>Time signature</b> - Symbols that describe repeating beat rhythm in a piece of music.
+            It consists of the number of beats and the note value.
+        </li>
+        <li> <b>Number of beats</b> -
+            The upper number of time signature indicates how many beats constitute a bar.
+        </li>
+        <li> <b>Note value</b> -
+            The lower number of time signature always corresponds to the beat unit which is a value of a music note.
+        </li>
+        <li> <b>Bar</b> -
+            A written up piece of music is divided into chunks called bars.
+            Each bar follows a time signature assigned at the beginning of the bar until a new time signature occurs.
+        </li>
+        <li> <b>Note</b> -
+            Symbol is denoting a musical sound. Notes can represent the pitch and duration of a sound in musical notation.
+        </li>
+    </ul>
+    <!--    TODO("Describe rest of the domain terms")     -->
+</div>
+<h2>Domain-driven design</h2>
+<div>
+    <ul>
+        <li> <b>Value object</b> -
+            domain-driven design building block, an immutable type that is defined by its state properties.
+            The value object must be self-validating, it means that it should prevent creating object in
+            inconsistent or invalid state. Value object should also has high cohesion, it means that all of the content
+            of the class should be close together and represent common purpose.
+            I.e. TimeSignature class is cohesive because it encapsulates number of beats and note value into
+            descriptive domain concept.
+        </li>
+        <li> <b>Immutability</b> -
+            property of the object or data structure that prevents its state changes after its creation
+        </li>
+        <li> <b>Property-based equality</b> -
+            equality based only on the values of the object without using any reference to the object's identity.
+        </li>
+        <li> <b>Tiny type</b> -
+            Type typically with one property, that is just wrapper around other non-domain value. Representing
+            such non-domain value as a simple <i>value object</i> prevents lots of errors and ensures that all of
+            the objects has domain meaning. Example class: NumberOfBeats, NoteValue.
+        </li>
+    </ul>
+<!--    TODO("Describe rest of the DDD terms")     -->
+</div>
+</html>
