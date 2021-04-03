@@ -1,13 +1,9 @@
-interface Entity {
-    fun id(): Any
-}
-
 class Bar(
     private val ordinal: Ordinal,
     private val notes: Notes,
     private val timeSignature: ValidTimeSignature
-) : Entity {
-    override fun id(): Any = ordinal
+) {
+    fun id(): Ordinal = ordinal
 
     override fun toString(): String {
         return "Bar(ordinalNumber=$ordinal, notes=$notes, timeSignature=$timeSignature)"

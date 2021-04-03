@@ -17,4 +17,13 @@ class Test {
             .withFailMessage("Provided id=$id is not the expected id.")
             .isEqualTo(expectedId)
     }
+
+    @Test
+    fun `Bar should have id of expected type`() {
+        val idMemberClassifier = Bar::class.members.find { it.name == "id" }!!.returnType.classifier
+        Assertions.assertThat(idMemberClassifier)
+            .`as`("Bar's id should be of expected type")
+            .withFailMessage("Provided id=$idMemberClassifier is not the expected id type.")
+            .isEqualTo(Ordinal::class)
+    }
 }

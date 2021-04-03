@@ -3,9 +3,12 @@ files:
 - name: src/Task.kt
   visible: true
   placeholders:
-  - offset: 207
+  - offset: 153
     length: 7
     placeholder_text: TODO("Which property or properties should be returned here?")
+  - offset: 143
+    length: 7
+    placeholder_text: Nothing
 - name: src/Notes.kt
   visible: true
 - name: src/Tempo.kt
