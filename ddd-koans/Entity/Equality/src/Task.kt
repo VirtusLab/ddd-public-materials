@@ -9,6 +9,13 @@ class Bar(
         return id() == other.id()
     }
 
+    override fun equals(other: Any?): Boolean = when(other) {
+        null -> false
+        is Bar -> equal(other)
+        else -> false
+    }
+    override fun hashCode(): Int = ordinal.hashCode()
+
     override fun toString(): String {
         return "Bar(ordinalNumber=$ordinal, notes=$notes, timeSignature=$timeSignature)"
     }

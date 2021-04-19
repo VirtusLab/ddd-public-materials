@@ -20,5 +20,8 @@
 <p>
     We deliberately don't want to reuse <code>Any#equals</code> method as this allows comparison
     between incomparable objects. It does not make sense to compare TimeSignature with Bar, right?
+    However, to leverage possibility of using <code>==</code> and <code>!=</code> the implemented
+    <code>equal</code>method is reused in overridden <code>Any#equals</code>
+    method and additionally <code>Any#hashcode</code>  is also overridden.
 </p>
 </html>
