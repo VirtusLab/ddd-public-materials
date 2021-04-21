@@ -1,0 +1,27 @@
+<html>
+<h2>Equality</h2>
+<p>
+    As has been already told, the entity has its unique identity based on the identifier. Therefore, two entities
+    are the same if their identifiers are the same. For example, a person before and after changing the name
+    is still the same person.
+</p>
+<p>
+    In the previous task, the identifier of the <i>Bar</i> entity was found and now it is time to implement the
+    <code>equal</code> method. Notes of the bar can change over time but the 46th bar of the piece of music will always
+    be the 46th bar of the particular piece.
+</p>
+<p>
+    Identity-based equality along with its unique identity is the property of the entity. This is opposite to the property-based
+    equality and lack of identity of value objects. The state of the entity can change, however, identity stays the same.
+    You will look into the matter closely in the upcoming tasks, however, for now just know that this reaches further than just using
+    <code>var</code>s or <code>val</code>s in the implementation.
+</p>
+<h3>Disclaimer</h3>
+<p>
+    We deliberately don't want to reuse <code>Any#equals</code> method as this allows comparison
+    between incomparable objects. It does not make sense to compare TimeSignature with Bar, right?
+    However, to leverage possibility of using <code>==</code> and <code>!=</code> the implemented
+    <code>equal</code>method is reused in overridden <code>Any#equals</code>
+    method and additionally <code>Any#hashcode</code>  is also overridden.
+</p>
+</html>
