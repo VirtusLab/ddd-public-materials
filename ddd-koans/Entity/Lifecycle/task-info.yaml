@@ -1,0 +1,40 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 143
+    length: 7
+    placeholder_text: Nothing
+    dependency:
+      lesson: Entity
+      task: Equality
+      file: src/Task.kt
+      placeholder: 1
+      is_visible: false
+  - offset: 153
+    length: 7
+    placeholder_text: TODO("Which property or properties should be returned here?")
+    dependency:
+      lesson: Entity
+      task: Equality
+      file: src/Task.kt
+      placeholder: 2
+      is_visible: false
+  - offset: 207
+    length: 25
+    placeholder_text: TODO("How should equality of two bars be implemented?")
+    dependency:
+      lesson: Entity
+      task: Equality
+      file: src/Task.kt
+      placeholder: 3
+      is_visible: false
+- name: src/Notes.kt
+  visible: true
+- name: src/Tempo.kt
+  visible: true
+- name: src/TimeSignature.kt
+  visible: true
+- name: test/Tests.kt
+  visible: false
