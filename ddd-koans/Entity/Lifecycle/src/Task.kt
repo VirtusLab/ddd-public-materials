@@ -1,14 +1,16 @@
-class Bar(
-    private val ordinal: Ordinal,
-    private val notes: Notes,
-    private val timeSignature: ValidTimeSignature
-) {
+class Bar(private val ordinal: Ordinal, val notes: Notes, val timeSignature: ValidTimeSignature) {
     init {
         validateState()
     }
 
     fun state(): State {
-        TODO()
+        val beats = notes.beats(timeSignature.noteValue)
+        val beatsLimit = timeSignature.numberOfBeats.asBigDecimal
+        return when {
+            beats < beatsLimit -> State.Incomplete
+            beats > beatsLimit -> throw BarWithTooManyNotesException()
+            else -> State.Complete
+        }
     }
 
     fun id(): Ordinal = ordinal

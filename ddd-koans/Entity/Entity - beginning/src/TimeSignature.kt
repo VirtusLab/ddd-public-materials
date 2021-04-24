@@ -1,3 +1,5 @@
+import java.math.BigDecimal
+
 sealed class TimeSignature {
     companion object {
         private val timeSignatureRegex = "^(\\d{1,2})/(\\d{1,2})$".toRegex()
@@ -21,11 +23,13 @@ sealed class TimeSignature {
 
 object InvalidTimeSignature : TimeSignature()
 
-data class ValidTimeSignature(private val numberOfBeats: NumberOfBeats, private val noteValue: NoteValue) :
+data class ValidTimeSignature(val numberOfBeats: NumberOfBeats, val noteValue: NoteValue) :
     TimeSignature()
 
-data class NumberOfBeats(private val value: Int) {
+data class NumberOfBeats(val value: Int) {
     init {
         require(value in 1..32)
     }
+
+    val asBigDecimal: BigDecimal get() = value.toBigDecimal()
 }
