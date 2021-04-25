@@ -13,10 +13,10 @@ class Test {
         val tempo = Tempo(120)
 
         val length = noteList
-            .map { it.lengthIn(tempo) }
+            .map { it.lengthIn(tempo, NoteValue.QuarterNote) }
             .fold(Length(BigDecimal.ZERO)) { acc, length -> acc + length }
 
-        assertThat(note.lengthIn(tempo))
+        assertThat(note.lengthIn(tempo, NoteValue.QuarterNote))
             .`as`("The length calculated for Notes object should be equal to sum of lengths of its notes")
             .overridingErrorMessage("The length calculated for Notes object wasn't equal to sum of lengths of its notes")
             .isEqualTo(length)

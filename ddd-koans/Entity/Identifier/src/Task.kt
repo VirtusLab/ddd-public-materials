@@ -33,3 +33,7 @@ data class Person(
     override val id: String
         get() = nationalInsuranceNumber
 }
+
+fun main() {
+    println("Nothing to do here!")
+}

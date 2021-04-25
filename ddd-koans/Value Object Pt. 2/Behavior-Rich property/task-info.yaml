@@ -3,8 +3,8 @@ files:
 - name: src/Main.kt
   visible: true
   placeholders:
-  - offset: 435
-    length: 221
+  - offset: 506
+    length: 231
     placeholder_text: TODO("Not yet implemented")
     dependency:
       lesson: Value Object Pt. 2 & Entity

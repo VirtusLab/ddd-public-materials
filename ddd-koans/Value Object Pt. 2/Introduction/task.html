@@ -6,7 +6,10 @@
 </p>
 <p>
     However, note value is a bigger concept and it is used also in the note concept itself. The note value
-    represents relative duration of the note in abstract/relative unit of beats.
+    represents relative duration of the note in abstract/relative unit of beats. However, musicians can choose
+    any note value to be beat base, the most common option is to choose quarter note to represent one beat, then
+    all other values are relative to that base, for example half note is equal to two beat and eighth note value is
+    equal to half of the beat. You can see that represented in the code.
 </p>
 <p>
     As there is also concept of duration in music,
@@ -27,7 +30,6 @@
         <th>Name prefix</th>
         <th>Written in text as</th>
         <th>Relative value</th>
-        <th>Beat value</th>
     </tr>
     </thead>
     <tbody>
@@ -36,13 +38,11 @@
         <td>whole</td>
         <td><strong>1/1</strong></td>
         <td>1</td>
-        <td>4</td>
     </tr>
     <tr>
         <td><img src="images/half-note.png" alt="half-note"></td>
         <td>half</td>
         <td><strong>1/2</strong></td>
-        <td>2</td>
         <td>2</td>
     </tr>
     <tr>
@@ -50,28 +50,24 @@
         <td>quarter</td>
         <td><strong>1/4</strong></td>
         <td>4</td>
-        <td>1</td>
     </tr>
     <tr>
         <td><img src="images/eight-note.png" alt="eight-note"></td>
         <td>eighth</td>
         <td><strong>1/8</strong></td>
         <td>8</td>
-        <td>0.5</td>
     </tr>
     <tr>
         <td><img src="images/16th-note.png" alt="sixteenth-note"></td>
         <td>sixteenth</td>
         <td><strong>1/16</strong></td>
         <td>16</td>
-        <td>0.25</td>
     </tr>
     <tr>
         <td><img src="images/32th-note.png" alt="thirtysecond-note"></td>
         <td>thirty second</td>
         <td><strong>1/32</strong></td>
         <td>32</td>
-        <td>0.125</td>
     </tr>
     </tbody>
 </table>

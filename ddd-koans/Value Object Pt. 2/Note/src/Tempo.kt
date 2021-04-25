@@ -12,5 +12,5 @@ data class Length(private val durationInSeconds: BigDecimal) {
 }
 
 interface LengthInTempo {
-    fun lengthIn(tempo: Tempo): Length
+    fun lengthIn(tempo: Tempo, beatBase: NoteValue): Length
 }
