@@ -1,17 +1,6 @@
-class Bar(private val ordinal: Ordinal, val notes: Notes, val timeSignature: ValidTimeSignature) {
-    init {
-        validateState()
-    }
-
-    fun state(): State {
-        val beats = notes.beats(timeSignature.noteValue)
-        val beatsLimit = timeSignature.numberOfBeats.asBigDecimal
-        return when {
-            beats < beatsLimit -> State.Incomplete
-            beats > beatsLimit -> throw BarWithTooManyNotesException()
-            else -> State.Complete
-        }
-    }
+sealed class Bar(private val ordinal: Ordinal, val notes: Notes, val timeSignature: ValidTimeSignature) {
+    protected val beatsLimit = beatsLimit(timeSignature)
+    protected val beats = beats(notes, timeSignature.noteValue)
 
     fun id(): Ordinal = ordinal
 
@@ -31,12 +20,36 @@ class Bar(private val ordinal: Ordinal, val notes: Notes, val timeSignature: Val
         return "Bar(ordinalNumber=$ordinal, notes=$notes, timeSignature=$timeSignature)"
     }
 
-    private fun validateState() {
-        state()
-    }
+    companion object {
+        fun of(ordinal: Ordinal, notes: Notes, timeSignature: ValidTimeSignature): Bar {
+            val beats = notes.beats(timeSignature.noteValue)
+            val beatsLimit = timeSignature.numberOfBeats.asBigDecimal
+            return when {
+                beats < beatsLimit -> IncompleteBar(ordinal, notes, timeSignature)
+                beats > beatsLimit -> throw BarWithTooManyNotesException()
+                else -> CompleteBar(ordinal, notes, timeSignature)
+            }
+        }
 
-    enum class State {
-        Complete, Incomplete
+        private fun beats(notes: Notes, noteValue: NoteValue) =
+            notes.beats(noteValue)
+
+        private fun beatsLimit(timeSignature: ValidTimeSignature) =
+            timeSignature.numberOfBeats.asBigDecimal
+    }
+}
+
+class IncompleteBar(ordinal: Ordinal, notes: Notes, timeSignature: ValidTimeSignature) :
+    Bar(ordinal, notes, timeSignature) {
+    init {
+        require(beats < beatsLimit) { "Incomplete bar should have less beats than ${timeSignature.numberOfBeats}" }
+    }
+}
+
+class CompleteBar(ordinal: Ordinal, notes: Notes, timeSignature: ValidTimeSignature) :
+    Bar(ordinal, notes, timeSignature) {
+    init {
+        require(beats.compareTo(beatsLimit) == 0) { "Complete bar should include exactly ${timeSignature.numberOfBeats}" }
     }
 }
 

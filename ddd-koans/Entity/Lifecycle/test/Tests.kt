@@ -13,11 +13,10 @@ class Test {
     @ParameterizedTest(name = "Cannot create bar with too much beats")
     @MethodSource("invalidBars")
     fun `Cannot create bar with too much beats`(notes: Notes, timeSignature: ValidTimeSignature) {
-        println("${notes.beats(timeSignature.noteValue)}, $timeSignature")
         val errorMessage = "Cannot create bar" +
             "as number of beats in provided notes ${notes.beats(timeSignature.noteValue)} is greater than " +
             "number of beats declared in time signature ${timeSignature.numberOfBeats.value}"
-        val exception = Assertions.catchThrowable { Bar(ordinal, notes, timeSignature) }
+        val exception = Assertions.catchThrowable { Bar.of(ordinal, notes, timeSignature) }
         Assertions.assertThat(exception)
             .`as`("Creating invalid bar should end in exception")
             .overridingErrorMessage(errorMessage)
@@ -31,10 +30,10 @@ class Test {
             "Given bar should be considered to be complete " +
                 "as number of beats in bar ${bar.notes.beats(bar.timeSignature.noteValue)} is equal to " +
                 "number of beats declared in time signature ${bar.timeSignature.numberOfBeats.value}"
-        Assertions.assertThat(bar.state())
+        Assertions.assertThat(bar)
             .`as`("The bar should has state of Complete")
             .overridingErrorMessage(errorMessage)
-            .isEqualTo(Bar.State.Complete)
+            .isInstanceOf(CompleteBar::class.java)
     }
 
     @ParameterizedTest(name = "Bar is incomplete as long as sum of notes' beats isn't equal to time signature number of beats")
@@ -44,17 +43,17 @@ class Test {
             "Given bar should be considered to be incomplete " +
                 "as number of beats in bar ${bar.notes.beats(bar.timeSignature.noteValue)} is lower than " +
                 "number of beats declared in time signature ${bar.timeSignature.numberOfBeats.value}"
-        Assertions.assertThat(bar.state())
+        Assertions.assertThat(bar)
             .`as`("The bar should has state of Incomplete")
             .overridingErrorMessage(errorMessage)
-            .isEqualTo(Bar.State.Incomplete)
+            .isInstanceOf(IncompleteBar::class.java)
     }
 
     @ParameterizedTest(name = "Two bars are not equal, when their ids are not the same")
     @MethodSource("notEqualTestData")
     fun `Two bars are not equal, when their ids are not the same`(timeSignature: ValidTimeSignature, notes: Notes) {
-        val firstBar = Bar(Ordinal(5), notes, timeSignature)
-        val secondBar = Bar(Ordinal(6), notes, timeSignature)
+        val firstBar = Bar.of(Ordinal(5), notes, timeSignature)
+        val secondBar = Bar.of(Ordinal(6), notes, timeSignature)
 
         Assertions.assertThat(firstBar == secondBar)
             .`as`("The first bar should not be equal to the second bar")
@@ -76,8 +75,8 @@ class Test {
     ) {
         val ordinal = Ordinal(3)
 
-        val firstBar = Bar(ordinal, firstNotes, firstTimeSignature)
-        val secondBar = Bar(ordinal, secondNotes, secondTimeSignature)
+        val firstBar = Bar.of(ordinal, firstNotes, firstTimeSignature)
+        val secondBar = Bar.of(ordinal, secondNotes, secondTimeSignature)
 
         Assertions.assertThat(firstBar == secondBar)
             .`as`("First bar should be equal to the second bar")
@@ -92,7 +91,7 @@ class Test {
     @Test
     fun `Bar should have properly defined id method`() {
         val expectedId = Ordinal(1)
-        val bar = Bar(
+        val bar = Bar.of(
             expectedId,
             Notes(listOf(Pitch.A0.eighthNote())),
             ValidTimeSignature(NumberOfBeats(3), NoteValue.QuarterNote)
@@ -167,7 +166,7 @@ class Test {
         @JvmStatic
         fun completeBars() =
             sourceForCompleteBars
-                .map { (timeSignature, notes) -> Bar(ordinal, notes, timeSignature) }
+                .map { (timeSignature, notes) -> CompleteBar(ordinal, notes, timeSignature) }
 
         @JvmStatic
         fun invalidBars() =
@@ -194,7 +193,7 @@ class Test {
                 .takeWhile { (_, beats) -> beats < numberOfBeats }
                 .map { (noteValues, _) -> Notes(noteValues.map { it(randomPitch()) }) }
                 .last()
-            return Bar(ordinal, notes, validTimeSignature)
+            return IncompleteBar(ordinal, notes, validTimeSignature)
         }
 
         private fun sequenceOfIncreasingNotes(noteValue: NoteValue) = generateSequence { randomNoteValue() }

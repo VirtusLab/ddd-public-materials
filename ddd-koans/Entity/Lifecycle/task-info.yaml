@@ -3,7 +3,7 @@ files:
 - name: src/Task.kt
   visible: true
   placeholders:
-  - offset: 499
+  - offset: 242
     length: 7
     placeholder_text: Nothing
     dependency:
@@ -12,7 +12,7 @@ files:
       file: src/Task.kt
       placeholder: 1
       is_visible: false
-  - offset: 509
+  - offset: 252
     length: 7
     placeholder_text: TODO("Which property or properties should be returned here?")
     dependency:
@@ -21,7 +21,7 @@ files:
       file: src/Task.kt
       placeholder: 2
       is_visible: false
-  - offset: 563
+  - offset: 306
     length: 25
     placeholder_text: TODO("How should equality of two bars be implemented?")
     dependency:
@@ -30,6 +30,9 @@ files:
       file: src/Task.kt
       placeholder: 3
       is_visible: false
+  - offset: 797
+    length: 383
+    placeholder_text: TODO("Implement me!")
 - name: src/Notes.kt
   visible: true
 - name: src/Tempo.kt
