@@ -1,0 +1,47 @@
+<html>
+<p>
+    <q>
+        Hey, man! You must complete those bars in our piece you've just added. They are incomplete.
+        Please put there your drum section! - said bassist.
+    </q>
+</p>
+<p>
+    <q>Uh, yeah, I will fill the missing notes - responded drummer.</q>
+</p>
+<h2>Lifecycle</h2>
+<p>
+    In the beginning, while creating a piece of music, bars don't exist in the piece at all.
+    Then creators add bars one after another. They decide what time signature should
+    be used and what notes should fill the bar.
+</p>
+<p>
+    As the definition of the bar states, there is a limit on number of notes in the bar. So creators
+    can add notes just to fill the limit. But, the bar is only complete when
+    is filled with enough notes to match the beats corresponding to the bar's time signature.
+</p>
+<p>
+    To recall information about time signature in a bar:
+    <img alt="timeSignature" src="https://cdn.statically.io/img/www.musicnotes.com/now/wp-content/uploads/simple-time-signatures-44-e1550267258989.png">
+</p>
+<p>
+    Therefore, to create a complete bar, the sum of beats of note values in the bar must be equal
+    to the time signature's number of beats.
+</p>
+<p>
+    To sum up, a bar can not yet exist, be in an incomplete state or be in a complete state.
+    The lifecycle must be modelled in the code then.
+</p>
+<h2>Task</h2>
+<p>
+    To begin with the lifecycle, please implement <code>Bar.Companion#of()</code> factory method which returns
+    expected instance of Bar (either CompleteBar or IncompleteBar) or throw BarWithTooManyNotesException if bar is
+    invalid due to too big number of beats.
+</p>
+<h2>Calculation examples</h2>
+<h3>Incomplete</h3>
+<!--TODO: Image with bar which is incomplete and with calculations-->
+<h3>Complete</h3>
+<!--TODO: Image with bar which is complete and with calculations-->
+<h3>Invalid</h3>
+<!--TODO: Image with bar which is invalid and with calculations-->
+</html>

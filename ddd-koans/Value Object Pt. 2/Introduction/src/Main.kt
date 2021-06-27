@@ -8,7 +8,8 @@ enum class NoteValue(private val relativeValue: Int) {
     SixteenthNote(16),
     ThirtySecondNote(32);
 
-    private val lengthInBeats: BigDecimal = 4.toBigDecimal().divide(relativeValue.toBigDecimal())
+    private fun lengthInBeats(beatBase: NoteValue): BigDecimal =
+        beatBase.relativeValue.toBigDecimal().divide(relativeValue.toBigDecimal())
 }
 
 fun main() {

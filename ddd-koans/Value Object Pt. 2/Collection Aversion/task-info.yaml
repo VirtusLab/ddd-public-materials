@@ -3,11 +3,11 @@ files:
 - name: src/Main.kt
   visible: true
   placeholders:
-  - offset: 227
-    length: 127
+  - offset: 222
+    length: 137
     placeholder_text: TODO("How should the length of notes be calculated?")
-  - offset: 806
-    length: 221
+  - offset: 882
+    length: 231
     placeholder_text: TODO("Not yet implemented")
     dependency:
       lesson: Value Object Pt. 2 & Entity
@@ -15,7 +15,7 @@ files:
       file: src/Main.kt
       placeholder: 1
       is_visible: false
-  - offset: 1110
+  - offset: 1196
     length: 171
     placeholder_text: TODO("Implement me please!")
     dependency:
@@ -24,7 +24,7 @@ files:
       file: src/Main.kt
       placeholder: 2
       is_visible: false
-  - offset: 1990
+  - offset: 2076
     length: 21
     placeholder_text: TODO("Implement me please!")
     dependency:

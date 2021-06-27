@@ -13,12 +13,13 @@ enum class NoteValue(private val relativeValue: Int) : LengthInTempo {
     SixteenthNote(16),
     ThirtySecondNote(32);
 
-    private val lengthInBeats: BigDecimal = 4.toBigDecimal().divide(relativeValue.toBigDecimal())
+    private fun lengthInBeats(beatBase: NoteValue): BigDecimal =
+        beatBase.relativeValue.toBigDecimal().divide(relativeValue.toBigDecimal())
 
-    override fun lengthIn(tempo: Tempo): Length {
+    override fun lengthIn(tempo: Tempo, beatBase: NoteValue): Length {
         val minuteInSeconds = 60.toBigDecimal()
         val durationInSeconds = minuteInSeconds
-            .multiply(lengthInBeats).divide(tempo.bpm.toBigDecimal(), MathContext.DECIMAL32)
+            .multiply(lengthInBeats(beatBase)).divide(tempo.bpm.toBigDecimal(), MathContext.DECIMAL32)
         return Length(durationInSeconds)
     }
 

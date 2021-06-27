@@ -14,6 +14,7 @@ class Bar(
         is Bar -> equal(other)
         else -> false
     }
+
     override fun hashCode(): Int = ordinal.hashCode()
 
     override fun toString(): String {
